@@ -2,5 +2,15 @@
   "App": {
     "hello": "Hello {name}!",
     "welcome": "Welcome to our website"
+  },
+  "notfound": {
+    "title": "404 Not Found",
+    "desc": "The page you are looking for does not exist or has been moved.",
+    "back": "Back to Home"
+  },
+  "errorPage": {
+    "title": "Something went wrong",
+    "retry": "Try Again",
+    "message": "An unexpected error occurred"
   }
 }
