@@ -3,7 +3,7 @@ import { createRoot } from "react-dom/client";
 import "./style.css";
 import { AppProvider } from "@/components/providers/app-providers/index.provider";
 import { Route } from "react-router-dom";
-import HomePage from "./home/page";
+import HomePage from "./website/home/page";
 import NotFound from "./not-found";
 
 createRoot(document.getElementById("root")!).render(
@@ -14,5 +14,5 @@ createRoot(document.getElementById("root")!).render(
       {/* NotFound */}
       <Route path="*" element={<NotFound />} />
     </AppProvider>
-  </StrictMode>,
+  </StrictMode>
 );
