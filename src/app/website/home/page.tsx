@@ -1,7 +1,8 @@
 import Footer from "@/components/layout/footer/footer";
 import MarqueeText from "@/components/layout/marquee/marquee-text";
-import { SectionSubTitle, SectionTitle } from "@/components/ui/section-head";
+import { SectionTitle } from "@/components/ui/section-head";
 import { useTranslations } from "use-intl";
+import WhyUs from "./_components/why-us -section/why-us";
 
 export default function HomePage() {
   const t = useTranslations("App");
@@ -11,7 +12,7 @@ export default function HomePage() {
       <h1>{t("hello", { name: "Ali" })}</h1>
       <p className="font-inter">{t("welcome")}</p>
       <SectionTitle variant={"center"}>{t("welcome")}</SectionTitle>
-      <SectionSubTitle variant={"center"}>Why Us</SectionSubTitle>
+      <WhyUs />
       <MarqueeText />
       <Footer />
     </main>
