@@ -30,5 +30,16 @@
     "outdoor-trainers": "outdoor & online trainers",
     "personal-training": "personal training",
     "personal-trainers": "personal trainers"
+  },
+  "h-meal-section": {
+    "title": "Healthy",
+    "subTitle": "Healthy Nutritions",
+    "desc": " Fuel your fitness journey with customized <span> meal plans</span> for you"
+  },
+  "meal-card": {
+    "button": "Read More",
+    "breakfast": "breakfast",
+    "lunch": "launch",
+    "dinner": "dinner"
   }
 }
