@@ -1,12 +1,14 @@
-import { useTranslations } from "use-intl";
+import { ErrorBoundary } from "react-error-boundary";
+import WorkoutSection from "./_components/workout-section";
+import ErrorBoundaryFallback from "@/components/shared/error-boundary-fallback";
 
 export default function HomePage() {
-  const t = useTranslations("App");
-
   return (
-    <div>
-      <h1 >{t("hello", { name: "Ali" })}</h1>
-      <p className="font-inter">{t("welcome")}</p>
-    </div>
+    <main>
+      {/* Workout section */}
+      <ErrorBoundary fallback={<ErrorBoundaryFallback />}>
+        <WorkoutSection />
+      </ErrorBoundary>
+    </main>
   );
 }
