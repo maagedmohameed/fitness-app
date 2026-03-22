@@ -25,6 +25,17 @@
       "title": "Our Location"
     }
   },
+  "why-us-section": {
+    "title": "why us",
+    "desc-1": "Elevate fitness with the <span>best way</span> possible",
+    "desc-2": " We offer a fitness journey that's tailored to your goals, supported by professional trainers and a welcoming community. Whether it's weight loss, strength building, or overall wellness, our proven methods",
+    "li-1-title": "personalized fitness plans",
+    "li-1-desc": "We tailor every workout to fit your unique goals and fitness level ensuring that you make the most progress.",
+    "li-2-title": "results-driven focus",
+    "li-2-desc": "Everything we do is designed to help you achieve measurable results, whether you're aiming for weight loss.",
+    "li-3-title": "state-of-the-art equipment",
+    "li-3-desc": "We provide the latest in gym equipment, from cardio machines to free weights, designed to support every type."
+  },
   "marquee": {
     "live-classes": "live classes",
     "outdoor-trainers": "outdoor & online trainers",
