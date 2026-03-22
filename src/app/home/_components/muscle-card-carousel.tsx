@@ -98,24 +98,27 @@ export default function MuscleCardCarousel({
       </Carousel>
 
       {/* See more button (MOBILE SCREENS) */}
-      <Link
-        to={"/classes"}
-        className="sm:hidden capitalize font-inter font-semibold text-[#FF4100] text-xs"
-      >
-        {t("see-more-button")}
-      </Link>
+      {muscles && muscles.length > 3 && (
+        <Link
+          to={"/classes"}
+          className="md:hidden capitalize font-inter font-semibold text-[#FF4100] text-xs"
+        >
+          {t("see-more-button")}
+        </Link>
+      )}
 
       {/* Dots navigation */}
       {muscles && muscles.length > 3 && (
-        <div className="hidden sm:block space-x-2">
+        <div className="hidden md:block space-x-2">
           {muscles.slice(0, Math.ceil(muscles.length / 3)).map((_, index) => (
             <button
               key={index}
               onClick={() => api?.scrollTo(index)}
               className={cn(
-                "size-2.5 rounded-full bg-[#242424] dark:bg-[#F3F3F4]",
+                "size-2.5 rounded-full bg-[#242424] dark:bg-[#F3F3F4] ",
                 {
-                  "bg-[#FF4100] w-7 rounded-lg": current === index + 1,
+                  "bg-[#FF4100] dark:bg-[#FF4100] w-7 rounded-lg":
+                    current === index + 1,
                 }
               )}
             />
