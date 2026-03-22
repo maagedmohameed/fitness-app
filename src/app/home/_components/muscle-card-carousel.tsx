@@ -10,7 +10,6 @@ import React, { useCallback, useEffect } from "react";
 import MuscleCard from "@/components/shared/muscle-card";
 import { cn } from "@/lib/utils/tailwind-merge";
 import { Link } from "react-router-dom";
-import type { Muscle } from "@/lib/types/muscle";
 import { MuscleCardSkeleton } from "@/components/skeletons/muscle-card.skeleton";
 import { useLocale, useTranslations } from "use-intl";
 import NoDataFound from "@/components/shared/no-data-found";
