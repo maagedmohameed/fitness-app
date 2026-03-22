@@ -34,12 +34,12 @@ export default function WorkoutSection() {
         )}
       >
         {/* Container  */}
-        <div className="container mx-auto flex flex-col items-center gap-8">
+        <div className="flex flex-col items-center gap-8 mx-auto container">
           {/* Remaining reusable component   */}
-          <div className="h-20 bg-black w-80"></div>
+          <div className="bg-black w-80 h-20"></div>
 
           {/* Heading  */}
-          <div className="font-bold text-4xl uppercase sm:text-center max-w-159.25 dark:text-[#F3F3F4]">
+          <div className="max-w-159.25 font-bold dark:text-[#F3F3F4] text-4xl sm:text-center uppercase">
             {t.rich("title", {
               span: chunk => <span className="text-[#FF4100]">{chunk}</span>,
             })}

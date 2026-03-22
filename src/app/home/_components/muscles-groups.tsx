@@ -1,6 +1,5 @@
 import { MusclesGroupsSkeleton } from "@/components/skeletons/muscles-groups.skeleton";
 import { Button } from "@/components/ui/button";
-import type { MuscleGroup } from "@/lib/types/muscle";
 import { useSearchParams } from "react-router-dom";
 import { useTranslations } from "use-intl";
 
@@ -21,11 +20,11 @@ export default function MusclesGroups({
   if (isPending) return <MusclesGroupsSkeleton />;
 
   return (
-    <ul className="flex gap-8 w-fit mx-auto overflow-x-hidden">
+    <ul className="flex gap-8 mx-auto w-fit overflow-x-hidden">
       <li>
         <Button
           variant={"ghost"}
-          className="capitalize font-bold text-xl"
+          className="font-bold text-xl capitalize"
           onClick={() => setSearchParams()}
         >
           {t("all-muscles-groups")}
@@ -40,7 +39,7 @@ export default function MusclesGroups({
               })
             }
             variant={"ghost"}
-            className="capitalize font-bold text-xl"
+            className="font-bold text-xl capitalize"
           >
             {name}
           </Button>

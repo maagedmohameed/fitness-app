@@ -5,8 +5,8 @@ export default function NoDataFound() {
   const t = useTranslations("");
 
   return (
-    <div className="w-full flex justify-center py-10">
-      <h2 className="text-2xl font-bold text-gray-700">{t("no-data-found")}</h2>
+    <div className="flex justify-center py-10 w-full">
+      <h2 className="font-bold text-gray-700 text-2xl">{t("no-data-found")}</h2>
     </div>
   );
 }

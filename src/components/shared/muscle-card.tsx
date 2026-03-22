@@ -1,4 +1,3 @@
-import type { Muscle } from "@/lib/types/muscle";
 import { MoveUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useTranslations } from "use-intl";
@@ -15,29 +14,29 @@ export default function MuscleCard({
   const imagePlaceholder =
     "https://gemsen.com/pub/media/wysiwyg/Untitled-5.png";
   return (
-    <div className="relative h-100 rounded-[1.125rem] border border-[#24242424]/14 max-w-100 w-full overflow-hidden">
+    <div className="relative border border-[#24242424]/14 rounded-[1.125rem] w-full max-w-100 h-100 overflow-hidden">
       {/* Muscle card image  */}
       <img
         src={image || imagePlaceholder}
         alt={name}
         loading="lazy"
-        className="object-cover h-full w-full"
+        className="w-full h-full object-cover"
       />
 
       {/* Content  */}
-      <div className="absolute bottom-0  w-full p-4 bg-white/50 dark:bg-[#24242480]/50 backdrop-blur-[3.63rem] space-y-2">
+      <div className="bottom-0 absolute space-y-2 bg-white/50 dark:bg-[#24242480]/50 backdrop-blur-[3.63rem] p-4 w-full">
         {/* Card name  */}
-        <h3 className="font-bold text-xl uppercase tracking-[0.14rem] dark:text-[#F3F3F4]">
+        <h3 className="font-bold dark:text-[#F3F3F4] text-xl uppercase tracking-[0.14rem]">
           {name}
         </h3>
 
         {/* Card link  */}
         <Link
           to={`/classes/${_id}`}
-          className="font-medium text-xl capitalize text-[#FF4100] flex  items-center gap-2"
+          className="flex items-center gap-2 font-medium text-[#FF4100] text-xl capitalize"
         >
           {t("explore-button")}
-          <span className="bg-[#FF4100] size-6 rounded-full flex items-center justify-center">
+          <span className="flex justify-center items-center bg-[#FF4100] rounded-full size-6">
             <MoveUpRight color="#242424" size={10} />
           </span>
         </Link>

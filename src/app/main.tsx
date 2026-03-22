@@ -14,5 +14,5 @@ createRoot(document.getElementById("root")!).render(
       {/* NotFound */}
       <Route path="*" element={<NotFound />} />
     </AppProvider>
-  </StrictMode>,
+  </StrictMode>
 );

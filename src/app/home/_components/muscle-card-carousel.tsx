@@ -71,13 +71,13 @@ export default function MuscleCardCarousel({
         }}
         className="w-full"
       >
-        <CarouselContent className="flex-col gap-8 max-h-316 md:flex-row md:gap-0">
+        <CarouselContent className="md:flex-row flex-col gap-8 md:gap-0 max-h-316">
           {/* Muscle card skeleton */}
           {isPending &&
             Array.from({ length: 3 }).map((_, key) => (
               <CarouselItem
                 key={key}
-                className="basis-1/1 md:basis-1/3 flex justify-center"
+                className="flex justify-center basis-1/1 md:basis-1/3"
               >
                 <MuscleCardSkeleton key={key} />
               </CarouselItem>
@@ -87,7 +87,7 @@ export default function MuscleCardCarousel({
           {muscles?.map(muscle => (
             <CarouselItem
               key={muscle._id}
-              className="basis-1/1 md:basis-1/3 flex justify-center"
+              className="flex justify-center basis-1/1 md:basis-1/3"
             >
               <MuscleCard muscle={muscle} />
             </CarouselItem>
@@ -101,7 +101,7 @@ export default function MuscleCardCarousel({
       {muscles && muscles.length > 3 && (
         <Link
           to={"/classes"}
-          className="md:hidden capitalize font-inter font-semibold text-[#FF4100] text-xs"
+          className="md:hidden font-inter font-semibold text-[#FF4100] text-xs capitalize"
         >
           {t("see-more-button")}
         </Link>
@@ -115,7 +115,7 @@ export default function MuscleCardCarousel({
               key={index}
               onClick={() => api?.scrollTo(index)}
               className={cn(
-                "size-2.5 rounded-full bg-[#242424] dark:bg-[#F3F3F4] ",
+                "bg-[#242424] dark:bg-[#F3F3F4] rounded-full size-2.5",
                 {
                   "bg-[#FF4100] dark:bg-[#FF4100] w-7 rounded-lg":
                     current === index + 1,
