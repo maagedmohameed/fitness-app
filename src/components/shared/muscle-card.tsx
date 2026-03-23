@@ -1,6 +1,6 @@
-import { MoveUpRight } from "lucide-react";
+import { MoveUpLeft, MoveUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import { useTranslations } from "use-intl";
+import { useLocale, useTranslations } from "use-intl";
 
 type MuscleCardProps = {
   muscle: Muscle;
@@ -11,8 +11,14 @@ export default function MuscleCard({
 }: MuscleCardProps) {
   // Translations
   const t = useTranslations("workouts");
+  const locale = useLocale();
+
+  // Variables
   const imagePlaceholder =
     "https://gemsen.com/pub/media/wysiwyg/Untitled-5.png";
+
+  const MoveUp = locale === "ar" ? MoveUpLeft : MoveUpRight;
+
   return (
     <div className="relative border border-[#24242424]/14 rounded-[1.125rem] w-full max-w-100 h-100 overflow-hidden">
       {/* Muscle card image  */}
@@ -37,7 +43,7 @@ export default function MuscleCard({
         >
           {t("explore-button")}
           <span className="flex justify-center items-center bg-[#FF4100] rounded-full size-6">
-            <MoveUpRight color="#242424" size={10} />
+            <MoveUp color="#242424" size={10} />
           </span>
         </Link>
       </div>

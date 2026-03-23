@@ -20,11 +20,7 @@ export default function WorkoutSection() {
   );
 
   return (
-    <section
-      className={cn(
-        "bg-[url(/assets/images/workout-section-cover.webp)] bg-cover xl:h-192.5"
-      )}
-    >
+    <section className="bg-[url(/assets/images/workout-section-cover.webp)] bg-cover xl:h-192.5">
       {/* Section content  */}
       <div
         className={cn(

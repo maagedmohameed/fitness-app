@@ -23,17 +23,15 @@ export default function MuscleCardCarousel({
   muscles,
   isPending,
 }: MuscleCardCarouselProps) {
-  // Translate
+  // Translations
   const t = useTranslations("workouts");
   const locale = useLocale() as "en" | "ar";
 
-  // Variables
-  const dir = locale === "ar" ? "rtl" : "ltr";
-
-  // Hooks
+  // States
   const [api, setApi] = React.useState<CarouselApi>();
   const [current, setCurrent] = React.useState(1);
 
+  // Hooks
   /**
    * Updates the current active slide
    */
@@ -41,6 +39,9 @@ export default function MuscleCardCarousel({
     if (!api) return;
     setCurrent(api.selectedScrollSnap() + 1);
   }, [api]);
+
+  // Variables
+  const dir = locale === "ar" ? "rtl" : "ltr";
 
   // Effects
   /**
