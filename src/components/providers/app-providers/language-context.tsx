@@ -1,5 +1,5 @@
 import type { TLocale } from "@/lib/types/language";
-import { useState, type ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import Cookies from "js-cookie";
 import { LanguageContext } from "@/hooks/language.context";
 
@@ -9,7 +9,7 @@ export default function LanguageContextProvider({
   children: ReactNode;
 }) {
   const [locale, setLocale] = useState<TLocale>(
-    (Cookies.get("locale") as TLocale) || "en",
+    (Cookies.get("locale") as TLocale) || "en"
   );
 
   // toggleLocale
@@ -18,6 +18,11 @@ export default function LanguageContextProvider({
     setLocale(nextLocale);
     Cookies.set("locale", nextLocale, { expires: 365 });
   };
+
+  useEffect(() => {
+    document.documentElement.lang = locale;
+    document.documentElement.dir = locale === "ar" ? "rtl" : "ltr";
+  }, [locale]);
 
   return (
     <LanguageContext.Provider value={{ locale, toggleLocale }}>
