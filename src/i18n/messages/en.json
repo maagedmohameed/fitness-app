@@ -23,5 +23,23 @@
     "all-muscles-groups": "full body",
     "explore-button": "explore",
     "see-more-button": "see more"
+  },
+  "footer": {
+    "logo-text": "Push harder, go further. Your fitness journey starts today!",
+    "contact-info": {
+      "title": "Contact Us"
+    },
+    "time": {
+      "title": "Our Gym Timing"
+    },
+    "location": {
+      "title": "Our Location"
+    }
+  },
+  "marquee": {
+    "live-classes": "live classes",
+    "outdoor-trainers": "outdoor & online trainers",
+    "personal-training": "personal training",
+    "personal-trainers": "personal trainers"
   }
 }

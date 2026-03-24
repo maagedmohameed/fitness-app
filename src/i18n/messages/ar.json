@@ -23,5 +23,23 @@
     "all-muscles-groups": "جسم كامل",
     "explore-button": "استكشف",
     "see-more-button": "عرض المزيد"
+  },
+  "footer": {
+    "logo-text": "ابذل جهدًا أكبر، وستحقق المزيد. رحلتك نحو اللياقة تبدأ اليوم!",
+    "contact-info": {
+      "title": "اتصل بنا"
+    },
+    "time": {
+      "title": "مواعيد صالة الألعاب الرياضية لدينا"
+    },
+    "location": {
+      "title": "موقعنا"
+    }
+  },
+  "marquee": {
+    "live-classes": "دروس مباشرة",
+    "outdoor-trainers": "مدربين خارجيين وعبر الإنترنت",
+    "personal-training": "التدريب الشخصي",
+    "personal-trainers": "مدربين شخصيين"
   }
 }

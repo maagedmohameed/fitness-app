@@ -6,14 +6,14 @@
 @font-face {
   font-family: "BalooThambi2";
   src: url("/assets/fonts/BalooThambi2.ttf") format("truetype");
-  font-weight: 400;
+  font-weight: 400 600 700 800 900;
   font-style: normal;
 }
 
 @font-face {
   font-family: "inter";
   src: url("/assets/fonts/inter.ttf") format("truetype");
-  font-weight: 400;
+  font-weight: 400 600 700 800 900;
   font-style: normal;
 }
 
