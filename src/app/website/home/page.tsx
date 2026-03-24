@@ -1,17 +1,17 @@
+import { ErrorBoundary } from "react-error-boundary";
+import ErrorBoundaryFallback from "@/components/shared/error-boundary-fallback";
 import Footer from "@/components/layout/footer/footer";
 import MarqueeText from "@/components/layout/marquee/marquee-text";
-import { SectionSubTitle, SectionTitle } from "@/components/ui/section-head";
-import { useTranslations } from "use-intl";
+import WorkoutSection from "@/app/website/home/_components/workout-section";
 
 export default function HomePage() {
-  const t = useTranslations("App");
-
   return (
     <main className="bg-background">
-      <h1>{t("hello", { name: "Ali" })}</h1>
-      <p className="font-inter">{t("welcome")}</p>
-      <SectionTitle variant={"center"}>{t("welcome")}</SectionTitle>
-      <SectionSubTitle variant={"center"}>Why Us</SectionSubTitle>
+      {/* Workout section */}
+      <ErrorBoundary fallback={<ErrorBoundaryFallback />}>
+        <WorkoutSection />
+      </ErrorBoundary>
+
       <MarqueeText />
       <Footer />
     </main>

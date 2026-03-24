@@ -12,10 +12,12 @@ const SERVICES = [
 ];
 
 export default function MarqueeText() {
+  // Translations
   const t = useTranslations("marquee");
+
   return (
     <MarqueeComponent autoFill speed={50} gradient={false}>
-      <div className="flex items-center gap-3 bg-primary pr-6 h-20 font-bold text-white text-2xl uppercase">
+      <div className="flex items-center gap-3 bg-primary pe-6 h-20 font-bold text-white text-2xl uppercase">
         {SERVICES.map((item, index) => (
           <span className="flex justify-center items-center gap-3 font-inter" key={index}>
             <Sparkle fill="white" size={24} /> {t(item.id)}
