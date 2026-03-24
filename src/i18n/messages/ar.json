@@ -13,6 +13,17 @@
     "retry": "إعادة المحاولة",
     "message": "حدث خطأ غير متوقع"
   },
+  "no-data-found": "لا توجد نتائج",
+  "workouts": {
+    "heading": {
+      "section": "التمارين",
+      "class": "حصص اللياقة"
+    },
+    "title": "غيّر جسمك مع <span>التمارين القادمة</span> المميزة",
+    "all-muscles-groups": "جسم كامل",
+    "explore-button": "استكشف",
+    "see-more-button": "عرض المزيد"
+  },
   "footer": {
     "logo-text": "ابذل جهدًا أكبر، وستحقق المزيد. رحلتك نحو اللياقة تبدأ اليوم!",
     "contact-info": {

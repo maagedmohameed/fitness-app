@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 export function ThemeProvider({
   children,
   defaultTheme = "system",
-  storageKey = "vite-ui-theme",
+  storageKey = "theme",
   ...props
 }: TThemeProviderProps) {
   const [theme, setTheme] = useState<TTheme>(

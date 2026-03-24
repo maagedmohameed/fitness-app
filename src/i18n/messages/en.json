@@ -13,6 +13,17 @@
     "retry": "Try Again",
     "message": "An unexpected error occurred"
   },
+  "no-data-found": "no results found",
+  "workouts": {
+    "heading": {
+      "section": "workouts",
+      "class": "fitness class"
+    },
+    "title": "transform your body with our dynamic <span>upcoming Workouts</span>",
+    "all-muscles-groups": "full body",
+    "explore-button": "explore",
+    "see-more-button": "see more"
+  },
   "footer": {
     "logo-text": "Push harder, go further. Your fitness journey starts today!",
     "contact-info": {
