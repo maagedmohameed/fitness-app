@@ -2,6 +2,7 @@ import { Mail, Phone } from "lucide-react";
 import { useTranslations } from "use-intl";
 
 export default function Footer() {
+  // Translations
   const t = useTranslations("footer");
 
   return (

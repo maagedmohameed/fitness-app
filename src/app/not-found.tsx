@@ -25,9 +25,9 @@ export default function NotFound() {
             <path
               d="M4.583 11h12.833m0 0L11 4.584M17.416 11 11 17.417"
               stroke="#1E1E1E"
-              stroke-width="1.8"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="1.8"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
           </svg>
         </Link>
