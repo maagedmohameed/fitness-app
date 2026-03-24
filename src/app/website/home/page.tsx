@@ -4,6 +4,7 @@ import Footer from "@/components/layout/footer/footer";
 import MarqueeText from "@/components/layout/marquee/marquee-text";
 import WhyUs from "./_components/why-us -section/why-us";
 import WorkoutSection from "@/app/website/home/_components/workout-section";
+import Meals from "./_components/meals-section/h-meals";
 
 export default function HomePage() {
   return (
@@ -15,7 +16,14 @@ export default function HomePage() {
 
       {/* Why Us Section */}
       <WhyUs />
+
+      {/* Meals Section */}
+      <Meals />
+
+      {/* Marquee */}
       <MarqueeText />
+
+      {/* Footer */}
       <Footer />
     </main>
   );

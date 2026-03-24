@@ -52,5 +52,16 @@
     "outdoor-trainers": "مدربين خارجيين وعبر الإنترنت",
     "personal-training": "التدريب الشخصي",
     "personal-trainers": "مدربين شخصيين"
+  },
+  "h-meal-section": {
+    "title": "الصحه",
+    "subTitle": "التغذية الصحية",
+    "desc": " عزز رحلتك نحو اللياقة البدنية من خلال برامج <span> خطط وجبات</span> مخصصة لك"
+  },
+  "meal-card": {
+    "button": "اقرأ المزيد",
+    "breakfast": "الفطار",
+    "lunch": "الغداء",
+    "dinner": "العشاء"
   }
 }

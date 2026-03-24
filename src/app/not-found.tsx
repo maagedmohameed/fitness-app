@@ -10,13 +10,10 @@ export default function NotFound() {
           {t("title")}
         </h1>
         <div className="bg-linear-to-r from-gray-400 to-gray-800 my-5 md:my-7 rounded w-80 h-px"></div>
-        <p className="max-w-lg text-gray-400 md:text-xl text-center">
-          {t("desc")}
-        </p>
+        <p className="max-w-lg text-gray-400 md:text-xl text-center">{t("desc")}</p>
         <Link
           to="/"
-          className="group flex items-center gap-1 bg-white hover:bg-gray-200 mt-10 px-7 py-2.5 rounded-full font-medium text-gray-800 active:scale-95 transition-all"
-        >
+          className="group flex items-center gap-1 bg-white hover:bg-gray-200 mt-10 px-7 py-2.5 rounded-full font-medium text-gray-800 active:scale-95 transition-all">
           {t("back")}
           <svg
             className="transition group-hover:translate-x-0.5"
@@ -24,8 +21,7 @@ export default function NotFound() {
             height="22"
             viewBox="0 0 22 22"
             fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
+            xmlns="http://www.w3.org/2000/svg">
             <path
               d="M4.583 11h12.833m0 0L11 4.584M17.416 11 11 17.417"
               stroke="#1E1E1E"
