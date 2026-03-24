@@ -4,7 +4,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { Dumbbell } from "lucide-react";
 
 const headingVariants = cva(
-  "bg-clip-text bg-linear-to-b from-[#242424]/70 dark:from-[#FFFFFF]/20 via-[#242424]/10 dark:via-[#FFFFFF]/10 to-transparent dark:to-transparent w-full font-bold text-transparent text-7xl uppercase leading-none tracking-wide",
+  "bg-clip-text bg-linear-to-b from-[#242424]/70 dark:from-[#FFFFFF]/20 via-[#242424]/10 dark:via-[#FFFFFF]/10 to-transparent dark:to-transparent -mb-10 w-full font-bold text-transparent text-7xl uppercase leading-none tracking-wide",
   {
     variants: {
       variant: {
@@ -18,20 +18,17 @@ const headingVariants = cva(
   }
 );
 
-const subHeadingVariants = cva(
-  "flex items-center gap-2.5 w-full font-semibold text-primary dark:text-primary text-sm",
-  {
-    variants: {
-      variant: {
-        start: "justify-start",
-        center: "justify-center",
-      },
+const subHeadingVariants = cva("flex items-center gap-3 w-full font-semibold text-primary dark:text-primary text-lg", {
+  variants: {
+    variant: {
+      start: "justify-start",
+      center: "justify-center",
     },
-    defaultVariants: {
-      variant: "start",
-    },
-  }
-);
+  },
+  defaultVariants: {
+    variant: "start",
+  },
+});
 
 const SectionTitle = React.forwardRef<
   HTMLHeadingElement,

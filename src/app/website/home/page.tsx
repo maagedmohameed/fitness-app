@@ -2,6 +2,7 @@ import { ErrorBoundary } from "react-error-boundary";
 import ErrorBoundaryFallback from "@/components/shared/error-boundary-fallback";
 import Footer from "@/components/layout/footer/footer";
 import MarqueeText from "@/components/layout/marquee/marquee-text";
+import WhyUs from "./_components/why-us -section/why-us";
 import WorkoutSection from "@/app/website/home/_components/workout-section";
 
 export default function HomePage() {
@@ -12,6 +13,8 @@ export default function HomePage() {
         <WorkoutSection />
       </ErrorBoundary>
 
+      {/* Why Us Section */}
+      <WhyUs />
       <MarqueeText />
       <Footer />
     </main>
