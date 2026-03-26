@@ -4,7 +4,8 @@ import AboutUsSection from "@/components/shared/about-us-section";
 export default function About() {
     return <main className="bg-background">
         <AboutUsSection />
+
         {/* Marquee */}
-      <MarqueeText />
+        <MarqueeText />
     </main>
 }
