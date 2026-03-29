@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import { useTranslations } from "use-intl";
 
 export default function HeroSection() {
+
+  // Translations
   const t = useTranslations("hero");
 
   return (
