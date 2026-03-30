@@ -18,21 +18,25 @@ const headingVariants = cva(
   }
 );
 
-const subHeadingVariants = cva("flex items-center gap-3 w-full font-semibold text-primary dark:text-primary text-lg", {
-  variants: {
-    variant: {
-      start: "justify-start",
-      center: "justify-center",
+const subHeadingVariants = cva(
+  "flex items-center gap-3 w-full font-semibold text-primary dark:text-primary text-lg",
+  {
+    variants: {
+      variant: {
+        start: "justify-start",
+        center: "justify-center",
+      },
     },
-  },
-  defaultVariants: {
-    variant: "start",
-  },
-});
+    defaultVariants: {
+      variant: "start",
+    },
+  }
+);
 
 const SectionTitle = React.forwardRef<
   HTMLHeadingElement,
-  React.HTMLAttributes<HTMLHeadingElement> & VariantProps<typeof headingVariants>
+  React.HTMLAttributes<HTMLHeadingElement> &
+    VariantProps<typeof headingVariants>
 >(({ className, variant, ...props }, ref) => {
   return (
     <h2
@@ -42,7 +46,8 @@ const SectionTitle = React.forwardRef<
       //     WebkitTextStroke: "1px rgba(255,255,255,0.25)",
       //     color: "transparent",
       //   }}
-      {...props}></h2>
+      {...props}
+    ></h2>
   );
 });
 SectionTitle.displayName = "SectionTitle";
@@ -52,8 +57,12 @@ const SectionSubTitle = React.forwardRef<
   React.ComponentProps<"h3"> & VariantProps<typeof subHeadingVariants>
 >(({ className, variant, children, ...props }, ref) => {
   return (
-    <h3 ref={ref} className={cn(subHeadingVariants({ variant, className }), "")} {...props}>
-      <Dumbbell className="rotate-45" size={34} strokeWidth={1} />
+    <h3
+      ref={ref}
+      className={cn(subHeadingVariants({ variant, className }), "")}
+      {...props}
+    >
+      <Dumbbell className="capitalize rotate-45" size={34} strokeWidth={1} />
       {children}
     </h3>
   );

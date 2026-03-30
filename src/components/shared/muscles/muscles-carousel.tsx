@@ -1,5 +1,3 @@
-"use client";
-
 import {
   Carousel,
   CarouselContent,
@@ -19,7 +17,7 @@ type MuscleCardCarouselProps = {
   isPending: boolean;
 };
 
-export default function MuscleCardCarousel({
+export default function MusclesCarousel({
   muscles,
   isPending,
 }: MuscleCardCarouselProps) {
@@ -72,7 +70,9 @@ export default function MuscleCardCarousel({
         }}
         className="w-full"
       >
-        <CarouselContent className="md:flex-row flex-col gap-8 md:gap-0 max-h-316">
+        <CarouselContent
+          className={"md:flex-row flex-col gap-8 md:gap-0 max-h-316"}
+        >
           {/* Muscle card skeleton */}
           {isPending &&
             Array.from({ length: 3 }).map((_, key) => (
@@ -88,11 +88,12 @@ export default function MuscleCardCarousel({
           {muscles?.map(muscle => (
             <CarouselItem
               key={muscle._id}
-              className="flex justify-center basis-1/1 md:basis-1/3"
+              className="flex justify-center basis-1/1 md:basis-1/3 lg:basis-1/3"
             >
               <MuscleCard muscle={muscle} />
             </CarouselItem>
           ))}
+
           {/* No data to display   */}
           {!muscles?.length && <NoDataFound />}
         </CarouselContent>
