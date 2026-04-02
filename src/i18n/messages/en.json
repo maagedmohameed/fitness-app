@@ -13,6 +13,43 @@
     "retry": "Try Again",
     "message": "An unexpected error occurred"
   },
+  "hero": {
+    "title": "Your body can<span> stand almost </span>anything",
+    "description": "It's your mind that needs convincing. Push past your limits, stay committed, and watch as your body transform into powerhouse of strength and resilience. Start your journey today & truly capable of!",
+    "counters": {
+      "members": {
+        "value": "1200+",
+        "label": "Active Members"
+      },
+      "trainers": {
+        "value": "12+",
+        "label": "Certified Trainers"
+      },
+      "experience": {
+        "value": "20+",
+        "label": "Years of Experience"
+      }
+    },
+    "cta": {
+      "get-started": "Get Started",
+      "explore-more": "Explore More"
+    }
+  },
+  "about-us-section": {
+    "title": "About Us",
+    "subtitle": "About Us",
+    "heading": "EMPOWERING YOU TO ACHIEVE <span>YOUR FITNESS</span> GOALS",
+    "desc": "We believe fitness is more than just a workout—it's a lifestyle. With top-of- the-line facilities, certified trainers, and a supportive community, we're here to inspire and guide you every step of the way.",
+    "li-1-title": "Personal Trainer",
+    "li-1-desc": "Achieve your fitness goals with the guidance of our certified trainers.",
+    "li-2-title": "Cardio Programs",
+    "li-2-desc": "From steady-state runs to interval sprints, our treadmill programs.",
+    "li-3-title": "Quality Equipment",
+    "li-3-desc": "Our gym is equipped with the latest cardio & strength machines.",
+    "li-4-title": "Healthy Nutritions",
+    "li-4-desc": "Fuel your fitness journey with customized meal plans for you.",
+    "button": "Get Started"
+  },
   "no-data-found": "no results found",
   "workouts": {
     "heading": {
@@ -34,6 +71,18 @@
     },
     "location": {
       "title": "Our Location"
+    }
+  },
+  "header": {
+    "links": {
+      "home": "Home",
+      "about": "About",
+      "classes": "Classes",
+      "healthy": "Healthy"
+    },
+    "buttons": {
+      "login": "LOGIN",
+      "signup": "SIGN UP"
     }
   },
   "why-us-section": {
