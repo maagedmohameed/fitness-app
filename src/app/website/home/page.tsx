@@ -24,7 +24,7 @@ export default function HomePage() {
 
       {/* Workout section */}
       <ErrorBoundary fallback={<ErrorBoundaryFallback />}>
-        <WorkoutSection />
+        <WorkoutsSection />
       </ErrorBoundary>
 
       {/* Why Us Section */}

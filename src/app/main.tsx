@@ -5,11 +5,15 @@ import { AppProvider } from "@/components/providers/app-providers/index.provider
 import { Route } from "react-router-dom";
 import HomePage from "./website/home/page";
 import NotFound from "./not-found";
+import ClassesPage from "./website/classes/page";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <AppProvider>
       <Route path="/" element={<HomePage />} />
+
+      {/* Classes page */}
+      <Route path="/classes" element={<ClassesPage />} />
 
       {/* NotFound */}
       <Route path="*" element={<NotFound />} />
