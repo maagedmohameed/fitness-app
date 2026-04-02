@@ -13,8 +13,15 @@ export default function HeroSection() {
       {/* Background Image */}
       <img
         src="/assets/images/fitness-hero-sec.webp"
-        alt=""
-        className="absolute inset-0 h-full w-full object-cover"
+        alt="hero-image"
+        className="absolute inset-0 h-full w-full object-cover dark:hidden"
+        loading="eager"
+        decoding="async"
+      />
+      <img
+        src="/assets/images/hero-dark-img.webp"
+        alt="hero-image-dark"
+        className="absolute inset-0 hidden h-full w-full object-cover dark:block"
         loading="eager"
         decoding="async"
       />
@@ -22,7 +29,7 @@ export default function HeroSection() {
       {/* Content */}
       <div className="relative z-10 container mx-auto flex flex-wrap h-[80%] min-h-0 w-full flex-row items-stretch">
         {/* Left Content */}
-        <div className="content flex h-full min-h-0 lg:w-1/2 w-full flex-col justify-center gap-6 pr-2 sm:pr-4">
+        <div className="flex h-full min-h-0 lg:w-1/2 w-full flex-col justify-center gap-6 pr-2 sm:pr-4">
           {/* Heading */}
           <h1 className="text-6xl font-bold uppercase dark:text-[#F3F3F4]">
             {t.rich("title", {
@@ -37,7 +44,7 @@ export default function HeroSection() {
 
           {/* Counters */}
           <div className="counter mt-7 flex justify-between gap-4">
-            <div className="counter-item flex-col">
+            <div className="flex-col">
               <h5 className="text-xl font-bold">
                 {t("counters.members.value")}
               </h5>
@@ -77,7 +84,7 @@ export default function HeroSection() {
         <div className="image flex h-full min-h-0 lg:w-1/2 w-full items-end justify-center">
           <img
             src="/assets/images/Theo.png"
-            alt=""
+            alt="theo"
             className="max-h-full w-full object-contain object-bottom"
           />
         </div>

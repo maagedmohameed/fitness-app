@@ -3,28 +3,30 @@ import { cn } from "@/lib/utils/tailwind-merge";
 import { Link } from "react-router-dom";
 import SolidButton from "@/components/shared/solid-button";
 import OutlineButton from "@/components/shared/outline-button";
+import { useTranslations } from "use-intl";
 
 const HEADER_LINKS = [
   {
-    label: "Home",
+    label: "home",
     href: "/",
   },
   {
-    label: "About",
+    label: "about",
     href: "/about",
   },
   {
-    label: "Classes",
+    label: "classes",
     href: "/classes",
   },
   {
-    label: "Healthy",
+    label: "healthy",
     href: "/healthy",
   }
 ];
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
+  const t = useTranslations("header");
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -52,7 +54,7 @@ export default function Header() {
             <ul className="flex items-center gap-4">
                 {HEADER_LINKS.map((link) => (
                     <li key={link.href}>
-                        <Link to={link.href} className="text-black dark:text-white font-semibold text-lg">{link.label}</Link>
+                        <Link to={link.href} className="text-black dark:text-white font-semibold text-lg">{t(`links.${link.label}`)}</Link>
                     </li>
                 ))}
             </ul>
@@ -61,10 +63,10 @@ export default function Header() {
         {/* buttons */}
         <div className="flex items-center gap-1">
             <SolidButton>
-                <Link to="/register">LOGIN</Link>
+                <Link to="/register">{t("buttons.login")}</Link>
             </SolidButton>
             <OutlineButton>
-                <Link to="/register">SIGN UP</Link>
+                <Link to="/register">{t("buttons.signup")}</Link>
             </OutlineButton>
         </div>
     </div>

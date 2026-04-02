@@ -73,6 +73,18 @@
       "title": "Our Location"
     }
   },
+  "header": {
+    "links": {
+      "home": "Home",
+      "about": "About",
+      "classes": "Classes",
+      "healthy": "Healthy"
+    },
+    "buttons": {
+      "login": "LOGIN",
+      "signup": "SIGN UP"
+    }
+  },
   "why-us-section": {
     "title": "why us",
     "desc-1": "Elevate fitness with the <span>best way</span> possible",
