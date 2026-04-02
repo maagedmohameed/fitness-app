@@ -63,5 +63,49 @@
     "breakfast": "breakfast",
     "lunch": "launch",
     "dinner": "dinner"
+  },
+  "profile": {
+    "user-details": {
+      "goal": {
+        "title": "your goal",
+        "gain-weight": "gain weight",
+        "lose-weight": "lose weight",
+        "gain-more-flexible": "gain more flexible",
+        "learn-the-basic": "learn the basic"
+      },
+      "activityLevel": {
+        "title": "level",
+        "level1": "beginner",
+        "level2": "intermediate",
+        "level3": "advanced"
+      },
+      "weight": {
+        "title": "weight",
+        "symbol": "kg"
+      },
+
+      "change-button": "tap to change"
+    },
+    "user-settings": {
+      "change-password": "change password",
+      "select-language": {
+        "title": "select language",
+        "languages": {
+          "en": "english",
+          "ar": "arabic"
+        }
+      },
+      "select-mood": {
+        "title": "mood",
+        "moods": {
+          "dark": "dark",
+          "light": "light"
+        }
+      },
+      "security": "security",
+      "privacy-policy": "privacy policy",
+      "help": "help",
+      "logout": "logout"
+    }
   }
 }

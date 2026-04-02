@@ -1,10 +1,11 @@
 import { type ReactNode } from "react";
 import { AppIntlProvider } from "./use-Intl.provider";
 import { ReactQueryProvider } from "./react-query-provider";
-import LanguageContext from "./language-context";
+import LanguageContext from "./language-provider";
 import { ThemeProvider } from "./theme-provider";
 import { BrowserRouter, Routes } from "react-router-dom";
 import ErrorBoundaryWrapper from "./error-boundary";
+import { AuthProvider } from "./auth-provider";
 
 export function AppProvider({ children }: { children: ReactNode }) {
   return (
@@ -20,7 +21,10 @@ export function AppProvider({ children }: { children: ReactNode }) {
             <AppIntlProvider>
               {/* ReactQueryProvider */}
               <ReactQueryProvider>
-                <Routes>{children}</Routes>
+                {/* Auth provider */}
+                <AuthProvider>
+                  <Routes>{children}</Routes>
+                </AuthProvider>
               </ReactQueryProvider>
             </AppIntlProvider>
           </LanguageContext>

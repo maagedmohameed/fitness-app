@@ -63,5 +63,48 @@
     "breakfast": "الفطار",
     "lunch": "الغداء",
     "dinner": "العشاء"
+  },
+  "profile": {
+    "user-details": {
+      "goal": {
+        "title": "هدفك",
+        "gain-weight": "زيادة الوزن",
+        "lose-weight": "إنقاص الوزن",
+        "gain-more-flexible": "زيادة المرونة",
+        "learn-the-basic": "تعلم الأساسيات"
+      },
+      "activityLevel": {
+        "title": "المستوى",
+        "level1": "مبتدئ",
+        "level2": "متوسط",
+        "level3": "متقدم"
+      },
+      "weight": {
+        "title": "الوزن",
+        "symbol": "كجم"
+      },
+      "change-button": "اضغط للتغيير"
+    },
+    "user-settings": {
+      "change-password": "تغيير كلمة المرور",
+      "select-language": {
+        "title": "اختر اللغة",
+        "languages": {
+          "en": "الإنجليزية",
+          "ar": "العربية"
+        }
+      },
+      "select-mood": {
+        "title": "المظهر",
+        "moods": {
+          "dark": "داكن",
+          "light": "ساطع"
+        }
+      },
+      "security": "الأمان",
+      "privacy-policy": "سياسة الخصوصية",
+      "help": "المساعدة",
+      "logout": "تسجيل الخروج"
+    }
   }
 }
