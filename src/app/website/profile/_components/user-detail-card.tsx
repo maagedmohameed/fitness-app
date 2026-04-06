@@ -24,7 +24,7 @@ export default function UserDetailCard({ UserDetail }: UserDetailCardProps) {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center gap-2 w-60">
+    <div className="flex flex-col justify-center items-center gap-2 mx-auto w-60">
       <div className="text-center">
         <p className="font-extrabold text-3xl capitalize">
           {t(`${name}.title`)}

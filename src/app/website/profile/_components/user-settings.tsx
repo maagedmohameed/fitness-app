@@ -78,7 +78,7 @@ export default function UserSettings() {
   ];
 
   return (
-    <section className="gap-10 grid grid-cols-3 grid-rows-subgrid mx-auto w-fit">
+    <section className="gap-10 grid grid-cols-2 md:grid-cols-3 mx-auto w-fit">
       {settings.map(({ children, icon }, idx) => (
         <UserSettingCard key={idx} Icon={icon}>
           {children}

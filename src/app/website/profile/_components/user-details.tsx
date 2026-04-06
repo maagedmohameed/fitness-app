@@ -12,7 +12,7 @@ export default function UserDetails({
   isPending,
 }: UserDetailsProps) {
   return (
-    <section className="flex items-center gap-20">
+    <section className="md:flex items-center gap-20">
       {/* User details skeletons  */}
       {isPending &&
         Array.from({ length: 3 }).map((_, idx) => (
