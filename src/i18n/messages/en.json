@@ -67,24 +67,34 @@
   "profile": {
     "user-details": {
       "goal": {
+        "label": "what is your Goal ?",
+        "description": "this helps us create Your personalized plan ",
         "title": "your goal",
-        "gain-weight": "gain weight",
-        "lose-weight": "lose weight",
-        "gain-more-flexible": "gain more flexible",
-        "learn-the-basic": "learn the basic"
+        "gain weight": "gain weight",
+        "lose weight": "lose weight",
+        "gain more flexible": "gain more flexible",
+        "learn the basic": "learn the basic"
       },
       "activityLevel": {
+        "label": "your regular physical activity level ?",
+        "description": "this helps us create Your personalized plan",
         "title": "level",
-        "level1": "beginner",
-        "level2": "intermediate",
-        "level3": "advanced"
+        "level1": "rookie",
+        "level2": "beginner",
+        "level3": "intermediate",
+        "level4": "advance",
+        "level5": "true best"
       },
       "weight": {
+        "label": "what is your weight ?",
+        "description": "this helps us create Your personalized plan",
         "title": "weight",
         "symbol": "kg"
       },
 
-      "change-button": "tap to change"
+      "change-button": "tap to change",
+      "next-button": "next",
+      "save-button": "save"
     },
     "user-settings": {
       "change-password": "change password",

@@ -67,23 +67,33 @@
   "profile": {
     "user-details": {
       "goal": {
+        "label": "ما هو هدفك؟",
+        "description": "يساعدنا ذلك في إنشاء خطة مخصصة لك",
         "title": "هدفك",
-        "gain-weight": "زيادة الوزن",
-        "lose-weight": "إنقاص الوزن",
-        "gain-more-flexible": "زيادة المرونة",
-        "learn-the-basic": "تعلم الأساسيات"
+        "gain weight": "زيادة الوزن",
+        "lose weight": "إنقاص الوزن",
+        "gain more flexible": "زيادة المرونة",
+        "learn the basic": "تعلم الأساسيات"
       },
       "activityLevel": {
+        "label": "ما هو مستوى نشاطك البدني المعتاد؟",
+        "description": "يساعدنا ذلك في إنشاء خطة مخصصة لك",
         "title": "المستوى",
-        "level1": "مبتدئ",
-        "level2": "متوسط",
-        "level3": "متقدم"
+        "level1": "مبتدئ (مستوى أولي)",
+        "level2": "مبتدئ",
+        "level3": "متوسط",
+        "level4": "متقدم",
+        "level5": "خبير"
       },
       "weight": {
+        "label": "ما هو وزنك؟",
+        "description": "يساعدنا ذلك في إنشاء خطة مخصصة لك",
         "title": "الوزن",
         "symbol": "كجم"
       },
-      "change-button": "اضغط للتغيير"
+      "change-button": "اضغط للتغيير",
+      "next-button": "التالي",
+      "save-button": "حفظ التغييرات"
     },
     "user-settings": {
       "change-password": "تغيير كلمة المرور",

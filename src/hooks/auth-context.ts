@@ -1,21 +1,36 @@
-import type { User } from "@/lib/types/user";
+import type { UserDetails } from "@/lib/types/user";
 import { useContext } from "react";
 import { createContext } from "react";
 
 type AuthContextValue = {
-  user: User | null;
-  setUser: (user: User) => void;
+  user: UserDetails;
+  setUser: (user: UserDetails) => void;
   signOut: () => void;
 };
 
-export const AuthContext = createContext<AuthContextValue | undefined>(
-  undefined
-);
+export const AuthContext = createContext<AuthContextValue>({
+  user: {
+    firstName: "",
+    lastName: "",
+    email: "",
+    gender: "",
+    age: 0,
+    weight: 0,
+    height: 0,
+    goal: "gain weight",
+    activityLevel: "level1",
+    photo: "",
+  },
+  setUser: () => {},
+  signOut: () => {},
+});
 
 export const useAuth = () => {
   const context = useContext(AuthContext);
+
   if (!context) {
     throw new Error("useAuth must be used within a AuthProvider");
   }
+
   return context;
 };

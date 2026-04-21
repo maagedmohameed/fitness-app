@@ -1,24 +1,24 @@
-import type { UserProfileDetail } from "@/lib/types/user";
+import {
+  ACTIVITY_LEVELS_TRANSLATION_KEYS,
+  GOALS_TRANSLATION_KEYS,
+} from "../_constants/profile.constant";
+import { useAuth } from "@/hooks/auth-context";
 import UserDetailCard from "./user-detail-card";
-import UserDetailCardSkeleton from "../_skeletons/user-detail-card.skeleton";
 
-type UserDetailsProps = {
-  isPending: boolean;
-  userDetails: UserProfileDetail[];
-};
+export default function UserDetails() {
+  // Hooks
+  const { user } = useAuth();
 
-export default function UserDetails({
-  userDetails,
-  isPending,
-}: UserDetailsProps) {
+  // Variables
+  const userDetails = [
+    { goal: user?.goal ?? GOALS_TRANSLATION_KEYS[0] },
+    {
+      activityLevel: user?.activityLevel ?? ACTIVITY_LEVELS_TRANSLATION_KEYS[0],
+    },
+    { weight: user?.weight ?? 60 },
+  ];
   return (
     <section className="md:flex items-center gap-20">
-      {/* User details skeletons  */}
-      {isPending &&
-        Array.from({ length: 3 }).map((_, idx) => (
-          <UserDetailCardSkeleton key={idx} />
-        ))}
-
       {/* Content  */}
       {userDetails?.map((userDetail, idx) => (
         <UserDetailCard key={idx} UserDetail={userDetail} />

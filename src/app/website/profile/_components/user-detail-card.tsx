@@ -1,7 +1,8 @@
-import type { UserProfileDetail } from "@/lib/types/user";
+import type { UserProfileDetail, UserProfileDetails } from "@/lib/types/user";
 import { Button } from "@/components/ui/button";
 import { RefreshCcw } from "lucide-react";
 import { useTranslations } from "use-intl";
+import { OpenUserDetailsModalButton } from "./open-user-details-modal-button";
 
 type UserDetailCardProps = {
   UserDetail: UserProfileDetail;
@@ -16,11 +17,13 @@ export default function UserDetailCard({ UserDetail }: UserDetailCardProps) {
     name,
     value,
   }: {
-    name: string;
-    value: string | number;
+    name: keyof UserProfileDetails;
+    value: UserProfileDetails[keyof UserProfileDetails];
   } = {
-    name: Object.keys(UserDetail)[0],
-    value: Object.values(UserDetail)[0],
+    name: Object.keys(UserDetail)[0] as keyof UserProfileDetails,
+    value: Object.values(
+      UserDetail
+    )[0] as UserProfileDetails[keyof UserProfileDetails],
   };
 
   return (
@@ -29,17 +32,16 @@ export default function UserDetailCard({ UserDetail }: UserDetailCardProps) {
         <p className="font-extrabold text-3xl capitalize">
           {t(`${name}.title`)}
         </p>
-        <button className="underline uppercase cursor-pointer">
-          {t("change-button")}
-        </button>
+
+        <OpenUserDetailsModalButton detailName={name} />
       </div>
 
       <Button className="flex justify-between backdrop-blur-2xl dark:backdrop-blur-xs py-3 border border-[#242424] dark:border-[#D9D9D9] rounded-[3.125rem] w-full font-bold">
         {name === "activityLevel"
           ? t(`activityLevel.${value}`)
-          : typeof value === "number"
+          : name === "weight"
           ? `${value}  ${t(`${name}.symbol`)}`
-          : t(`goal.${value.split(" ").join("-")}`)}
+          : t(`goal.${value}`)}
         <RefreshCcw className="size-6" />
       </Button>
     </div>
