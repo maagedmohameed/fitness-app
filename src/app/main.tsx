@@ -6,6 +6,7 @@ import { Route } from "react-router-dom";
 import HomePage from "./website/home/page";
 import NotFound from "./not-found";
 import ClassesPage from "./website/classes/page";
+import AboutUsSection from "@/components/shared/about-us-section";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -14,6 +15,7 @@ createRoot(document.getElementById("root")!).render(
 
       {/* Classes page */}
       <Route path="/classes" element={<ClassesPage />} />
+      <Route path="/about-us" element={<AboutUsSection />} />
 
       {/* NotFound */}
       <Route path="*" element={<NotFound />} />
