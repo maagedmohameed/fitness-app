@@ -3,34 +3,42 @@ import { cn } from "@/lib/utils/tailwind-merge";
 import { Link } from "react-router-dom";
 import SolidButton from "@/components/shared/solid-button";
 import OutlineButton from "@/components/shared/outline-button";
+import { Menu, X } from "lucide-react";
+import { useTranslations } from "use-intl";
 
 const HEADER_LINKS = [
   {
-    label: "Home",
+    label: "home",
     href: "/",
   },
   {
-    label: "About",
+    label: "about",
     href: "/about",
   },
   {
-    label: "Classes",
+    label: "classes",
     href: "/classes",
   },
   {
-    label: "Healthy",
+    label: "healthy",
     href: "/healthy",
   }
 ];
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const t = useTranslations("header");
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    setMobileMenuOpen(false);
   }, []);
 
   return (
@@ -40,34 +48,100 @@ export default function Header() {
         scrolled ? "bg-white dark:bg-black" : "bg-transparent",
       )}
     >
-    <div className="flex items-center justify-between container mx-auto">
-
+    <div className="flex items-center justify-between px-4 sm:px-6 container mx-auto">
         {/* logo */}
         <div className="logo">
-            <img src="/assets/images/fit 1.svg" alt="logo" className="w-24" />
+            <img src="/assets/images/fit 1.svg" alt="logo" className="w-20 sm:w-24" />
         </div>
 
         {/* navigations */}
-        <nav>
-            <ul className="flex items-center gap-4">
+        <nav className="hidden md:block">
+            <ul className="flex items-center gap-4 lg:gap-6">
                 {HEADER_LINKS.map((link) => (
                     <li key={link.href}>
-                        <Link to={link.href} className="text-black dark:text-white font-semibold text-lg">{link.label}</Link>
+                        <Link to={link.href} className="text-black dark:text-white font-semibold text-base lg:text-lg">{t(`links.${link.label}`)}</Link>
                     </li>
                 ))}
             </ul>
         </nav>
 
         {/* buttons */}
-        <div className="flex items-center gap-1">
+        <div className="hidden md:flex items-center gap-1">
             <SolidButton>
-                <Link to="/register">LOGIN</Link>
+                <Link to="/register">{t("buttons.login")}</Link>
             </SolidButton>
             <OutlineButton>
-                <Link to="/register">SIGN UP</Link>
+                <Link to="/register">{t("buttons.signup")}</Link>
             </OutlineButton>
         </div>
+
+        {/* Mobile menu button */}
+        <button
+          type="button"
+          className="md:hidden p-2 text-black dark:text-white"
+          onClick={() => setMobileMenuOpen((prev) => !prev)}
+          aria-label="Toggle menu"
+        >
+          {mobileMenuOpen ? <X className="size-6" /> : <Menu className="size-6" />}
+        </button>
     </div>
+
+    {/* Mobile menu backdrop */}
+    <button
+      type="button"
+      aria-label="Close menu"
+      onClick={() => setMobileMenuOpen(false)}
+      className={cn(
+        "md:hidden fixed inset-0 z-40 bg-black/50 transition-opacity duration-300",
+        mobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+      )}
+    />
+
+    {/* Mobile off-canvas menu */}
+    <aside
+      className={cn(
+        "md:hidden fixed top-0 left-0 z-50 h-dvh w-[82%] max-w-xs bg-white dark:bg-black border-r border-black/10 dark:border-white/10 p-5 transition-transform duration-300",
+        mobileMenuOpen ? "translate-x-0" : "-translate-x-full"
+      )}
+    >
+      <div className="flex items-center justify-between mb-6">
+        <img src="/assets/images/fit 1.svg" alt="logo" className="w-20" />
+        <button
+          type="button"
+          className="p-2 text-black dark:text-white"
+          onClick={() => setMobileMenuOpen(false)}
+          aria-label="Close menu"
+        >
+          <X className="size-6" />
+        </button>
+      </div>
+
+      <ul className="flex flex-col gap-3">
+        {HEADER_LINKS.map((link) => (
+          <li key={link.href}>
+            <Link
+              to={link.href}
+              className="block text-black dark:text-white font-semibold text-base"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              {t(`links.${link.label}`)}
+            </Link>
+          </li>
+        ))}
+      </ul>
+      <div className="mt-6 flex flex-col gap-2">
+        <SolidButton className="w-[90%] justify-center px-4 py-3 text-sm">
+          <Link to="/register" onClick={() => setMobileMenuOpen(false)}>
+            {t("buttons.login")}
+          </Link>
+        </SolidButton>
+        <OutlineButton className="w-[90%] justify-center px-4 py-3 text-sm">
+          <Link to="/register" onClick={() => setMobileMenuOpen(false)}>
+            {t("buttons.signup")}
+          </Link>
+        </OutlineButton>
+      </div>
+    </aside>
   </header>
   );
 }
