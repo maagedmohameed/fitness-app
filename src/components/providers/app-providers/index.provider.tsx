@@ -5,6 +5,7 @@ import LanguageContext from "./language-context";
 import { ThemeProvider } from "./theme-provider";
 import { BrowserRouter, Routes } from "react-router-dom";
 import ErrorBoundaryWrapper from "./error-boundary";
+import { Toaster } from "sonner";
 
 export function AppProvider({ children }: { children: ReactNode }) {
   return (
@@ -20,6 +21,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
             <AppIntlProvider>
               {/* ReactQueryProvider */}
               <ReactQueryProvider>
+                <Toaster richColors />
                 <Routes>{children}</Routes>
               </ReactQueryProvider>
             </AppIntlProvider>
