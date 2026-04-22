@@ -1,15 +1,16 @@
 import { MusclesGroupsSkeleton } from "@/components/skeletons/muscles-groups.skeleton";
 import { Button } from "@/components/ui/button";
 import { useSearchParams } from "react-router-dom";
+import { useLocale, useTranslations } from "use-intl";
 
 type MealCategoriesProps = {
   isPending: boolean;
 };
 
 const MAIN_MEAL_CATEGORIES = [
-  "Breakfast",
-  "Lunch",
-  "Dinner",
+  { key: "breakfast", value: "Breakfast" },
+  { key: "lunch", value: "Lunch" },
+  { key: "dinner", value: "Dinner" },
 ];
 
 export default function MealCategories({
@@ -17,6 +18,8 @@ export default function MealCategories({
 }: MealCategoriesProps) {
   // Hooks
   const [searchParams, setSearchParams] = useSearchParams();
+  const t = useTranslations("meal-card");
+  const locale = useLocale();
 
   // Variables
   const activeCategory = searchParams.get("mealCategory") ?? "Breakfast";
@@ -24,21 +27,24 @@ export default function MealCategories({
   if (isPending) return <MusclesGroupsSkeleton length={8} />;
 
   return (
-    <ul className="flex gap-8 mx-auto w-fit overflow-x-hidden">
-      {MAIN_MEAL_CATEGORIES.map(categoryName => {
-        const isActive = activeCategory === categoryName;
+    <ul
+      dir={locale === "ar" ? "rtl" : "ltr"}
+      className="flex gap-8 mx-auto w-fit overflow-x-hidden"
+    >
+      {MAIN_MEAL_CATEGORIES.map(({ key, value }) => {
+        const isActive = activeCategory === value;
         return (
-          <li key={categoryName}>
+          <li key={key}>
             <Button
               onClick={() =>
                 setSearchParams({
-                  mealCategory: categoryName,
+                  mealCategory: value,
                 })
               }
               variant={isActive ? "default" : "ghost"}
               className="cursor-pointer font-bold text-xl capitalize"
             >
-              {categoryName}
+              {t(key)}
             </Button>
           </li>
         );

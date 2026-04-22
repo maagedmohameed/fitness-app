@@ -1,26 +1,26 @@
-export type MEAL_CATEGORIES = {
+export type MealCategory = {
   idCategory: string;
   strCategory: string;
   strCategoryThumb: string;
   strCategoryDescription: string;
 };
 
-export type MEAL_CATEGORIES_RESPONSE = {
-  categories: MEAL_CATEGORIES[];
+export type MealCategoriesResponse = {
+  categories: MealCategory[];
 };
 
-export type MEAL_BY_CATEGORY = {
+export type MealByCategory = {
   strMeal: string;
   strMealThumb: string;
   idMeal: string;
 };
 
-export type MEAL_BY_CATEGORY_RESPONSE = {
-  meals: MEAL_BY_CATEGORY[];
+export type MealByCategoryResponse = {
+  meals: MealByCategory[];
 };
 
 
-export type MEAL_BY_ID = {
+export type MealById = {
   idMeal: string;
   strMeal: string;
   strCategory: string;
@@ -45,6 +45,6 @@ export type MEAL_BY_ID = {
   strMealThumb: string;
 };
 
-export type MEAL_BY_ID_RESPONSE = {
-  meals: MEAL_BY_ID[];
+export type MealByIdResponse = {
+  meals: MealById[];
 };

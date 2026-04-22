@@ -11,12 +11,12 @@ import { cn } from "@/lib/utils/tailwind-merge";
 import { Link } from "react-router-dom";
 import { useLocale, useTranslations } from "use-intl";
 import NoDataFound from "@/components/shared/no-data-found";
-import type { MEAL_BY_CATEGORY } from "@/lib/types/meals";
+import type { MealByCategory } from "@/lib/types/meals";
 import MealCard from "@/components/shared/meal-card";
 import { MealCardSkeleton } from "@/components/skeletons/meal-card.skeleton";
 
 type MealCardCarouselProps = {
-  meals?: MEAL_BY_CATEGORY[];
+  meals?: MealByCategory[];
   isPending: boolean;
 };
 

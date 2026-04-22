@@ -1,4 +1,8 @@
-import type { MEAL_CATEGORIES_RESPONSE, MEAL_BY_CATEGORY_RESPONSE, MEAL_BY_ID_RESPONSE } from "../types/meals";
+import type {
+  MealByCategoryResponse,
+  MealByIdResponse,
+  MealCategoriesResponse,
+} from "../types/meals";
 
 const BASE_URL = "https://www.themealdb.com/api/json/v1/1";
 
@@ -13,7 +17,7 @@ export async function getMealCategories(locale: string) {
     throw new Error("Failed to fetch meal categories");
   }
 
-  const payload: ApiResponse<MEAL_CATEGORIES_RESPONSE> = await response.json();
+  const payload: ApiResponse<MealCategoriesResponse> = await response.json();
 
   if ("error" in payload) {
     throw new Error(payload.error as string);
@@ -33,7 +37,7 @@ export async function getMealByCategory(category: string, locale: string) {
     throw new Error("Failed to fetch meal by category");
   }
 
-  const payload: ApiResponse<MEAL_BY_CATEGORY_RESPONSE> = await response.json();
+  const payload: ApiResponse<MealByCategoryResponse> = await response.json();
 
   if ("error" in payload) {
     throw new Error(payload.error as string);
@@ -53,7 +57,7 @@ export async function getMealById(id: string, locale: string) {
     throw new Error("Failed to fetch meal");
   }
 
-  const payload: ApiResponse<MEAL_BY_ID_RESPONSE> = await response.json();
+  const payload: ApiResponse<MealByIdResponse> = await response.json();
 
   if ("error" in payload) {
     throw new Error(payload.error as string);
