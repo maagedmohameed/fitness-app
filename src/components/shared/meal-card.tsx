@@ -20,7 +20,7 @@ export default function MealCard({ title, mealImage }: MealCardProps) {
       style={{ backgroundImage: `url(${mealImage})` }}>
       <div className="space-y-2 bg-white/50 dark:bg-[#24242480]/50 backdrop-blur-[3.63rem] p-4 w-full">
         {/* Card name */}
-        <h3 className="font-bold dark:text-[#F3F3F4] text-xl uppercase tracking-[0.14rem]">{t(`${title}`)}</h3>
+        <h3 className="font-bold dark:text-[#F3F3F4] text-xl uppercase tracking-[0.14rem]">{title}</h3>
 
         {/* Card link */}
         <Link to={mealImage} className="flex items-center gap-2 font-medium text-[#FF4100] text-xl">
