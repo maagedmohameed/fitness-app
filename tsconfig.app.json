@@ -29,5 +29,8 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
   },
-  "include": ["src"]
+  "include": [
+    "src",
+    "src/app/website/profile/_components/open-change-password-modal-button/open-change-password-modal-button.tsx"
+  ]
 }

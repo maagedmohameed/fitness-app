@@ -14,6 +14,7 @@ import { useTheme } from "@/hooks/theme.context";
 import { useTranslations } from "use-intl";
 import { useLanguage } from "@/hooks/language.context";
 import { useAuth } from "@/hooks/auth-context";
+import { OpenChangePasswordModalButton } from "./open-change-password-modal-button";
 
 export default function UserSettings() {
   // Translations
@@ -27,12 +28,12 @@ export default function UserSettings() {
   // Variables
   const settings = [
     {
-      children: <button className="capitalize">{t("change-password")}</button>,
+      children: <OpenChangePasswordModalButton />,
       icon: RefreshCcw,
     },
     {
       children: (
-        <button className="capitalize" onClick={toggleLocale}>
+        <button type="button" className="capitalize" onClick={toggleLocale}>
           {t("select-language.title")} (
           <span className="text-primary">
             {t(`select-language.languages.${locale}`)}
@@ -45,16 +46,17 @@ export default function UserSettings() {
     {
       children: (
         <>
-          <button className="capitalize">
+          <span className="capitalize">
             {t("select-mood.title")} (
             <label htmlFor="theme-mode" className="text-primary">
               {t(`select-mood.moods.${theme}`)}
             </label>
             )
-          </button>
+          </span>
           <Switch
             dir="ltr"
-            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+            checked={theme === "dark"}
+            onCheckedChange={checked => setTheme(checked ? "dark" : "light")}
             id="theme-mode"
           />
         </>
@@ -69,7 +71,11 @@ export default function UserSettings() {
     { children: <Link to={"/help"}>{t("help")}</Link>, icon: LifeBuoy },
     {
       children: (
-        <button className="text-primary capitalize" onClick={signOut}>
+        <button
+          type="button"
+          className="text-primary capitalize"
+          onClick={signOut}
+        >
           {t("logout")}
         </button>
       ),

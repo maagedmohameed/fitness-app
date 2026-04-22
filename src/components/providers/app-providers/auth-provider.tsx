@@ -1,5 +1,6 @@
-import { AuthContext, type UserDetails } from "@/hooks/auth-context";
+import { AuthContext } from "@/hooks/auth-context";
 import { useLogout } from "@/hooks/auth/use-logout";
+import type { UserDetails } from "@/lib/types/user";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 

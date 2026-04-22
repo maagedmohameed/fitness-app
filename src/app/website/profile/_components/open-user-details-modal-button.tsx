@@ -59,7 +59,6 @@ export function OpenUserDetailsModalButton({
       activityLevel: user.activityLevel ?? "level1",
       weight: user.weight ?? 0,
     },
-    // mode: "onChange",
   });
 
   // Variables

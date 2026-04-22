@@ -6,6 +6,7 @@ import { Route } from "react-router-dom";
 import HomePage from "./website/home/page";
 import NotFound from "./not-found";
 import ProfilePage from "./website/profile/page";
+import { Toaster } from "sonner";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -18,5 +19,7 @@ createRoot(document.getElementById("root")!).render(
       {/* NotFound */}
       <Route path="*" element={<NotFound />} />
     </AppProvider>
+
+    <Toaster />
   </StrictMode>
 );
