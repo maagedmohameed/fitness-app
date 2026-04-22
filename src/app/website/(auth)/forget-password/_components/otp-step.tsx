@@ -69,7 +69,7 @@ export default function OtpStep({ email, onNext, onBack }: OtpStepProps) {
           maxLength={6}
           value={otp}
           onChange={(e) => setOtp(e.target.value)}
-          className="h-11 border-white/30 text-white placeholder:text-white"
+          className="h-12 rounded-[20px] border-white/30 text-white placeholder:text-white"
         />
 
         {error ? <p className="text-destructive text-sm">{error}</p> : null}
