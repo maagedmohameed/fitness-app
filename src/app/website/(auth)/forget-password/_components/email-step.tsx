@@ -44,7 +44,7 @@ export default function EmailStep({ email, setEmail, onNext }: EmailStepProps) {
           id="forget-form-email"
           placeholder="user@example.com"
           type="email"
-          className="h-11 border-white/30 text-white placeholder:text-white"
+          className="h-12 rounded-[20px] border-white/30 text-white placeholder:text-white"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />

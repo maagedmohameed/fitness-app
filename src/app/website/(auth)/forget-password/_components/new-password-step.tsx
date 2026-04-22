@@ -59,7 +59,7 @@ export default function NewPasswordStep({
           <Input
             id="create-new-password"
             placeholder="********"
-            className="h-11 border-white/30 text-white pr-10 placeholder:text-white"
+            className="h-12 rounded-[20px] border-white/30 text-white pr-10 placeholder:text-white"
             type={showPassword ? "text" : "password"}
             value={newPassword}
             onChange={(e) => setNewPassword(e.target.value)}
@@ -77,7 +77,7 @@ export default function NewPasswordStep({
           <Input
             id="confirm-new-password"
             placeholder="********"
-            className="h-11 border-white/30 text-white pr-10 placeholder:text-white"
+            className="h-12 rounded-[20px] border-white/30 text-white pr-10 placeholder:text-white"
             type={showConfirmPassword ? "text" : "password"}
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
