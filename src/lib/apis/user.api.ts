@@ -1,6 +1,8 @@
 import { API } from "../constants/global.constant";
 import type {
+  ChangeUserDetailsFormFields,
   ChangeUserPasswordFormFields,
+  editProfileResponse,
   ForgotPasswordResponse,
 } from "../types/auth";
 import type { User } from "../types/user";
@@ -49,6 +51,33 @@ export async function changeUserPassword(data: ChangeUserPasswordFormFields) {
   }
 
   const payload: ApiResponse<ForgotPasswordResponse> = await response.json();
+
+  if ("error" in payload) {
+    throw new Error(payload.error as string);
+  }
+
+  return payload;
+}
+
+export async function editUserProfile(data: ChangeUserDetailsFormFields) {
+  const token = getToken();
+
+  if (!token) throw new Error("There is no token");
+
+  const response = await fetch(`${API}/auth/editProfile`, {
+    method: "PUT",
+    headers: {
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  });
+
+  if (!response.ok) {
+    throw new Error("Failed to change user profile");
+  }
+
+  const payload: ApiResponse<editProfileResponse> = await response.json();
 
   if ("error" in payload) {
     throw new Error(payload.error as string);

@@ -8,61 +8,63 @@ import {
 import type { ChangeUserDetailsFormFields } from "@/lib/types/auth";
 import { useState } from "react";
 import { useTranslations } from "use-intl";
-import { useForm, type SubmitHandler } from "react-hook-form";
-import { changeUserDetailsSchema } from "@/lib/schemas/auth.schema";
-import { zodResolver } from "@hookform/resolvers/zod";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-} from "@/components/ui/form";
-import { MoveLeft } from "lucide-react";
+import { Controller, useForm, type SubmitHandler } from "react-hook-form";
+import { MoveLeft, MoveRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { Label } from "@/components/ui/label";
 import { useLanguage } from "@/hooks/language.context";
 import { useAuth } from "@/hooks/auth-context";
 import {
   ACTIVITY_LEVELS_TRANSLATION_KEYS,
   GOALS_TRANSLATION_KEYS,
 } from "../_constants/profile.constant";
-
-const DETAILS_NAMES = ["goal", "activityLevel", "weight"];
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { Field, FieldGroup, FieldSet, FieldError } from "@/components/ui/field";
+import { Label } from "@/components/ui/label";
+import { changeUserDetailsSchema } from "@/lib/schemas/auth.schema";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { Form } from "@/components/ui/form";
+import { useEditUserProfile } from "../_hooks/use-edit-user-profile";
+import { toast } from "sonner";
 
 export function OpenUserDetailsModalButton({
   detailName,
 }: {
-  detailName: string;
+  detailName: "goal" | "activityLevel" | "weight";
 }) {
   // Translation
   const t = useTranslations("profile.user-details");
 
   // Hooks
   const { locale } = useLanguage();
-  const { user } = useAuth();
+  const { user, setUser } = useAuth();
 
   // Mutation
-  // const {
-  //   isPending: isForgotPending,
-  //   error: forgotPasswordError,
-  //   forgotPassword,
-  // } = useEditProfile();
+  const { mutate: editUserProfile } = useEditUserProfile();
+
   // States
   const [currentStep, setCurrentStep] = useState(0);
+  const [open, setOpen] = useState(false);
 
   const form = useForm<ChangeUserDetailsFormFields>({
     resolver: zodResolver(changeUserDetailsSchema),
     defaultValues: {
       goal: user.goal ?? "lose weight",
       activityLevel: user.activityLevel ?? "level1",
-      weight: user.weight ?? 0,
+      weight: user.weight ?? 60,
     },
   });
 
   // Variables
+  const DETAILS_NAMES = ["goal", "activityLevel", "weight"] as const;
   const dir = locale === "ar" ? "rtl" : "ltr";
+  const BackButtonIcon = locale === "ar" ? MoveRight : MoveLeft;
 
   const steps: {
     title: string;
@@ -86,15 +88,22 @@ export function OpenUserDetailsModalButton({
     },
   ];
 
-  const currentForm = steps[currentStep];
+  const currentForm = steps[DETAILS_NAMES.indexOf(detailName)];
 
   const isLastStep = currentStep === steps.length - 1;
 
   //  Handlers
   const handleNextButton = async () => {
-    if (!isLastStep) {
-      setCurrentStep(prev => prev + 1);
+    const isValid = await form.trigger(currentForm.fields);
+
+    if (!isValid) return;
+
+    if (isLastStep) {
+      form.handleSubmit(onSubmit)();
+      return;
     }
+
+    setCurrentStep(prev => prev + 1);
   };
 
   const handleBackButton = () => {
@@ -103,131 +112,176 @@ export function OpenUserDetailsModalButton({
     }
   };
   //  Functions
+  const onSubmit: SubmitHandler<ChangeUserDetailsFormFields> = values => {
+    editUserProfile(values, {
+      onSuccess({ user }) {
+        setUser(user);
 
-  const onSubmit: SubmitHandler<ChangeUserDetailsFormFields> = async values => {
-    // await new Promise((resolve) => setTimeout(resolve, 1500));
+        toast.success(t("validation.toast.success"));
 
-    // toast.success("Form successfully submitted");
-
-    console.log(values);
+        setOpen(false);
+      },
+      onError() {
+        toast.error(t("validation.toast.error"));
+      },
+    });
   };
 
   const renderCurrentStepContent = () => {
-    switch (currentStep) {
-      case 0: {
-        return (
-          <FormField
+    return (
+      <>
+        {/* Step 0: Goal */}
+        <div style={{ display: currentStep === 0 ? "block" : "none" }}>
+          <Controller
+            name="goal"
             control={form.control}
-            name={"goal"}
-            render={({ field }) => (
-              <RadioGroup
-                dir={dir}
-                className="gap-4 mx-auto w-[90%] font-baloothambi2 rtl:font-cairo"
-                onValueChange={field.onChange}
-                value={field.value}
-              >
-                {GOALS_TRANSLATION_KEYS.map(goal => (
-                  <FormItem
-                    key={goal}
-                    className="flex justify-between items-center bg-muted/20 px-4 py-2 border has-checked:border border-border-input has-checked:border-primary rounded-[1.25rem] h-12 text-primary-foreground has-checked:text-primary"
+            render={({ field, fieldState }) => {
+              const isInvalid = fieldState.invalid;
+              return (
+                <FieldSet data-invalid={isInvalid}>
+                  <RadioGroup
+                    name={field.name}
+                    value={field.value}
+                    onValueChange={value => {
+                      form.setValue(
+                        "goal",
+                        value as ChangeUserDetailsFormFields["goal"],
+                        { shouldValidate: true, shouldDirty: true }
+                      );
+                    }}
+                    aria-invalid={isInvalid}
+                    dir={dir}
+                    className="gap-4 mx-auto w-[90%] font-baloothambi2 rtl:font-cairo"
                   >
-                    {/* Label */}
-                    <Label
-                      htmlFor={goal}
-                      className="font-bold text-base capitalize"
-                    >
-                      {t(`goal.${goal}`)}
-                    </Label>
+                    {GOALS_TRANSLATION_KEYS.map(goal => (
+                      <Field
+                        key={goal}
+                        className="bg-muted/20 px-4 py-2 border has-checked:border border-border-input has-checked:border-primary rounded-[1.25rem] h-12 text-primary-foreground has-checked:text-primary"
+                      >
+                        <Label
+                          htmlFor={goal}
+                          className="flex justify-between items-center font-bold text-base capitalize"
+                        >
+                          {t(`goal.${goal}`)}
+                          <RadioGroupItem
+                            value={goal}
+                            id={goal}
+                            dir={dir}
+                            className="border border-border-input"
+                          />
+                        </Label>
+                      </Field>
+                    ))}
+                  </RadioGroup>
+                  {fieldState.invalid && (
+                    <FieldError errors={[fieldState.error]} />
+                  )}
+                </FieldSet>
+              );
+            }}
+          />
+        </div>
 
-                    {/* Input Field */}
-                    <FormControl>
-                      <RadioGroupItem
-                        dir={dir}
-                        value={goal}
-                        id={goal}
-                        className="border border-border-input"
-                      />
-                    </FormControl>
-                  </FormItem>
-                ))}
-              </RadioGroup>
+        {/* Step 1: Activity Level */}
+        <div style={{ display: currentStep === 1 ? "block" : "none" }}>
+          <Controller
+            name="activityLevel"
+            control={form.control}
+            render={({ field, fieldState }) => {
+              const isInvalid = fieldState.invalid;
+              return (
+                <FieldSet data-invalid={isInvalid}>
+                  <RadioGroup
+                    name={field.name}
+                    value={field.value}
+                    onValueChange={field.onChange}
+                    aria-invalid={isInvalid}
+                    dir={dir}
+                    className="gap-4 mx-auto w-[90%] font-baloothambi2 rtl:font-cairo"
+                  >
+                    {ACTIVITY_LEVELS_TRANSLATION_KEYS.map(level => (
+                      <Field
+                        key={level}
+                        className="bg-muted/20 px-4 py-2 border has-checked:border border-border-input has-checked:border-primary rounded-[1.25rem] h-12 text-primary-foreground has-checked:text-primary"
+                      >
+                        <Label
+                          htmlFor={level}
+                          className="flex justify-between items-center font-bold text-base capitalize"
+                        >
+                          {t(`activityLevel.${level}`)}
+                          <RadioGroupItem
+                            value={level}
+                            id={level}
+                            dir={dir}
+                            className="border border-border-input"
+                          />
+                        </Label>
+                      </Field>
+                    ))}
+                  </RadioGroup>
+
+                  {fieldState.invalid && (
+                    <FieldError errors={[fieldState.error]} />
+                  )}
+                </FieldSet>
+              );
+            }}
+          />
+        </div>
+
+        {/* Step 2: Weight */}
+        <div style={{ display: currentStep === 2 ? "block" : "none" }}>
+          <Controller
+            name="weight"
+            control={form.control}
+            render={({ field, fieldState }) => (
+              <Field orientation="responsive" data-invalid={fieldState.invalid}>
+                <Select
+                  name={field.name}
+                  value={String(field.value)}
+                  onValueChange={value => {
+                    field.onChange(Number(value));
+                  }}
+                >
+                  <SelectTrigger
+                    id="form-rh-select-user-weight"
+                    aria-invalid={fieldState.invalid}
+                    className="flex justify-center min-w-full"
+                  >
+                    <SelectValue placeholder="Select" />
+                  </SelectTrigger>
+                  <SelectContent position="item-aligned">
+                    {Array.from({ length: 121 }, (_, i) => i + 30).map(
+                      weight => (
+                        <SelectItem key={weight} value={String(weight)}>
+                          {`${weight}  ${t(`weight.symbol`)} `}
+                        </SelectItem>
+                      )
+                    )}
+                  </SelectContent>
+                </Select>
+                {fieldState.invalid && (
+                  <FieldError errors={[fieldState.error]} />
+                )}
+              </Field>
             )}
           />
-        );
-      }
-
-      case 1: {
-        return (
-          <FormField
-            control={form.control}
-            name={"activityLevel"}
-            render={({ field }) => (
-              <RadioGroup
-                dir={dir}
-                className="gap-4 mx-auto w-[90%] font-baloothambi2 rtl:font-cairo"
-                onValueChange={field.onChange}
-                value={field.value}
-              >
-                {ACTIVITY_LEVELS_TRANSLATION_KEYS.map(level => (
-                  <FormItem
-                    key={level}
-                    className="flex justify-between items-center bg-muted/20 px-4 py-2 border has-checked:border border-border-input has-checked:border-primary rounded-[1.25rem] h-12 text-primary-foreground has-checked:text-primary"
-                  >
-                    {/* Label */}
-                    <Label
-                      htmlFor={level}
-                      className="font-bold text-base capitalize"
-                    >
-                      {t(`activityLevel.${level}`)}
-                    </Label>
-
-                    {/* Input Field */}
-                    <FormControl>
-                      <RadioGroupItem
-                        dir={dir}
-                        value={level}
-                        id={level}
-                        className="border border-border-input"
-                      />
-                    </FormControl>
-                  </FormItem>
-                ))}
-              </RadioGroup>
-            )}
-          />
-        );
-      }
-
-      case 2: {
-        return (
-          <>
-            <FormField
-              control={form.control}
-              name="weight"
-              render={() => (
-                <FormItem className="rtl:font-cairo">
-                  {/* Label */}
-                  <FormLabel></FormLabel>
-
-                  {/* Input Field */}
-                  <FormControl></FormControl>
-                </FormItem>
-              )}
-            />
-          </>
-        );
-      }
-
-      default: {
-        return null;
-      }
-    }
+        </div>
+      </>
+    );
   };
 
-  // Effects
-
   return (
-    <Dialog>
+    <Dialog
+      open={open}
+      onOpenChange={isOpen => {
+        setOpen(isOpen);
+
+        if (!isOpen) {
+          form.reset();
+        }
+      }}
+    >
       <DialogTrigger asChild>
         <button
           className="rtl:font-cairo underline uppercase cursor-pointer"
@@ -238,7 +292,6 @@ export function OpenUserDetailsModalButton({
           {t("change-button")}
         </button>
       </DialogTrigger>
-
       <DialogContent aria-describedby="" className="p-10 rounded-[2.5rem]">
         {/* Content  */}
         <section className="flex flex-col gap-10">
@@ -251,7 +304,7 @@ export function OpenUserDetailsModalButton({
                 onClick={handleBackButton}
               >
                 {/* lucide/move-left */}
-                <MoveLeft
+                <BackButtonIcon
                   strokeWidth={1.5}
                   className="text-muted-foreground"
                   size={24}
@@ -281,14 +334,14 @@ export function OpenUserDetailsModalButton({
 
               {/* Content */}
               <div className="space-y-6 mx-auto w-[70%]">
-                {renderCurrentStepContent()}
+                <FieldGroup>{renderCurrentStepContent()}</FieldGroup>
 
                 {/* Footer  */}
                 {/* Forgot password button */}
                 <Button
                   className="w-full rtl:font-cairo font-extrabold text-base"
-                  type={isLastStep ? "submit" : "button"}
-                  onClick={isLastStep ? undefined : handleNextButton}
+                  type="button"
+                  onClick={handleNextButton}
                 >
                   {isLastStep ? t("save-button") : t("next-button")}
                 </Button>

@@ -159,6 +159,12 @@
         "title": "weight",
         "symbol": "kg"
       },
+      "validation": {
+        "toast": {
+          "success": "Profile changed successfully",
+          "error": "Failed to eit profile, please try again"
+        }
+      },
 
       "change-button": "tap to change",
       "next-button": "next",
@@ -204,7 +210,15 @@
       "security": "security",
       "privacy-policy": "privacy policy",
       "help": "help",
-      "logout": "logout"
+      "logout": {
+        "title": "Logout",
+        "validation": {
+          "toast": {
+            "success": "Logged out successfully",
+            "error": "Failed to log out, please try again"
+          }
+        }
+      }
     }
   }
 }

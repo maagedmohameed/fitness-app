@@ -5,6 +5,7 @@ export function useLogout() {
   const { isPending, data, error } = useQuery({
     queryKey: ["logout"],
     queryFn: logout,
+    enabled: false,
   });
 
   return { isPending, data, error, logout };

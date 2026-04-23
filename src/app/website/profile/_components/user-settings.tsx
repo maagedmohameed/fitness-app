@@ -76,7 +76,7 @@ export default function UserSettings() {
           className="text-primary capitalize"
           onClick={signOut}
         >
-          {t("logout")}
+          {t("logout.title")}
         </button>
       ),
       icon: LogOut,

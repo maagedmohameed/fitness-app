@@ -1,9 +1,9 @@
+import * as z from "zod";
+import type { Translation } from "../types/global";
 import {
   ACTIVITY_LEVELS_TRANSLATION_KEYS,
   GOALS_TRANSLATION_KEYS,
 } from "@/app/website/profile/_constants/profile.constant";
-import * as z from "zod";
-import type { Translation } from "../types/global";
 
 export const changeUserDetailsSchema = z.object({
   // Goal

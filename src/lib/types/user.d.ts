@@ -23,6 +23,7 @@ declare type User = {
   activityLevel: UserActivityLevel;
   photo: string;
   createdAt: string;
+  passwordChangedAt?: string;
 };
 
 export type UserDetails = {

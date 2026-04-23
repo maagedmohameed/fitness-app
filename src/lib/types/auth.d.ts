@@ -3,12 +3,16 @@ import {
   changeUserDetailsSchema,
   changeUserPasswordSchema,
 } from "../schemas/auth.schema";
+import type { User } from "./user";
 
 export type LogoutResponse = {
   message: string;
 };
 export type ForgotPasswordResponse = {
   token: string;
+};
+export type editProfileResponse = {
+  user: User;
 };
 
 // Fields Types
