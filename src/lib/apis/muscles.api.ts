@@ -1,5 +1,3 @@
-import type { Muscle, MuscleGroup } from "../types/muscle";
-
 const API = import.meta.env.VITE_API;
 
 export async function getMusclesGroups(locale: string) {

@@ -12,7 +12,6 @@ import WorkoutsSection from "./_components/workouts/workouts-section";
 export default function HomePage() {
   return (
     <main className="bg-background">
-
       {/* header */}
       <Header />
 

@@ -9,12 +9,12 @@ type MusclesGroupsProps = {
 };
 
 const MAIN_MUSCLES_GROUPS = [
-  { _id: "67c79f3526895f87ce0aa96d", name: "Chest" },
-  { _id: "67c79f3526895f87ce0aa977", name: "Arm" },
-  { _id: "67c79f3526895f87ce0aa96e", name: "Shoulder" },
-  { _id: "67c79f3526895f87ce0aa96f", name: "Back" },
-  { _id: "67c79f3526895f87ce0aa96c", name: "Glutes" },
-  { _id: "67c79f3526895f87ce0aa971", name: "Biceps" },
+  { _id: "69d982ed85f6bfa972bf2220", name: "Chest" },
+  { _id: "69d982ee85f6bfa972bf2238", name: "Arm" },
+  { _id: "69d982ed85f6bfa972bf2224", name: "Shoulder" },
+  { _id: "69d982ee85f6bfa972bf2226", name: "Back" },
+  { _id: "69d982ed85f6bfa972bf221a", name: "Glutes" },
+  { _id: "69d982ee85f6bfa972bf222c", name: "Biceps" },
 ];
 
 export default function MusclesGroups({
@@ -33,7 +33,7 @@ export default function MusclesGroups({
   if (isPending) return <MusclesGroupsSkeleton />;
 
   return (
-    <ul className="flex gap-8 mx-auto w-fit overflow-x-hidden">
+    <ul className="flex flex-wrap gap-8 mx-auto w-fit overflow-x-hidden">
       <li>
         <Button
           variant={activeMusclesGroupId ? "ghost" : "default"}

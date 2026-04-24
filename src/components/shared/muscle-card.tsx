@@ -20,7 +20,7 @@ export default function MuscleCard({
   const MoveUp = locale === "ar" ? MoveUpLeft : MoveUpRight;
 
   return (
-    <div className="relative mx-auto border border-[#24242424]/14 rounded-[1.125rem] w-full max-w-100 h-100 overflow-hidden">
+    <div className="relative mx-auto border border-[#24242424]/14 rounded-[1.125rem] w-full max-w-100 max-h-100 overflow-hidden">
       {/* Muscle card image  */}
       <img
         src={image || imagePlaceholder}
