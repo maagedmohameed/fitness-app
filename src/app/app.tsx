@@ -1,5 +1,9 @@
 import { AppProvider } from "@/components/providers/app-providers/index.provider";
-import { Navigate, Route } from "react-router-dom";
+import {
+  Navigate,
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
 import NotFound from "./not-found";
 import ClassesPage from "./website/classes/page";
 import HomePage from "./website/home/page";
@@ -8,25 +12,49 @@ import Login from "./website/auth/login/page";
 import AuthenticationLayout from "./website/auth/layout";
 import WebLayout from "./website/layout";
 
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <WebLayout />,
+    children: [
+      {
+        index: true,
+        element: <HomePage />,
+      },
+      {
+        path: "auth",
+        element: <AuthenticationLayout />,
+        children: [
+          {
+            index: true,
+            element: <Navigate to="login" replace />,
+          },
+          {
+            path: "login",
+            element: <Login />,
+          },
+          {
+            path: "register",
+            element: <Register />,
+          },
+        ],
+      },
+      {
+        path: "classes",
+        element: <ClassesPage />,
+      },
+      {
+        path: "*",
+        element: <NotFound />,
+      },
+    ],
+  },
+]);
+
 export default function App() {
   return (
     <AppProvider>
-      <Route path="/" element={<WebLayout />}>
-        <Route index element={<HomePage />} />
-
-        {/* authentication Routes */}
-        <Route path="/auth" element={<AuthenticationLayout />}>
-          <Route index element={<Navigate to="login" replace />} />
-          <Route path="login" element={<Login />} />
-          <Route path="register" element={<Register />} />
-        </Route>
-
-        {/* Classes page */}
-        <Route path="/classes" element={<ClassesPage />} />
-
-        {/* NotFound */}
-        <Route path="*" element={<NotFound />} />
-      </Route>
+      <RouterProvider router={router} />
     </AppProvider>
   );
 }
