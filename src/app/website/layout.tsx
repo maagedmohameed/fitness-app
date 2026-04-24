@@ -1,14 +1,16 @@
 import Footer from "@/components/layout/footer/footer";
 import Header from "@/components/layout/header/header";
-import React from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 
 export default function WebLayout() {
+  const location = useLocation();
+  const isAuthPage = location.pathname.startsWith("/auth");
+
   return (
     <>
-      <Header />
+      {!isAuthPage && <Header />}
       <Outlet />
-      <Footer />
+      {!isAuthPage && <Footer />}
     </>
   );
 }

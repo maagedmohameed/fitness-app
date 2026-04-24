@@ -20,7 +20,7 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: oklch(1 0 0);
+  --background: #f3f3f4;
   --foreground: #242424;
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
@@ -43,7 +43,7 @@
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
+  --background: #232424;
   --foreground: #f3f3f4;
   --card: oklch(0.205 0 0);
   --card-foreground: oklch(0.985 0 0);
@@ -100,9 +100,20 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground no-scrollbar;
   }
   html {
     @apply font-baloothambi2;
+  }
+
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
   }
 }

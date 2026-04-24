@@ -13,6 +13,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
       {/* ErrorBoundaryWrapper */}
       <ErrorBoundaryWrapper>
         {/* BrowserRouter */}
+
         <BrowserRouter>
           {/* LanguageContext */}
           <LanguageContext>

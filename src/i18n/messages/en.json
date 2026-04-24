@@ -112,5 +112,108 @@
     "breakfast": "breakfast",
     "lunch": "launch",
     "dinner": "dinner"
+  },
+  "register": {
+    "title": "Registration",
+    "description": "Create your account",
+    "info": {
+      "greeting": "Join us today",
+      "create-account": "Create Account",
+      "register-title": "Registration Info",
+      "first-name": "First Name",
+      "last-name": "Last Name",
+      "email": "Email",
+      "password": "Password",
+      "forget-password": "Forgot Password?",
+      "or": "OR",
+      "social-continue": "Continue with {name}",
+      "submit": "Continue",
+      "submitting": "Processing...",
+      "already-have-account": "Already have an account?",
+      "login": "Login"
+    },
+    "gender": {
+      "title": "What Is Your Gender ?",
+      "description": "This Helps Us Create Your Personalized Plan",
+      "male": "Male",
+      "female": "Female",
+      "next": "Next",
+      "select": "Select"
+    },
+    "age": {
+      "title": "How Old Are You ?",
+      "description": "This Helps Us Create Your Personalized Plan",
+      "label": "Years",
+      "next": "Next",
+      "select": "Select"
+    },
+    "weight": {
+      "title": "What Is Your Weight ?",
+      "description": "This Helps Us Create Your Personalized Plan",
+      "label": "Kg",
+      "next": "Done",
+      "select": "Select"
+    },
+    "height": {
+      "title": "What Is Your Height ?",
+      "description": "This Helps Us Create Your Personalized Plan",
+      "label": "CM",
+      "next": "Next",
+      "select": "Select"
+    },
+    "goal": {
+      "title": "What Is Your Goal ?",
+      "description": "This Helps Us Create Your Personalized Plan",
+      "options": {
+        "gain-weight": "Gain Weight",
+        "lose-weight": "Lose Weight",
+        "get-fitter": "Get Fitter",
+        "gain-more-flexible": "Gain More Flexible",
+        "learn-the-basic": "Learn The Basic"
+      },
+      "next": "Next",
+      "select": "Select"
+    },
+    "activity-level": {
+      "title": "Your physical activity level ?",
+      "description": "this helps us create your personalized plan",
+      "options": {
+        "rookie": "Rookie",
+        "beginner": "Beginner",
+        "intermediate": "Intermediate",
+        "advance": "Advance",
+        "true-beast": "True Beast"
+      },
+      "next": "Next",
+      "select": "Select"
+    },
+    "fitness-level": {
+      "title": "Your Fitness Level ?",
+      "description": "How would you describe your current physical condition?",
+      "options": {
+        "rookie": "Rookie",
+        "beginner": "Beginner",
+        "intermediate": "Intermediate",
+        "advance": "Advance",
+        "true-beast": "True Beast"
+      },
+      "next": "Confirm",
+      "select": "Select"
+    },
+    "validation": {
+      "firstNameRequired": "First name is required",
+      "lastNameRequired": "Last name is required",
+      "emailRequired": "Email is required",
+      "emailInvalid": "Please enter a valid email",
+      "passwordMin": "Password must be at least 8 characters",
+      "passwordPattern": "Password must contain uppercase, lowercase, numbers and symbols",
+      "genderRequired": "Please select your gender",
+      "goalRequired": "Please select a goal",
+      "heightRequired": "Please select your height",
+      "weightRequired": "Please select your weight",
+      "activityLevelRequired": "Please select activity level",
+      "fitnessLevelRequired": "Please select fitness level",
+      "ageMin": "Minimum age is 13"
+    }
   }
 }
