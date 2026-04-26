@@ -1,5 +1,5 @@
 import AboutUsSection from "@/components/shared/about-us-section";
 
-export default function page() {
+export default function AboutPage() {
   return <AboutUsSection />;
 }

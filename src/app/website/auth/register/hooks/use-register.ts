@@ -16,7 +16,7 @@ export function useRegister() {
 
   return useMutation<RegisterResponse, Error, T_RegisterFormValues>({
     mutationFn: signup,
-    onSuccess: (data) => {
+    onSuccess: data => {
       // Store token in cookies for 7 days using the utility
       setToken(data.token);
 

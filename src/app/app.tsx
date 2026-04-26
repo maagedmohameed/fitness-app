@@ -11,6 +11,7 @@ import Register from "./website/auth/register/page";
 import Login from "./website/auth/login/page";
 import AuthenticationLayout from "./website/auth/layout";
 import WebLayout from "./website/layout";
+import AboutPage from "./website/about/page";
 
 const router = createBrowserRouter([
   {
@@ -40,9 +41,17 @@ const router = createBrowserRouter([
         ],
       },
       {
+        path: "about",
+        element: <AboutPage />,
+      },
+      {
         path: "classes",
         element: <ClassesPage />,
       },
+      // {
+      //   path: "healthy",
+      //   element: <HealthyPage />,
+      // },
       {
         path: "*",
         element: <NotFound />,

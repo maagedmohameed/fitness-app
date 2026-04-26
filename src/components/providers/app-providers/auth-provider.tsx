@@ -2,7 +2,7 @@ import { AuthContext } from "@/hooks/auth-context";
 import { useLogout } from "@/hooks/auth/use-logout";
 import type { UserDetails } from "@/lib/types/user";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { redirect } from "react-router-dom";
 import { toast } from "sonner";
 import { useTranslations } from "use-intl";
 
@@ -26,7 +26,6 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
   // Hooks
 
-  const navigate = useNavigate();
   const { logout, error } = useLogout();
 
   // Functions
@@ -52,7 +51,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
           photo: "",
         });
 
-        navigate("/");
+        redirect("/");
       }
     } catch (error) {
       console.error(error);
