@@ -11,6 +11,8 @@ export default function LanguageContextProvider({
   const [locale, setLocale] = useState<TLocale>(
     (Cookies.get("locale") as TLocale) || "en"
   );
+  // Variables
+  const dir = locale === "ar" ? "rtl" : "ltr";
 
   // toggleLocale
   const toggleLocale = () => {
@@ -25,7 +27,7 @@ export default function LanguageContextProvider({
   }, [locale]);
 
   return (
-    <LanguageContext.Provider value={{ locale, toggleLocale }}>
+    <LanguageContext.Provider value={{ locale, toggleLocale, dir }}>
       {children}
     </LanguageContext.Provider>
   );

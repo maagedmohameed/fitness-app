@@ -1,13 +1,5 @@
 import * as React from "react";
-import {
-  Eye,
-  EyeOff,
-  Lock,
-  Mail,
-  Phone,
-  User,
-  UserRound,
-} from "lucide-react";
+import { Eye, EyeOff, Lock, Mail, Phone, User, UserRound } from "lucide-react";
 
 import { cn } from "@/lib/utils/tailwind-merge";
 
@@ -37,27 +29,30 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     return (
       <div
         className={cn(
-          "flex  p-4 w-full items-center gap-3 rounded-[1.25rem] border border-input bg-transparent  text-white",
-          className,
+          "flex items-center gap-3 bg-transparent p-4 border border-input rounded-[1.25rem] w-full text-white",
+          className
         )}
       >
         {LeftIcon ? (
-          <LeftIcon className="size-5 shrink-0 text-white/70" aria-hidden="true" />
+          <LeftIcon
+            className="size-5 text-white/70 shrink-0"
+            aria-hidden="true"
+          />
         ) : null}
 
         <input
           ref={ref}
           type={resolvedType}
           data-slot="input"
-          className="w-full min-w-0 border-0 bg-transparent text-base text-white placeholder:text-white/60 outline-none disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
+          className="bg-transparent disabled:opacity-50 border-0 outline-none w-full min-w-0 text-white placeholder:text-white/60 md:text-sm text-base disabled:cursor-not-allowed disabled:pointer-events-none"
           {...props}
         />
 
         {password ? (
           <button
             type="button"
-            onClick={() => setShowPassword((prev) => !prev)}
-            className="inline-flex shrink-0 cursor-pointer items-center justify-center text-white/70 transition-colors hover:text-white"
+            onClick={() => setShowPassword(prev => !prev)}
+            className="inline-flex justify-center items-center text-white/70 hover:text-white transition-colors cursor-pointer shrink-0"
             aria-label={showPassword ? "Hide password" : "Show password"}
           >
             {showPassword ? (
@@ -69,7 +64,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         ) : null}
       </div>
     );
-  },
+  }
 );
 
 Input.displayName = "Input";

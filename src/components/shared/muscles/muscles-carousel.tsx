@@ -9,8 +9,9 @@ import MuscleCard from "@/components/shared/muscle-card";
 import { cn } from "@/lib/utils/tailwind-merge";
 import { Link } from "react-router-dom";
 import { MuscleCardSkeleton } from "@/components/skeletons/muscle-card.skeleton";
-import { useLocale, useTranslations } from "use-intl";
+import { useTranslations } from "use-intl";
 import NoDataFound from "@/components/shared/no-data-found";
+import { useLanguage } from "@/hooks/language.context";
 
 type MuscleCardCarouselProps = {
   muscles?: Muscle[];
@@ -23,7 +24,7 @@ export default function MusclesCarousel({
 }: MuscleCardCarouselProps) {
   // Translations
   const t = useTranslations("workouts");
-  const locale = useLocale() as "en" | "ar";
+  const { dir } = useLanguage();
 
   // States
   const [api, setApi] = React.useState<CarouselApi>();
@@ -37,9 +38,6 @@ export default function MusclesCarousel({
     if (!api) return;
     setCurrent(api.selectedScrollSnap() + 1);
   }, [api]);
-
-  // Variables
-  const dir = locale === "ar" ? "rtl" : "ltr";
 
   // Effects
   /**

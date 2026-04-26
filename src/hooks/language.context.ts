@@ -3,7 +3,7 @@ import { createContext, useContext } from "react";
 
 // LanguageContext
 export const LanguageContext = createContext<TLanguageContextValue | undefined>(
-  undefined,
+  undefined
 );
 
 // useLanguage

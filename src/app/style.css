@@ -16,6 +16,12 @@
   font-weight: 400 600 700 800 900;
   font-style: normal;
 }
+@font-face {
+  font-family: "cairo";
+  src: url("/assets/fonts/cairo.ttf") format("truetype");
+  font-weight: 400 600 700 800 900;
+  font-style: normal;
+}
 
 @custom-variant dark (&:is(.dark *));
 
@@ -27,7 +33,7 @@
   --popover: oklch(1 0 0);
   --popover-foreground: #000000;
   --primary: #ff4100;
-  --primary-foreground: #ffffff;
+  --primary-foreground: #242424;
   --secondary: oklch(0.97 0 0);
   --secondary-foreground: oklch(0.205 0 0);
   --muted: #d3d3d3;
@@ -50,9 +56,10 @@
   --popover: oklch(0.205 0 0);
   --popover-foreground: oklch(0.985 0 0);
   --primary: #ff4100;
-  --primary-foreground: #ffffff;
+  --primary-foreground: #d3d3d3;
   --secondary: oklch(0.269 0 0);
   --secondary-foreground: oklch(0.985 0 0);
+  --muted: #d3d3d3;
   --muted: #d3d3d3;
   --muted-foreground: #ffffff;
   --accent: oklch(0.269 0 0);
@@ -67,6 +74,7 @@
 @theme inline {
   --font-baloothambi2: "BalooThambi2", sans-serif;
   --font-inter: "inter", sans-serif;
+  --font-cairo: "cairo", sans-serif;
   --color-ring: var(--ring);
   --color-input: var(--input);
   --color-border: var(--border);
@@ -104,6 +112,9 @@
   }
   html {
     @apply font-baloothambi2;
+  }
+  button {
+    @apply cursor-pointer;
   }
 
   /* Hide scrollbar for Chrome, Safari and Opera */

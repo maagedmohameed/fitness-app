@@ -1,5 +1,7 @@
 import type { T_RegisterFormValues } from "@/lib/types/auth";
 import type { RegisterResponse } from "@/lib/types/auth";
+import type { LogoutResponse } from "../types/auth";
+import { getToken } from "../utils/get-token";
 
 const API = import.meta.env.VITE_API;
 
@@ -31,4 +33,28 @@ export async function signup(data: T_RegisterFormValues) {
   }
 
   return result;
+}
+
+export async function logout() {
+  const token = getToken();
+
+  if (!token) throw new Error("There is no token");
+
+  const response = await fetch(`${API}/auth/logout`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+  if (!response.ok) {
+    throw new Error("Failed to logout");
+  }
+
+  const payload: ApiResponse<LogoutResponse> = await response.json();
+
+  if ("error" in payload) {
+    throw new Error(payload.error as string);
+  }
+
+  return payload;
 }
