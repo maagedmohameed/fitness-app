@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import SolidButton from "@/components/shared/solid-button";
 import OutlineButton from "@/components/shared/outline-button";
 import { useTranslations } from "use-intl";
+import { isLoggedIn } from "@/lib/utils/cookie";
 
 const HEADER_LINKS = [
   {
@@ -21,7 +22,7 @@ const HEADER_LINKS = [
   {
     label: "healthy",
     href: "/healthy",
-  }
+  },
 ];
 
 export default function Header() {
@@ -42,34 +43,45 @@ export default function Header() {
         scrolled ? "bg-white dark:bg-black" : "bg-transparent",
       )}
     >
-    <div className="flex items-center justify-between container mx-auto">
-
+      <div className="flex items-center justify-between container mx-auto">
         {/* logo */}
         <div className="logo">
+          <Link to="/" aria-label="Go to home page">
             <img src="/assets/images/fit 1.svg" alt="logo" className="w-24" />
+          </Link>
         </div>
 
         {/* navigations */}
         <nav>
-            <ul className="flex items-center gap-4">
-                {HEADER_LINKS.map((link) => (
-                    <li key={link.href}>
-                        <Link to={link.href} className="text-black dark:text-white font-semibold text-lg">{t(`links.${link.label}`)}</Link>
-                    </li>
-                ))}
-            </ul>
+          <ul className="flex items-center gap-4">
+            {HEADER_LINKS.map((link) => (
+              <li key={link.href}>
+                <Link
+                  to={link.href}
+                  className="text-black dark:text-white font-semibold text-lg"
+                >
+                  {t(`links.${link.label}`)}
+                </Link>
+              </li>
+            ))}
+          </ul>
         </nav>
 
         {/* buttons */}
+
         <div className="flex items-center gap-1">
-            <SolidButton>
-                <Link to="/register">{t("buttons.login")}</Link>
-            </SolidButton>
-            <OutlineButton>
-                <Link to="/register">{t("buttons.signup")}</Link>
-            </OutlineButton>
+          {!isLoggedIn() && (
+            <>
+              <SolidButton>
+                <Link to="/auth/login">{t("buttons.login")}</Link>
+              </SolidButton>
+              <OutlineButton>
+                <Link to="/auth/register">{t("buttons.signup")}</Link>
+              </OutlineButton>
+            </>
+          )}
         </div>
-    </div>
-  </header>
+      </div>
+    </header>
   );
 }

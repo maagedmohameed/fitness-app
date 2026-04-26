@@ -114,5 +114,108 @@
     "breakfast": "الفطار",
     "lunch": "الغداء",
     "dinner": "العشاء"
+  },
+  "register": {
+    "title": "التسجيل",
+    "description": "أنشئ حسابك",
+    "info": {
+      "greeting": "انضم إلينا اليوم",
+      "create-account": "إنشاء حساب",
+      "register-title": "معلومات التسجيل",
+      "first-name": "الاسم الأول",
+      "last-name": "الاسم الأخير",
+      "email": "البريد الإلكتروني",
+      "password": "كلمة المرور",
+      "forget-password": "هل نسيت كلمة المرور؟",
+      "or": "أو",
+      "social-continue": "المتابعة باستخدام {name}",
+      "submit": "متابعة",
+      "submitting": "جاري المعالجة...",
+      "already-have-account": "هل لديك حساب بالفعل؟",
+      "login": "تسجيل الدخول"
+    },
+    "gender": {
+      "title": "ما هو جنسك ؟",
+      "description": "هذا يساعدنا في إنشاء خطتك المخصصة",
+      "male": "ذكر",
+      "female": "أنثى",
+      "next": "التالي",
+      "select": "اختر"
+    },
+    "age": {
+      "title": "كم عمرك ؟",
+      "description": "هذا يساعدنا في إنشاء خطتك المخصصة",
+      "label": "سنوات",
+      "next": "التالي",
+      "select": "اختر"
+    },
+    "weight": {
+      "title": "ما هو وزنك ؟",
+      "description": "هذا يساعدنا في إنشاء خطتك المخصصة",
+      "label": "كجم",
+      "next": "تم",
+      "select": "اختر"
+    },
+    "height": {
+      "title": "ما هو طولك ؟",
+      "description": "هذا يساعدنا في إنشاء خطتك المخصصة",
+      "label": "سم",
+      "next": "التالي",
+      "select": "اختر"
+    },
+    "goal": {
+      "title": "ما هو هدفك ؟",
+      "description": "هذا يساعدنا في إنشاء خطتك المخصصة",
+      "options": {
+        "gain-weight": "زيادة الوزن",
+        "lose-weight": "خسارة الوزن",
+        "get-fitter": "تحسين اللياقة",
+        "gain-more-flexible": "زيادة المرونة",
+        "learn-the-basic": "تعلم الأساسيات"
+      },
+      "next": "التالي",
+      "select": "اختر"
+    },
+    "activity-level": {
+      "title": "ما هو مستوى نشاطك البدني ؟",
+      "description": "هذا يساعدنا في إنشاء خطتك المخصصة",
+      "options": {
+        "rookie": "مبتدئ جداً",
+        "beginner": "مبتدئ",
+        "intermediate": "متوسط",
+        "advance": "متقدم",
+        "true-beast": "محترف"
+      },
+      "next": "التالي",
+      "select": "اختر"
+    },
+    "fitness-level": {
+      "title": "ما هو مستواك الرياضي ؟",
+      "description": "كيف تصف حالتك البدنية الحالية؟",
+      "options": {
+        "rookie": "مبتدئ جداً",
+        "beginner": "مبتدئ",
+        "intermediate": "متوسط",
+        "advance": "متقدم",
+        "true-beast": "محترف"
+      },
+      "next": "تأكيد",
+      "select": "اختر"
+    },
+    "validation": {
+      "firstNameRequired": "الاسم الأول مطلوب",
+      "lastNameRequired": "الاسم الأخير مطلوب",
+      "emailRequired": "البريد الإلكتروني مطلوب",
+      "emailInvalid": "يرجى إدخال بريد إلكتروني صحيح",
+      "passwordMin": "يجب أن تكون كلمة المرور 8 أحرف على الأقل",
+      "passwordPattern": "يجب أن تحتوي كلمة المرور على أحرف كبيرة وصغيرة وأرقام ورموز",
+      "genderRequired": "يرجى اختيار الجنس",
+      "goalRequired": "يرجى اختيار الهدف",
+      "heightRequired": "يرجى اختيار الطول",
+      "weightRequired": "يرجى اختيار الوزن",
+      "activityLevelRequired": "يرجى اختيار مستوى النشاط",
+      "fitnessLevelRequired": "يرجى اختيار المستوى الرياضي",
+      "ageMin": "الحد الأدنى للسن هو 13 عاماً"
+    }
   }
 }
