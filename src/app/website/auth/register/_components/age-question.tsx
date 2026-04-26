@@ -4,7 +4,7 @@ import { useFormContext, useWatch } from "react-hook-form";
 import StepProgress from "./step-progress";
 import { HorizontalWheelPicker } from "@/components/shared/horizontal-wheel-picker";
 import { useTranslations } from "use-intl";
-import BackButton from "./back-button";
+import BackButton from "../../../../../components/shared/back-button";
 import {
   FormControl,
   FormField,

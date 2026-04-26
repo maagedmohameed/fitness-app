@@ -11,7 +11,7 @@ import { useFormContext, useWatch } from "react-hook-form";
 import StepProgress from "./step-progress";
 import { useTranslations } from "use-intl";
 import { goalOptions } from "@/lib/consts/register";
-import BackButton from "./back-button";
+import BackButton from "../../../../../components/shared/back-button";
 
 type GoalQuestionProps = {
   onNext: () => void;

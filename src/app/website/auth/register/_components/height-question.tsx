@@ -11,7 +11,7 @@ import StepProgress from "./step-progress";
 import { useTranslations } from "use-intl";
 import { useEffect } from "react";
 import { HorizontalWheelPicker } from "@/components/shared/horizontal-wheel-picker";
-import BackButton from "./back-button";
+import BackButton from "../../../../../components/shared/back-button";
 
 type HeightQuestionProps = {
   onNext: () => void;

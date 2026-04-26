@@ -11,7 +11,7 @@ import { Mars, Venus } from "lucide-react";
 import { useFormContext, useWatch } from "react-hook-form";
 import StepProgress from "./step-progress";
 import { useTranslations } from "use-intl";
-import BackButton from "./back-button";
+import BackButton from "../../../../../components/shared/back-button";
 
 type GenderQuestionProps = {
   onNext: () => void;

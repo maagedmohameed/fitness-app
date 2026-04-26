@@ -14,7 +14,7 @@ import { useFormContext, useWatch } from "react-hook-form";
 import StepProgress from "./step-progress";
 import { useTranslations } from "use-intl";
 import { fitnessOptions } from "@/lib/consts/register";
-import BackButton from "./back-button";
+import BackButton from "../../../../../components/shared/back-button";
 import { ErrorMessage } from "@/components/shared/error-message";
 
 type FitnessLevelQuestionProps = {

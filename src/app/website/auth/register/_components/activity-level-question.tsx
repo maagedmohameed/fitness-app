@@ -12,8 +12,7 @@ import { useFormContext, useWatch } from "react-hook-form";
 import StepProgress from "./step-progress";
 import { useTranslations } from "use-intl";
 import { activityOptions } from "@/lib/consts/register";
-import BackButton from "./back-button";
-
+import BackButton from "../../../../../components/shared/back-button";
 
 type ActivityLevelQuestionProps = {
   onNext: () => void;
@@ -52,7 +51,7 @@ export default function ActivityLevelQuestion({
         </p>
       </div>
 
-      <div className="flex w-full max-w-[19.375rem] flex-col items-center px-0 py-6 sm:py-8">
+      <div className="flex w-full max-w-77.5 flex-col items-center px-0 py-6 sm:py-8">
         {/* Activity level selection list. */}
         <FormField
           control={control}
@@ -64,7 +63,7 @@ export default function ActivityLevelQuestion({
                 <div className="flex w-full flex-col gap-3">
                   {activityOptions.map((option) => {
                     const isSelected = field.value === option.value;
-                    const label = t(`options.${option.key}` as any);
+                    const label = t(`options.${option.key}`);
 
                     return (
                       <Button

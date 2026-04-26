@@ -11,7 +11,6 @@ export type User = {
   height: number;
   activityLevel: string;
   goal: string;
-  photo?: string;
   _id: string;
   createdAt: string;
 };
