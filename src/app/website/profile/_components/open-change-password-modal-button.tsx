@@ -25,7 +25,7 @@ export function OpenChangePasswordModalButton() {
   const T = useTranslations("auth.forgot-password");
 
   // Hooks
-  const { locale } = useLanguage();
+  const { dir } = useLanguage();
   // const { user } = useAuth();
 
   // Mutation
@@ -52,9 +52,6 @@ export function OpenChangePasswordModalButton() {
       newPassword: "",
     },
   });
-
-  // Variables
-  const dir = locale === "ar" ? "rtl" : "ltr";
 
   //  Functions
 

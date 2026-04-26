@@ -42,7 +42,7 @@ export function OpenUserDetailsModalButton({
   const t = useTranslations("profile.user-details");
 
   // Hooks
-  const { locale } = useLanguage();
+  const { locale, dir } = useLanguage();
   const { user, setUser } = useAuth();
 
   // Mutation
@@ -63,7 +63,6 @@ export function OpenUserDetailsModalButton({
 
   // Variables
   const DETAILS_NAMES = ["goal", "activityLevel", "weight"] as const;
-  const dir = locale === "ar" ? "rtl" : "ltr";
   const BackButtonIcon = locale === "ar" ? MoveRight : MoveLeft;
 
   const steps: {
