@@ -9,7 +9,7 @@ export default function HeroSection() {
   const t = useTranslations("hero");
 
   return (
-    <div className="relative flex min-h-dvh w-full items-end pt-16 sm:pt-20">
+    <div className="relative flex min-h-dvh w-full items-end sm:items-stretch pt-16 sm:pt-20">
       {/* Background Image */}
       <img
         src="/assets/images/fitness-hero-sec.webp"
@@ -87,15 +87,6 @@ export default function HeroSection() {
               <Link to="/about">{t("cta.explore-more")}</Link>
             </OutlineButton>
           </div>
-        </div>
-
-        {/* Image */}
-        <div className="image flex h-full min-h-0 lg:w-1/2 w-full items-end justify-center">
-          <img
-            src="/assets/images/Theo.png"
-            alt="theo"
-            className="max-h-full w-full object-contain object-bottom"
-          />
         </div>
       </div>
     </div>
