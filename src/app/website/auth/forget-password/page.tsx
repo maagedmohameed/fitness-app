@@ -1,5 +1,3 @@
-"use client";
-
 import { useState } from "react";
 import EmailStep from "./_components/email-step";
 import OtpStep from "./_components/otp-step";
@@ -11,16 +9,20 @@ export default function ForgetPasswordPage() {
   const [otpToken, setOtpToken] = useState<string | undefined>(undefined);
 
   return (
-    <main className="min-h-screen bg-[#171717] px-4 py-14 flex items-center justify-center">
-      <div className="w-full max-w-md rounded-xl border border-[#D3D3D3] p-6">
+    <section className="m-auto w-full h-full pb-5 flex flex-col justify-center items-center">
+      <div className="w-full max-w-md mx-auto rounded-xl border border-[#D3D3D3] p-6">
         {step === "email" ? (
-          <EmailStep email={email} setEmail={setEmail} onNext={() => setStep("otp")} />
+          <EmailStep
+            email={email}
+            setEmail={setEmail}
+            onNext={() => setStep("otp")}
+          />
         ) : null}
 
         {step === "otp" ? (
           <OtpStep
             email={email}
-            onNext={(token) => {
+            onNext={token => {
               setOtpToken(token);
               setStep("new-password");
             }}
@@ -32,6 +34,6 @@ export default function ForgetPasswordPage() {
           <NewPasswordStep email={email} otpToken={otpToken} />
         ) : null}
       </div>
-    </main>
+    </section>
   );
 }
