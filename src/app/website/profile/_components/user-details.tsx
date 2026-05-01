@@ -18,7 +18,7 @@ export default function UserDetails() {
     { weight: user?.weight ?? 60 },
   ];
   return (
-    <section className="md:flex items-center gap-20">
+    <section className="flex md:flex-row flex-col items-center gap-20">
       {/* Content  */}
       {userDetails?.map((userDetail, idx) => (
         <UserDetailCard key={idx} UserDetail={userDetail} />

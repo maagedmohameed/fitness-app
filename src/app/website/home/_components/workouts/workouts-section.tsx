@@ -26,7 +26,7 @@ export default function WorkoutsSection() {
         </SectionTitle>
 
         {/* Container  */}
-        <div className="mx-auto container">
+        <div className="mx-auto overflow-x-hidden container">
           <MusclesSection />
         </div>
       </div>
