@@ -22,6 +22,7 @@ export const getItem = <T = string>(key: string): T | undefined => {
     // Try to parse as JSON, if it fails, return as string
     return JSON.parse(value) as T;
   } catch (e) {
+    void e;
     return value as T;
   }
 };

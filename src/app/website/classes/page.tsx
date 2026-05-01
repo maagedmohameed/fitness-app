@@ -9,10 +9,10 @@ export default function ClassesPage() {
   return (
     <main className="bg-[url(/assets/images/workout-section-cover.webp)] bg-cover">
       {/* Section Head */}
-      <div className="bg-[#ffffff]/60 dark:bg-[#24242499] backdrop-blur-[5.375rem] py-12 sm:py-36">
+      <div className="bg-[#ffffff]/60 dark:bg-[#24242499] backdrop-blur-[5.375rem] py-12 sm:py-36 pt-24 pb-10">
         <SectionTitle
           variant={"center"}
-          className="from-[#FFFFFF]/20 via-[#FFFFFF]/10 -mb-6"
+          className="hidden md:block from-[#FFFFFF]/20 via-[#FFFFFF]/10 -mb-6"
         >
           {t("heading.section")}
         </SectionTitle>

@@ -1,6 +1,7 @@
 import { AuthContext } from "@/hooks/auth-context";
 import { useLogout } from "@/hooks/auth/use-logout";
 import type { UserDetails } from "@/lib/types/user";
+import { getItem, removeItem, removeToken } from "@/lib/utils/cookie";
 import { useState } from "react";
 import { redirect } from "react-router-dom";
 import { toast } from "sonner";
@@ -11,18 +12,20 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const t = useTranslations("profile.user-settings");
 
   // States
-  const [user, setUser] = useState<UserDetails>({
-    firstName: "Maged",
-    lastName: "Mohamed",
-    email: "magdahmed624@gmail.com",
-    gender: "male",
-    age: 70,
-    weight: 70,
-    height: 170,
-    activityLevel: "level1",
-    goal: "lose weight",
-    photo: "https://fitness.elevateegy.com/uploads/default-profile.png",
-  });
+  const [user, setUser] = useState<UserDetails>(
+    getItem("user") ?? {
+      firstName: "Maged",
+      lastName: "Mohamed",
+      email: "magdahmed624@gmail.com",
+      gender: "male",
+      age: 70,
+      weight: 70,
+      height: 170,
+      activityLevel: "level1",
+      goal: "lose weight",
+      photo: "https://fitness.elevateegy.com/uploads/default-profile.png",
+    }
+  );
 
   // Hooks
 
@@ -36,7 +39,9 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       toast.success(t("logout.validation.toast.success"));
 
       if (!error) {
-        localStorage.setItem("user_token", "");
+        removeItem("user");
+
+        removeToken();
 
         setUser({
           firstName: "",

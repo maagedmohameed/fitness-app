@@ -14,6 +14,7 @@ import WebLayout from "./website/layout";
 import AboutPage from "./website/about/page";
 import Healthy from "./website/healthy/page";
 import ForgetPasswordPage from "./website/auth/forget-password/page";
+import ProfilePage from "./website/profile/page";
 
 const router = createBrowserRouter([
   {
@@ -57,6 +58,10 @@ const router = createBrowserRouter([
       {
         path: "healthy",
         element: <Healthy />,
+      },
+      {
+        path: "profile",
+        element: <ProfilePage />,
       },
       {
         path: "*",

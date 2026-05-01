@@ -101,7 +101,8 @@ export default function MusclesCarousel({
       {muscles && muscles.length > 3 && (
         <Link
           to={"/classes"}
-          className="md:hidden font-inter font-semibold text-[#FF4100] text-xs capitalize"
+          onClick={() => window.scrollTo(0, 0)}
+          className="md:hidden pb-5 font-inter font-semibold text-[#FF4100] text-xs capitalize"
         >
           {t("see-more-button")}
         </Link>

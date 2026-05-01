@@ -35,8 +35,8 @@ export function HorizontalWheelPicker({
   // Build a centered numeric strip around the current value.
   const visibleItems = Array.from(
     { length: visibleItemsCount },
-    (_, index) => value - halfVisible + index,
-  ).filter((item) => item >= min && item <= max);
+    (_, index) => value - halfVisible + index
+  ).filter(item => item >= min && item <= max);
 
   // SECTION: State Tracking
   // Track touch start position for swipe detection.
@@ -85,12 +85,12 @@ export function HorizontalWheelPicker({
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
         className={cn(
-          "flex h-25 w-full items-center justify-center gap-4 overflow-x-hidden px-2 no-scrollbar",
-          className,
+          "flex justify-center items-center gap-4 px-2 w-full h-25 overflow-x-hidden no-scrollbar",
+          className
         )}
       >
         {/* Render visible numbers with scaling and opacity based on distance from center. */}
-        {visibleItems.map((item) => {
+        {visibleItems.map(item => {
           const isSelected = item === value;
           const distance = Math.abs(item - value);
 
@@ -99,14 +99,14 @@ export function HorizontalWheelPicker({
               key={item}
               type="button"
               className={cn(
-                "shrink-0 bg-transparent font-black transition-all duration-300",
+                "bg-transparent font-black transition-all duration-300 shrink-0",
                 isSelected &&
                   "scale-125 text-[clamp(2.5rem,8vw,4rem)] text-primary",
                 distance === 1 && "text-[clamp(2rem,6vw,3rem)] text-white/90",
                 distance === 2 &&
                   "text-[clamp(1.5rem,4vw,2.25rem)] text-white/70",
                 distance >= 3 && "text-[clamp(1rem,3vw,1.5rem)] text-white/45",
-                !isSelected && "hover:text-white",
+                !isSelected && "hover:text-white"
               )}
               disabled={disabled}
               aria-pressed={isSelected}
@@ -121,7 +121,7 @@ export function HorizontalWheelPicker({
 
       {/* Visual center marker (Triangle). */}
       <div
-        className="h-0 w-0 m-auto border-x-[12px] border-b-[14px] border-x-transparent border-b-primary sm:mt-2"
+        className="m-auto sm:mt-2 border-x-[12px] border-x-transparent border-b-[14px] border-b-primary w-0 h-0"
         aria-hidden="true"
       />
     </>
