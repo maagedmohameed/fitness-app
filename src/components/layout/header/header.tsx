@@ -9,17 +9,21 @@ import { isLoggedIn } from "@/lib/utils/cookie";
 const HEADER_LINKS = [
   {
     label: "home",
+    label: "home",
     href: "/",
   },
   {
+    label: "about",
     label: "about",
     href: "/about",
   },
   {
     label: "classes",
+    label: "classes",
     href: "/classes",
   },
   {
+    label: "healthy",
     label: "healthy",
     href: "/healthy",
   },
@@ -34,6 +38,10 @@ export default function Header() {
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    setMobileMenuOpen(false);
   }, []);
 
   return (

@@ -8,7 +8,7 @@ export default function SolidButton({ children, className, ...props }: ButtonHTM
   const locale = useLocale();
 
   return (
-    <div className="relative flex items-center cursor-pointer">
+    <div className="relative inline-flex items-center max-w-full overflow-hidden cursor-pointer">
       <Button variant="default" className={cn("bg-primary text-white px-5 py-5 rounded-lg hover:bg-primary/80", className)} {...props}>
         {children}
       </Button>

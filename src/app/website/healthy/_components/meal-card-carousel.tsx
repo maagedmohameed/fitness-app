@@ -73,7 +73,7 @@ export default function MealCardCarousel({
         }}
         className="w-full"
       >
-        <CarouselContent className="md:flex-row flex-col gap-8 md:gap-0 max-h-316">
+        <CarouselContent className="flex-row gap-4 md:gap-0 max-h-316">
           {/* Muscle card skeleton */}
           {isPending &&
             Array.from({ length: 3 }).map((_, key) => (
@@ -111,7 +111,7 @@ export default function MealCardCarousel({
 
       {/* Dots navigation */}
       {meals && meals.length > 3 && (
-        <div className="hidden md:block space-x-2">
+        <div className="flex items-center justify-center gap-2">
           {meals.slice(0, Math.ceil(meals.length / 3)).map((_, index) => (
             <button
               key={index}

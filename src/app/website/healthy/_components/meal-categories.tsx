@@ -29,7 +29,7 @@ export default function MealCategories({
   return (
     <ul
       dir={locale === "ar" ? "rtl" : "ltr"}
-      className="flex gap-8 mx-auto w-fit overflow-x-hidden"
+      className="flex justify-center gap-3 sm:gap-6 lg:gap-8 mx-auto w-full whitespace-nowrap pb-2"
     >
       {MAIN_MEAL_CATEGORIES.map(({ key, value }) => {
         const isActive = activeCategory === value;
@@ -42,7 +42,7 @@ export default function MealCategories({
                 })
               }
               variant={isActive ? "default" : "ghost"}
-              className="cursor-pointer font-bold text-xl capitalize"
+              className="cursor-pointer font-bold text-base sm:text-lg lg:text-xl capitalize"
             >
               {t(key)}
             </Button>
