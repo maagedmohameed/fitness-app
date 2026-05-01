@@ -8,7 +8,6 @@ import Meals from "./_components/meals-section/h-meals";
 import Header from "@/components/layout/header/header";
 import HeroSection from "./_components/hero-section";
 import AboutUsSection from "@/components/shared/about-us-section";
-import WorkoutsSection from "./_components/workouts/workouts-section";
 
 export default function HomePage() {
   return (

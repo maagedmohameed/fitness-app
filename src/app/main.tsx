@@ -6,7 +6,7 @@ import { Route } from "react-router-dom";
 import HomePage from "./website/home/page";
 import NotFound from "./not-found";
 import ClassesPage from "./website/classes/page";
-import ForgetPasswordPage from "./website/(auth)/forget-password/page";
+import ForgetPasswordPage from "./website/auth/forget-password/page";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
