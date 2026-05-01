@@ -3,6 +3,7 @@ import { AppIntlProvider } from "./use-Intl.provider";
 import { ReactQueryProvider } from "./react-query-provider";
 import { ThemeProvider } from "./theme-provider";
 import ErrorBoundaryWrapper from "./error-boundary";
+import { Toaster } from "sonner";
 import LanguageContext from "./language-provider";
 import { AuthProvider } from "./auth-provider";
 
@@ -18,6 +19,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
           <ErrorBoundaryWrapper>
             {/* ReactQueryProvider */}
             <ReactQueryProvider>
+              <Toaster richColors />
               {/* Auth provider */}
               <AuthProvider>{children}</AuthProvider>
             </ReactQueryProvider>
