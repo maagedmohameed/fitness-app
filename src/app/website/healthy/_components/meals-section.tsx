@@ -20,7 +20,7 @@ export default function MealsSection() {
   );
 
   return (
-    <section className="relative isolate bg-[url(/assets/images/healthy-bg-overlayed.webp)] bg-cover bg-center py-10 sm:py-12">
+    <section className="relative isolate bg-[url(/assets/images/healthy-bg-overlayed.webp)] bg-cover bg-center py-24 sm:py-36">
       {/* Theme overlay (same bg image for both modes) */}
       <div className="absolute inset-0 -z-10 bg-white/72 dark:bg-black/45 backdrop-blur-[1px]" />
 

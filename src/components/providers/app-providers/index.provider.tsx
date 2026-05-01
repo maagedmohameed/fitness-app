@@ -10,20 +10,20 @@ export function AppProvider({ children }: { children: ReactNode }) {
   return (
     // ThemeProvider
     <ThemeProvider defaultTheme="light" storageKey="theme">
-      {/* ErrorBoundaryWrapper */}
-      <ErrorBoundaryWrapper>
-        {/* LanguageContext */}
-        <LanguageContext>
-          {/* AppIntlProvider */}
-          <AppIntlProvider>
+      {/* LanguageContext */}
+      <LanguageContext>
+        {/* AppIntlProvider */}
+        <AppIntlProvider>
+          {/* ErrorBoundaryWrapper (must be inside intl so ErrorPage can use translations) */}
+          <ErrorBoundaryWrapper>
             {/* ReactQueryProvider */}
             <ReactQueryProvider>
               {/* Auth provider */}
-              <AuthProvider>{children}</AuthProvider>;
+              <AuthProvider>{children}</AuthProvider>
             </ReactQueryProvider>
-          </AppIntlProvider>
-        </LanguageContext>
-      </ErrorBoundaryWrapper>
+          </ErrorBoundaryWrapper>
+        </AppIntlProvider>
+      </LanguageContext>
     </ThemeProvider>
   );
 }
