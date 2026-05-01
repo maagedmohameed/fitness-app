@@ -173,12 +173,13 @@
   "h-meal-section": {
     "title": "Healthy",
     "subTitle": "Healthy Nutritions",
-    "desc": " Fuel your fitness journey with customized <span> meal plans</span> for you"
+    "desc": " Fuel your fitness journey with customized <span> meal plans</span> for you",
+    "all-categories": "all categories"
   },
   "meal-card": {
     "button": "Read More",
     "breakfast": "breakfast",
-    "lunch": "launch",
+    "lunch": "lunch",
     "dinner": "dinner"
   },
   "register": {

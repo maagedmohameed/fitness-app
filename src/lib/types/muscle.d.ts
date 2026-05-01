@@ -1,10 +1,10 @@
-declare type Muscle = {
+export type Muscle = {
   _id: string;
   name: string;
   image: string;
 };
 
-declare type MuscleGroup = {
+export type MuscleGroup = {
   _id: string;
   name: string;
 };
