@@ -153,6 +153,11 @@
     "buttons": {
       "login": "تسجيل الدخول",
       "signup": "إنشاء حساب"
+    },
+    "language": {
+      "aria": "تغيير اللغة",
+      "en": "English",
+      "ar": "العربية"
     }
   },
   "why-us-section": {

@@ -36,7 +36,7 @@ export default function EmailStep({
 
   return (
     <div className="flex flex-col gap-2">
-      <h2 className="font-bold text-center text-white text-[2.8rem]">
+      <h2 className="font-bold text-center text-white text-2xl sm:text-[2.8rem]">
         {t("title")}
       </h2>
 

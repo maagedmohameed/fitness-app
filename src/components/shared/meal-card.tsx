@@ -15,7 +15,7 @@ export default function MealCard({ title, mealImage }: MealCardProps) {
   return (
     <div
       className={cn(
-        "flex items-end bg-cover bg-no-repeat bg-center border border-[#24242424]/14 rounded-[1.125rem] w-100 h-100 overflow-hidden"
+        "flex items-end bg-cover bg-no-repeat bg-center border border-[#24242424]/14 rounded-[1.125rem] w-full max-w-100 mx-auto aspect-square sm:h-100 overflow-hidden"
       )}
       style={{ backgroundImage: `url(${mealImage})` }}>
       <div className="space-y-2 bg-white/50 dark:bg-[#24242480]/50 backdrop-blur-[3.63rem] p-4 w-full">

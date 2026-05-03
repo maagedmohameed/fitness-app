@@ -151,6 +151,11 @@
     "buttons": {
       "login": "LOGIN",
       "signup": "SIGN UP"
+    },
+    "language": {
+      "aria": "Change language",
+      "en": "English",
+      "ar": "Arabic"
     }
   },
   "why-us-section": {

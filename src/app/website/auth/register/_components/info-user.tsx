@@ -204,13 +204,9 @@ export default function InfoUser({ onNext }: { onNext: () => void }) {
           {/* Link for users who already have an account. */}
           <p className="text-center text-white/80 text-base">
             {t("already-have-account")}{" "}
-            <button
-              type="button"
-              className="text-primary font-semibold hover:underline"
-              disabled={formState.isSubmitting}
-            >
+            <Link to="/auth/login" className="text-primary font-semibold hover:underline">
               {t("login")}
-            </button>
+            </Link>
           </p>
         </div>
       </div>

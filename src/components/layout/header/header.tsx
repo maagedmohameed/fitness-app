@@ -6,6 +6,7 @@ import OutlineButton from "@/components/shared/outline-button";
 import { Menu, X } from "lucide-react";
 import { useTranslations } from "use-intl";
 import { isLoggedIn } from "@/lib/utils/cookie";
+import LanguageSwitcher from "./language-switcher";
 
 const HEADER_LINKS = [
   {
@@ -46,9 +47,9 @@ export default function Header() {
         scrolled ? "bg-white dark:bg-black" : "bg-transparent"
       )}
     >
-      <div className="flex items-center justify-between px-4 sm:px-6 container mx-auto">
+      <div className="flex w-full items-center gap-3 px-4 sm:px-6 container mx-auto">
         {/* logo */}
-        <div className="logo">
+        <div className="logo shrink-0">
           <Link to="/" aria-label="Go to home page">
             <img
               src="/assets/images/fit 1.svg"
@@ -59,7 +60,7 @@ export default function Header() {
         </div>
 
         {/* navigations (desktop) */}
-        <nav className="hidden md:block">
+        <nav className="hidden min-w-0 flex-1 justify-center md:flex">
           <ul className="flex items-center gap-4 lg:gap-6">
             {HEADER_LINKS.map(link => (
               <li key={link.href}>
@@ -74,33 +75,37 @@ export default function Header() {
           </ul>
         </nav>
 
-        {/* buttons (desktop) */}
-        <div className="hidden md:flex items-center gap-1">
-          {!loggedIn && (
-            <>
-              <SolidButton>
-                <Link to="/auth/login">{t("buttons.login")}</Link>
-              </SolidButton>
-              <OutlineButton>
-                <Link to="/auth/register">{t("buttons.signup")}</Link>
-              </OutlineButton>
-            </>
-          )}
-        </div>
+        <div className="ml-auto flex shrink-0 items-center gap-2 sm:gap-3 md:ml-0">
+          <LanguageSwitcher />
 
-        {/* Mobile menu button */}
-        <button
-          type="button"
-          className="md:hidden p-2 text-black dark:text-white"
-          onClick={() => setMobileMenuOpen(prev => !prev)}
-          aria-label="Toggle menu"
-        >
-          {mobileMenuOpen ? (
-            <X className="size-6" />
-          ) : (
-            <Menu className="size-6" />
-          )}
-        </button>
+          {/* buttons (desktop) */}
+          <div className="hidden md:flex items-center gap-1">
+            {!loggedIn && (
+              <>
+                <SolidButton>
+                  <Link to="/auth/login">{t("buttons.login")}</Link>
+                </SolidButton>
+                <OutlineButton>
+                  <Link to="/auth/register">{t("buttons.signup")}</Link>
+                </OutlineButton>
+              </>
+            )}
+          </div>
+
+          {/* Mobile menu button */}
+          <button
+            type="button"
+            className="md:hidden p-1.5 text-black dark:text-white -me-1"
+            onClick={() => setMobileMenuOpen(prev => !prev)}
+            aria-label="Toggle menu"
+          >
+            {mobileMenuOpen ? (
+              <X className="size-6" />
+            ) : (
+              <Menu className="size-6" />
+            )}
+          </button>
+        </div>
       </div>
 
       {/* Mobile menu backdrop */}

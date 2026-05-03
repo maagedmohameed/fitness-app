@@ -8,17 +8,19 @@ export default function LanguageContextProvider({
 }: {
   children: ReactNode;
 }) {
-  const [locale, setLocale] = useState<TLocale>(
+  const [locale, setLocaleState] = useState<TLocale>(
     (Cookies.get("locale") as TLocale) || "en"
   );
   // Variables
   const dir = locale === "ar" ? "rtl" : "ltr";
 
-  // toggleLocale
+  const setLocale = (next: TLocale) => {
+    setLocaleState(next);
+    Cookies.set("locale", next, { expires: 365 });
+  };
+
   const toggleLocale = () => {
-    const nextLocale = locale === "en" ? "ar" : "en";
-    setLocale(nextLocale);
-    Cookies.set("locale", nextLocale, { expires: 365 });
+    setLocale(locale === "en" ? "ar" : "en");
   };
 
   useEffect(() => {
@@ -27,7 +29,7 @@ export default function LanguageContextProvider({
   }, [locale]);
 
   return (
-    <LanguageContext.Provider value={{ locale, toggleLocale, dir }}>
+    <LanguageContext.Provider value={{ locale, toggleLocale, setLocale, dir }}>
       {children}
     </LanguageContext.Provider>
   );

@@ -34,8 +34,10 @@ export default function MusclesGroups({
   if (isPending) return <MusclesGroupsSkeleton />;
 
   return (
-    <ul className="flex gap-8 mx-auto w-fit overflow-x-hidden">
-      <li>
+    <ul
+      className="flex flex-nowrap gap-4 sm:gap-8 mx-auto max-w-full overflow-x-auto px-4 scrollbar-hide [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+    >
+      <li className="shrink-0">
         <Button
           variant={activeMusclesGroupId ? "ghost" : "default"}
           className="font-bold text-xl capitalize"
@@ -52,7 +54,7 @@ export default function MusclesGroups({
         .map(({ _id, name }) => {
           const isActive = activeMusclesGroupId === _id;
           return (
-            <li key={_id}>
+            <li key={_id} className="shrink-0">
               <Button
                 onClick={() =>
                   setSearchParams({

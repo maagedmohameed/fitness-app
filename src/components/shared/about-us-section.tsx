@@ -7,7 +7,7 @@ export default function AboutUsSection() {
   const t = useTranslations("about-us-section");
 
   return (
-    <section className="flex flex-col gap-8 md:flex-row md:gap-10 lg:gap-14 bg-[#F3F3F4] dark:bg-[#232424] px-4 sm:px-6 lg:px-20 py-12 sm:py-36">
+    <section className="flex flex-col gap-8 md:flex-row md:gap-10 lg:gap-14 bg-[#F3F3F4] dark:bg-[#232424] px-4 sm:px-6 lg:px-20 py-20 sm:py-36">
       {/* Images  */}
       <div className="w-full md:w-1/2">
         <div className="relative mx-auto h-110 sm:h-140 lg:h-176 w-full max-w-132">

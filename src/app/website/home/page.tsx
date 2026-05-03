@@ -11,9 +11,6 @@ import AboutUsSection from "@/components/shared/about-us-section";
 export default function HomePage() {
   return (
     <main className="bg-background">
-      {/* header */}
-      <Header />
-
       {/* Hero Section */}
       <HeroSection />
 

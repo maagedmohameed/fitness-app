@@ -65,7 +65,7 @@ export default function OtpStep({ email, onNext, onBack }: OtpStepProps) {
         {tCommon("back")}
       </button>
 
-      <h2 className="font-bold text-center text-white text-[2.8rem]">
+      <h2 className="font-bold text-center text-white text-2xl sm:text-[2.8rem]">
         {t("title")}
       </h2>
 

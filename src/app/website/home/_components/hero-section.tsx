@@ -79,13 +79,17 @@ export default function HeroSection() {
             </div>
           </div>
 
-          <div className="flex items-center gap-8">
+          <div className="flex items-center flex-wrap gap-3 sm:gap-8">
+            <div className="flex w-full sm:w-auto">
             <SolidButton className="px-10">
               <Link to="/auth/register">{t("cta.get-started")}</Link>
             </SolidButton>
+            </div>
+            <div className="flex w-full sm:w-auto">
             <OutlineButton className="px-8 sm:px-10">
               <Link to="/about">{t("cta.explore-more")}</Link>
             </OutlineButton>
+            </div>
           </div>
         </div>
       </div>

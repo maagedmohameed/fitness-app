@@ -8,7 +8,7 @@ export default function AuthenticationLayout() {
 
   return (
     <main className=" w-full min-h-dvh  mx-auto bg-cover bg-center bg-[url('/assets/images/auth-layout-background.webp')]">
-      <div className="w-full min-h-dvh grid lg:grid-cols-2  justify-center  divide-x-2 divide-primary/20  bg-foreground/60 text-white backdrop-blur-2xl">
+      <div className="w-full min-h-dvh grid lg:grid-cols-2 justify-center divide-x-2 divide-primary/20 bg-foreground/60 text-white backdrop-blur-2xl">
         {/* left section */}
         <div className=" hidden lg:flex flex-col h-full items-center justify-center shadow-[0_4px_79.8px_47px_rgba(0,0,0,0.25)]">
           <div className="max-h-180.25 p-2  flex flex-col items-center justify-center gap-20 ">
@@ -31,7 +31,7 @@ export default function AuthenticationLayout() {
         </div>
 
         {/* children */}
-        <div className="h-full px-2 flex items-center justify-center">
+        <div className="h-full w-screen px-2 flex items-center justify-center">
           <Outlet />
         </div>
       </div>
