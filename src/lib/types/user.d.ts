@@ -1,8 +1,9 @@
 export type UserGoal =
-  | "gain weight"
-  | "lose weight"
-  | "gain more flexible"
-  | "learn the basic";
+  | "gain-weight"
+  | "lose-weight"
+  | "get-fitter"
+  | "gain-more-flexible"
+  | "learn-the-basic";
 export type UserActivityLevel =
   | "level1"
   | "level2"

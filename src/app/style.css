@@ -113,6 +113,21 @@
   html {
     @apply font-baloothambi2 no-scrollbar;
   }
+
+  /* Arabic locale: Cairo (LanguageContextProvider sets <html lang="ar">) */
+  html[lang="ar"] {
+    @apply font-cairo;
+  }
+
+  /* Explicit font utilities still win over inheritance */
+  html[lang="ar"] .font-inter {
+    @apply font-cairo;
+  }
+
+  html[lang="ar"] .font-baloothambi2 {
+    @apply font-cairo;
+  }
+
   button {
     @apply cursor-pointer;
   }

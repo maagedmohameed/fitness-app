@@ -1,6 +1,7 @@
 import {
   ACTIVITY_LEVELS_TRANSLATION_KEYS,
   GOALS_TRANSLATION_KEYS,
+  normalizeProfileGoal,
 } from "../_constants/profile.constant";
 import { useAuth } from "@/hooks/auth-context";
 import UserDetailCard from "./user-detail-card";
@@ -11,7 +12,7 @@ export default function UserDetails() {
 
   // Variables
   const userDetails = [
-    { goal: user?.goal ?? GOALS_TRANSLATION_KEYS[0] },
+    { goal: normalizeProfileGoal(user?.goal ?? GOALS_TRANSLATION_KEYS[0]) },
     {
       activityLevel: user?.activityLevel ?? ACTIVITY_LEVELS_TRANSLATION_KEYS[0],
     },

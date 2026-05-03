@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { RefreshCcw } from "lucide-react";
 import { useTranslations } from "use-intl";
 import { OpenUserDetailsModalButton } from "./open-user-details-modal-button";
+import { normalizeProfileGoal } from "../_constants/profile.constant";
 
 type UserDetailCardProps = {
   UserDetail: UserProfileDetail;
@@ -41,7 +42,7 @@ export default function UserDetailCard({ UserDetail }: UserDetailCardProps) {
           ? t(`activityLevel.${value}`)
           : name === "weight"
           ? `${value}  ${t(`${name}.symbol`)}`
-          : t(`goal.${value}`)}
+          : t(`goal.${normalizeProfileGoal(String(value))}`)}
         <RefreshCcw className="size-6" />
       </Button>
     </div>

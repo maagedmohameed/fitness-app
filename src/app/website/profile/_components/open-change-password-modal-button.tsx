@@ -55,9 +55,9 @@ export function OpenChangePasswordModalButton() {
   });
 
   //  Functions
-  const onSubmit: SubmitHandler<ChangeUserPasswordFormFields> = values => {
+  const onSubmit: SubmitHandler<ChangeUserPasswordFormFields> = (values) => {
     changePassword(values, {
-      onSuccess: data => {
+      onSuccess: (data) => {
         toast.success(t("validation.toast.success"));
 
         setToken(data.token);

@@ -22,7 +22,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       weight: 70,
       height: 170,
       activityLevel: "level1",
-      goal: "lose weight",
+      goal: "lose-weight",
       photo: "https://fitness.elevateegy.com/uploads/default-profile.png",
     }
   );
@@ -52,7 +52,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
           weight: 0,
           height: 0,
           activityLevel: "level1",
-          goal: "lose weight",
+          goal: "lose-weight",
           photo: "",
         });
 

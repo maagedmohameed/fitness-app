@@ -344,10 +344,11 @@
         "label": "ما هو هدفك؟",
         "description": "يساعدنا ذلك في إنشاء خطة مخصصة لك",
         "title": "هدفك",
-        "gain weight": "زيادة الوزن",
-        "lose weight": "إنقاص الوزن",
-        "gain more flexible": "زيادة المرونة",
-        "learn the basic": "تعلم الأساسيات"
+        "gain-weight": "زيادة الوزن",
+        "lose-weight": "خسارة الوزن",
+        "get-fitter": "تحسين اللياقة",
+        "gain-more-flexible": "زيادة المرونة",
+        "learn-the-basic": "تعلم الأساسيات"
       },
       "activityLevel": {
         "label": "ما هو مستوى نشاطك البدني المعتاد؟",

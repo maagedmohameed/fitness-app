@@ -342,10 +342,11 @@
         "label": "what is your Goal ?",
         "description": "this helps us create Your personalized plan ",
         "title": "your goal",
-        "gain weight": "gain weight",
-        "lose weight": "lose weight",
-        "gain more flexible": "gain more flexible",
-        "learn the basic": "learn the basic"
+        "gain-weight": "Gain Weight",
+        "lose-weight": "Lose Weight",
+        "get-fitter": "Get Fitter",
+        "gain-more-flexible": "Gain More Flexible",
+        "learn-the-basic": "Learn The Basic"
       },
       "activityLevel": {
         "label": "your regular physical activity level ?",

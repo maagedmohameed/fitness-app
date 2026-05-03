@@ -75,7 +75,7 @@ export default function Header() {
           </ul>
         </nav>
 
-        <div className="ml-auto flex shrink-0 items-center gap-2 sm:gap-3 md:ml-0">
+        <div className="ms-auto flex shrink-0 items-center gap-2 sm:gap-3 md:ml-0">
           <LanguageSwitcher />
 
           {/* buttons (desktop) */}

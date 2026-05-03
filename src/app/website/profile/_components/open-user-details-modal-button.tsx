@@ -17,6 +17,7 @@ import { useAuth } from "@/hooks/auth-context";
 import {
   ACTIVITY_LEVELS_TRANSLATION_KEYS,
   GOALS_TRANSLATION_KEYS,
+  normalizeProfileGoal,
 } from "../_constants/profile.constant";
 import { Field, FieldGroup, FieldSet, FieldError } from "@/components/ui/field";
 import { Label } from "@/components/ui/label";
@@ -50,7 +51,7 @@ export function OpenUserDetailsModalButton({
   const form = useForm<ChangeUserDetailsFormFields>({
     resolver: zodResolver(changeUserDetailsSchema),
     defaultValues: {
-      goal: user.goal ?? "lose weight",
+      goal: normalizeProfileGoal(user.goal),
       activityLevel: user.activityLevel ?? "level1",
       weight: user.weight ?? 60,
     },
@@ -82,7 +83,7 @@ export function OpenUserDetailsModalButton({
     },
   ];
 
-  const currentForm = steps[DETAILS_NAMES.indexOf(detailName)];
+  const currentForm = steps[currentStep];
 
   const isLastStep = currentStep === steps.length - 1;
 
@@ -97,16 +98,16 @@ export function OpenUserDetailsModalButton({
       return;
     }
 
-    setCurrentStep(prev => prev + 1);
+    setCurrentStep((prev) => prev + 1);
   };
 
   const handleBackButton = () => {
     if (currentStep > 0) {
-      setCurrentStep(prev => prev - 1);
+      setCurrentStep((prev) => prev - 1);
     }
   };
   //  Functions
-  const onSubmit: SubmitHandler<ChangeUserDetailsFormFields> = values => {
+  const onSubmit: SubmitHandler<ChangeUserDetailsFormFields> = (values) => {
     editUserProfile(values, {
       onSuccess({ user }) {
         setUser(user);
@@ -138,7 +139,7 @@ export function OpenUserDetailsModalButton({
                   <RadioGroup
                     name={field.name}
                     value={field.value}
-                    onValueChange={value => {
+                    onValueChange={(value) => {
                       form.setValue(
                         "goal",
                         value as ChangeUserDetailsFormFields["goal"],
@@ -149,7 +150,7 @@ export function OpenUserDetailsModalButton({
                     dir={dir}
                     className="gap-4 mx-auto w-[90%] font-baloothambi2 rtl:font-cairo"
                   >
-                    {GOALS_TRANSLATION_KEYS.map(goal => (
+                    {GOALS_TRANSLATION_KEYS.map((goal) => (
                       <Field
                         key={goal}
                         className="bg-muted/20 px-4 py-2 border has-checked:border border-border-input has-checked:border-primary rounded-[1.25rem] h-12 text-primary-foreground has-checked:text-primary"
@@ -195,7 +196,7 @@ export function OpenUserDetailsModalButton({
                     dir={dir}
                     className="gap-4 mx-auto w-[90%] font-baloothambi2 rtl:font-cairo"
                   >
-                    {ACTIVITY_LEVELS_TRANSLATION_KEYS.map(level => (
+                    {ACTIVITY_LEVELS_TRANSLATION_KEYS.map((level) => (
                       <Field
                         key={level}
                         className="bg-muted/20 px-4 py-2 border has-checked:border border-border-input has-checked:border-primary rounded-[1.25rem] h-12 text-primary-foreground has-checked:text-primary"
@@ -237,7 +238,7 @@ export function OpenUserDetailsModalButton({
                     min={30}
                     max={250}
                     value={field.value}
-                    onValueChange={val => field.onChange(val)}
+                    onValueChange={(val) => field.onChange(val)}
                   />
                 </FormControl>
 
@@ -255,11 +256,16 @@ export function OpenUserDetailsModalButton({
   return (
     <Dialog
       open={open}
-      onOpenChange={isOpen => {
+      onOpenChange={(isOpen) => {
         setOpen(isOpen);
 
         if (!isOpen) {
-          form.reset();
+          form.reset({
+            goal: normalizeProfileGoal(user.goal),
+            activityLevel: user.activityLevel ?? "level1",
+            weight: user.weight ?? 60,
+          });
+          setCurrentStep(DETAILS_NAMES.indexOf(detailName));
         }
       }}
     >
@@ -268,6 +274,11 @@ export function OpenUserDetailsModalButton({
           className="rtl:font-cairo underline uppercase cursor-pointer"
           onClick={() => {
             setCurrentStep(DETAILS_NAMES.indexOf(detailName));
+            form.reset({
+              goal: normalizeProfileGoal(user.goal),
+              activityLevel: user.activityLevel ?? "level1",
+              weight: user.weight ?? 60,
+            });
           }}
         >
           {t("change-button")}

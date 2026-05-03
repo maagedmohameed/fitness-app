@@ -17,7 +17,7 @@ export const AuthContext = createContext<AuthContextValue>({
     age: 0,
     weight: 0,
     height: 0,
-    goal: "gain weight",
+    goal: "gain-weight",
     activityLevel: "level1",
     photo: "",
   },
