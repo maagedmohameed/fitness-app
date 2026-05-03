@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils/tailwind-merge";
 import { Link } from "react-router-dom";
 import SolidButton from "@/components/shared/solid-button";
 import OutlineButton from "@/components/shared/outline-button";
-import { Menu, X } from "lucide-react";
+import { CircleUserRound, Menu, X } from "lucide-react";
 import { useTranslations } from "use-intl";
 import { isLoggedIn } from "@/lib/utils/cookie";
 import LanguageSwitcher from "./language-switcher";
@@ -80,7 +80,15 @@ export default function Header() {
 
           {/* buttons (desktop) */}
           <div className="hidden md:flex items-center gap-1">
-            {!loggedIn && (
+            {loggedIn ? (
+              <Link
+                to="/profile"
+                aria-label="Go to profile page"
+                className="inline-flex items-center justify-center rounded-full border border-black/10 dark:border-white/15 bg-white/80 dark:bg-white/5 text-black dark:text-white hover:bg-white dark:hover:bg-white/10 transition-colors size-11"
+              >
+                <CircleUserRound className="size-5" />
+              </Link>
+            ) : (
               <>
                 <SolidButton>
                   <Link to="/auth/login">{t("buttons.login")}</Link>
@@ -158,7 +166,18 @@ export default function Header() {
           ))}
         </ul>
 
-        {!loggedIn && (
+        {loggedIn ? (
+          <div className="mt-6">
+            <Link
+              to="/profile"
+              className="inline-flex items-center gap-2 text-black dark:text-white font-semibold"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              <CircleUserRound className="size-5" />
+              <span>Profile</span>
+            </Link>
+          </div>
+        ) : (
           <div className="mt-6 flex flex-col gap-2">
             <SolidButton className="w-[90%] justify-center px-4 py-3 text-sm">
               <Link

@@ -31,7 +31,7 @@ export default function AuthenticationLayout() {
         </div>
 
         {/* children */}
-        <div className="h-full w-screen px-2 flex items-center justify-center">
+        <div className="h-full w-screen sm:w-full px-2 flex items-center justify-center">
           <Outlet />
         </div>
       </div>
