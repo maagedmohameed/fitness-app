@@ -425,5 +425,82 @@
         }
       }
     }
+  },
+  "site-pages": {
+    "help": {
+      "title": "Help center",
+      "lead": "Find answers about your account, workouts, and using the Elevate Fitness app. If something is not covered here, contact us and we will get back to you.",
+      "getting-started": {
+        "title": "Getting started",
+        "p1": "Create an account from the Register page, complete your profile (goal, activity level, height, and weight), and explore Home for featured workouts and healthy living content.",
+        "p2": "Use the header to move between Home, About, Classes, and Healthy sections. When you are signed in, open your Profile to update details or change your password."
+      },
+      "account": {
+        "title": "Account and password",
+        "p1": "Forgot your password? Use Forgot password on the login screen to receive a code by email and set a new password.",
+        "p2": "You can change your password anytime from Profile → Security settings. Use a strong, unique password and never share it with anyone."
+      },
+      "classes": {
+        "title": "Classes and workouts",
+        "p1": "Browse Classes to see sessions and muscle groups. Filters help you focus on the area you want to train.",
+        "p2": "Healthy includes nutrition-focused content to complement your training plan."
+      }
+    },
+    "privacy": {
+      "title": "Privacy policy",
+      "last-updated": "Last updated: 3 May 2026",
+      "intro": "This policy explains how Elevate Fitness (“we”, “us”) collects, uses, and protects your personal information when you use our website and app.",
+      "collect": {
+        "title": "Information we collect",
+        "p1": "Account details you provide, such as name, email, age, gender, height, weight, fitness goal, and activity level.",
+        "p2": "Usage data such as pages viewed, device type, browser language, and approximate region to improve performance and content.",
+        "p3": "Communications you send us (for example support emails) and technical logs that help diagnose errors."
+      },
+      "use": {
+        "title": "How we use your information",
+        "p1": "To create and maintain your account, personalize workout and meal recommendations, and show relevant classes.",
+        "p2": "To secure our services, detect fraud, and comply with legal obligations.",
+        "p3": "To send important service messages (such as password resets). Marketing emails, if any, will only be sent where you have agreed."
+      },
+      "sharing": {
+        "title": "Sharing, retention, and storage",
+        "p1": "We do not sell your personal data. We may share information with trusted service providers (for example hosting or email delivery) who process it only on our instructions.",
+        "p2": "We retain your account data while your account is active and for a limited period afterward where required for legal or security reasons.",
+        "p3": "We use industry-standard safeguards designed to protect your data in transit and at rest."
+      },
+      "rights": {
+        "title": "Your choices and rights",
+        "p1": "Depending on your location, you may have the right to access, correct, delete, or export your personal data, or to object to certain processing.",
+        "p2": "You can update many profile fields directly in the app. For other requests, contact us using the details below.",
+        "p3": "We may use cookies or similar technologies where needed for sign-in, preferences, or analytics. You can control cookies through your browser settings."
+      },
+      "contact": {
+        "title": "Contact",
+        "p1": "Questions about this policy: privacy@elevatefitness.example"
+      }
+    },
+    "security": {
+      "title": "Security",
+      "lead": "We take protecting your account and data seriously. This page summarizes how we approach security and what you can do to stay safe.",
+      "passwords": {
+        "title": "Passwords and sign-in",
+        "p1": "Use a long, unique password for your Elevate Fitness account. Avoid reusing passwords from other sites.",
+        "p2": "Never share your password or one-time codes. Our team will never ask you for your password by email or phone.",
+        "p3": "Sign out on shared or public devices when you are finished, especially on gym or library computers."
+      },
+      "sessions": {
+        "title": "Devices and sessions",
+        "p1": "Keep your phone and browser up to date. Updates often include important security fixes.",
+        "p2": "If you notice unfamiliar activity on your account, change your password immediately and contact support."
+      },
+      "transport": {
+        "title": "Data in transit",
+        "p1": "We use encrypted connections (HTTPS) between your browser or app and our servers to reduce the risk of interception."
+      },
+      "report": {
+        "title": "Report a security issue",
+        "p1": "If you believe you have found a vulnerability, email security@elevatefitness.example with a clear description and steps to reproduce. Please do not perform disruptive testing without permission."
+      }
+    }
   }
 }

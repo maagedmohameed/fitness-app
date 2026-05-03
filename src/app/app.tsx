@@ -15,6 +15,9 @@ import AboutPage from "./website/about/page";
 import Healthy from "./website/healthy/page";
 import ForgetPasswordPage from "./website/auth/forget-password/page";
 import ProfilePage from "./website/profile/page";
+import HelpPage from "./website/help/page";
+import PrivacyPolicyPage from "./website/privacy-policy/page";
+import SecurityPage from "./website/security/page";
 
 const router = createBrowserRouter([
   {
@@ -62,6 +65,18 @@ const router = createBrowserRouter([
       {
         path: "profile",
         element: <ProfilePage />,
+      },
+      {
+        path: "help",
+        element: <HelpPage />,
+      },
+      {
+        path: "privacy-policy",
+        element: <PrivacyPolicyPage />,
+      },
+      {
+        path: "security",
+        element: <SecurityPage />,
       },
       {
         path: "*",
