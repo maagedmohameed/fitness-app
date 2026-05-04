@@ -54,8 +54,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         redirect("/");
       }
     } catch (error) {
-      console.error(error);
-
+      void error;
       toast.error(t("logout.validation.toast.error"));
     }
   };

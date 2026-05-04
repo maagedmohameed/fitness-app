@@ -10,7 +10,7 @@ const API = import.meta.env.VITE_API;
  * Handles both API-level errors and HTTP errors.
  */
 export async function signup(data: T_RegisterFormValues) {
-  const { fitnessLevel, ...payload } = data;
+  const { ...payload } = data;
 
   const response = await fetch(`${API}/auth/signup`, {
     method: "POST",
