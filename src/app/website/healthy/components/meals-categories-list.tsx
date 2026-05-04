@@ -1,4 +1,3 @@
-import { MusclesGroupsSkeleton } from "@/components/skeletons/muscles-groups.skeleton";
 import { Button } from "@/components/ui/button";
 import type { MealCategory } from "@/lib/types/meal";
 import { useSearchParams } from "react-router-dom";
@@ -6,6 +5,7 @@ import {
   DEFAULT_MEALS_CATEGORY,
   DEFAULT_MEALS_GROUPS,
 } from "../constants/meals.const";
+import { MealsGroupsSkeleton } from "../skeletons/meals-groups.skeleton";
 
 type MealsCategoriesProps = {
   mealsCategories?: MealCategory[];
@@ -24,7 +24,7 @@ export default function MealsCategories({
     searchParams.get("mealsCategory") ||
     DEFAULT_MEALS_GROUPS[DEFAULT_MEALS_GROUPS.indexOf(DEFAULT_MEALS_CATEGORY)];
 
-  if (isPending) return <MusclesGroupsSkeleton />;
+  if (isPending) return <MealsGroupsSkeleton />;
 
   return (
     <ul className="flex flex-wrap justify-evenly mx-auto w-full overflow-x-hidden">

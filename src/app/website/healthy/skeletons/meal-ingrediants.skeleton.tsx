@@ -5,7 +5,7 @@ type MealIngredientsSkeletonProps = {
 };
 
 export function MealIngredientsSkeleton({
-  length = 6,
+  length = 10,
 }: MealIngredientsSkeletonProps) {
   return (
     <ul className="justify-between gap-y-2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[repeat(2,15.43rem)] xl:grid-cols-[repeat(2,20.43rem)] bg-background/80 backdrop-blur-lg px-2 py-4 rounded-10xl">
