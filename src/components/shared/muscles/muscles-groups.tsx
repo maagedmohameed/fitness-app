@@ -33,7 +33,7 @@ export default function MusclesGroups({
   if (isPending) return <MusclesGroupsSkeleton />;
 
   return (
-    <ul className="flex flex-wrap gap-8 mx-auto w-fit overflow-x-hidden">
+    <ul className="flex flex-wrap justify-between lg:gap-8 mx-auto w-fit overflow-x-hidden">
       <li>
         <Button
           variant={activeMusclesGroupId ? "ghost" : "default"}

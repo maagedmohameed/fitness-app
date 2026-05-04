@@ -12,6 +12,7 @@ import Login from "./website/auth/login/page";
 import AuthenticationLayout from "./website/auth/layout";
 import WebLayout from "./website/layout";
 import AboutPage from "./website/about/page";
+import HealthyPage from "./website/healthy/page";
 
 const router = createBrowserRouter([
   {
@@ -48,10 +49,10 @@ const router = createBrowserRouter([
         path: "classes",
         element: <ClassesPage />,
       },
-      // {
-      //   path: "healthy",
-      //   element: <HealthyPage />,
-      // },
+      {
+        path: "healthy",
+        element: <HealthyPage />,
+      },
       {
         path: "*",
         element: <NotFound />,
