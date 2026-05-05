@@ -42,27 +42,27 @@ export default function WeightQuestion({
   };
 
   return (
-    <section className="relative h-full flex w-full flex-col justify-center items-center px-4 text-white sm:px-6">
+    <section className="relative flex flex-col justify-center items-center px-4 sm:px-6 w-full h-full text-white">
       <BackButton onClick={onBack} />
 
       {/* Step progress indicator. */}
-      <div className="mb-8 flex w-full items-center justify-center max-w-md mx-auto ">
+      <div className="flex justify-center items-center mx-auto mb-8 w-full max-w-md">
         <StepProgress current={3} max={7} />
       </div>
 
       {/* Weight step heading. */}
-      <header className="text-center font-baloothambi2">
-        <h2 className="text-[clamp(2rem,6vw,3rem)] font-extrabold capitalize ">
+      <header className="font-baloothambi2 text-center">
+        <h2 className="font-extrabold text-[clamp(2rem,6vw,3rem)] capitalize">
           {t("title")}
         </h2>
-        <p className="text-[1.125rem] font-normal capitalize leading-[1.4] text-white/80">
+        <p className="font-normal text-[1.125rem] text-white/80 capitalize leading-[1.4]">
           {t("description")}
         </p>
       </header>
 
-      <div className=" flex w-full max-w-4xl flex-col items-center rounded-[2.5rem] px-4 py-6 sm:mt-12 sm:px-6 sm:py-8">
+      <div className="flex flex-col items-center sm:mt-12 px-4 sm:px-6 py-6 sm:py-8 rounded-[2.5rem] w-full max-w-4xl">
         {/* Weight picker label. */}
-        <p className=" text-xl font-semibold text-primary  sm:text-2xl">
+        <p className="font-semibold text-primary text-xl sm:text-2xl">
           {t("label")}
         </p>
 
@@ -78,7 +78,7 @@ export default function WeightQuestion({
                   min={30}
                   max={250}
                   value={field.value}
-                  onValueChange={(val) => field.onChange(val)}
+                  onValueChange={val => field.onChange(val)}
                   ariaLabelPrefix={t("select")}
                 />
               </FormControl>
@@ -93,7 +93,7 @@ export default function WeightQuestion({
         <Button
           type="button"
           onClick={goToNextQuestion}
-          className="mt-6 w-full max-w-md rounded-full text-lg font-extrabold sm:text-xl shadow-lg"
+          className="shadow-lg mt-6 rounded-full w-full max-w-md font-extrabold text-lg sm:text-xl"
           disabled={formState.isSubmitting}
         >
           {t("next")}

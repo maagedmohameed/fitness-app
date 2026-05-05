@@ -114,10 +114,10 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground no-scrollbar;
+    @apply bg-background text-foreground;
   }
   html {
-    @apply font-baloothambi2;
+    @apply font-baloothambi2 no-scrollbar;
   }
   button {
     @apply cursor-pointer;

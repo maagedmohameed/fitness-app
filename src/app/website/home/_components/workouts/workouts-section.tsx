@@ -13,20 +13,20 @@ export default function WorkoutsSection() {
       <div
         className={cn(
           "relative",
-          "z-20",
+          "z-20 px-4 py-7",
           "before:absolute before:-z-10 before:top-14 before:left-0 before:w-full before:h-103.5 before:bg-white/60 dark:before:bg-[#24242499]/60 before:backdrop-blur-[5.375rem]"
         )}
       >
         {/* Section Head */}
         <SectionTitle
           variant={"center"}
-          className="from-[#FFFFFF]/20 via-[#FFFFFF]/10 -mb-6"
+          className="hidden md:block from-[#FFFFFF]/20 via-[#FFFFFF]/10 -mb-6"
         >
           {t("heading.section")}
         </SectionTitle>
 
         {/* Container  */}
-        <div className="mx-auto container">
+        <div className="mx-auto overflow-x-hidden container">
           <MusclesSection />
         </div>
       </div>

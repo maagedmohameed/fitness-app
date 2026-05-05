@@ -24,7 +24,9 @@ export default function MusclesSection() {
   return (
     <section className="flex flex-col items-center gap-8">
       {/* SubTitle */}
-      <SectionSubTitle variant={"center"}>{t("heading.class")}</SectionSubTitle>
+      <SectionSubTitle className="md:justify-center">
+        {t("heading.class")}
+      </SectionSubTitle>
 
       {/* Heading  */}
       <div className="max-w-159.25 font-bold dark:text-[#F3F3F4] text-4xl sm:text-center uppercase">

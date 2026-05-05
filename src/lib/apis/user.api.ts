@@ -6,7 +6,7 @@ import type {
   ForgotPasswordResponse,
 } from "../types/auth";
 import type { User } from "../types/user";
-import { getToken } from "../utils/get-token";
+import { getToken } from "../utils/cookie";
 
 export async function getLoggedUser() {
   const token = getToken();

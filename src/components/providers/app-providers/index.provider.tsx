@@ -3,6 +3,7 @@ import { AppIntlProvider } from "./use-Intl.provider";
 import { ReactQueryProvider } from "./react-query-provider";
 import { ThemeProvider } from "./theme-provider";
 import ErrorBoundaryWrapper from "./error-boundary";
+import { Toaster } from "sonner";
 import LanguageContext from "./language-provider";
 import { AuthProvider } from "./auth-provider";
 
@@ -10,20 +11,21 @@ export function AppProvider({ children }: { children: ReactNode }) {
   return (
     // ThemeProvider
     <ThemeProvider defaultTheme="light" storageKey="theme">
-      {/* ErrorBoundaryWrapper */}
-      <ErrorBoundaryWrapper>
-        {/* LanguageContext */}
-        <LanguageContext>
-          {/* AppIntlProvider */}
-          <AppIntlProvider>
+      {/* LanguageContext */}
+      <LanguageContext>
+        {/* AppIntlProvider */}
+        <AppIntlProvider>
+          {/* ErrorBoundaryWrapper (must be inside intl so ErrorPage can use translations) */}
+          <ErrorBoundaryWrapper>
             {/* ReactQueryProvider */}
             <ReactQueryProvider>
+              <Toaster richColors />
               {/* Auth provider */}
-              <AuthProvider>{children}</AuthProvider>;
+              <AuthProvider>{children}</AuthProvider>
             </ReactQueryProvider>
-          </AppIntlProvider>
-        </LanguageContext>
-      </ErrorBoundaryWrapper>
+          </ErrorBoundaryWrapper>
+        </AppIntlProvider>
+      </LanguageContext>
     </ThemeProvider>
   );
 }

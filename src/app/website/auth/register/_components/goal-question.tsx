@@ -58,7 +58,7 @@ export default function GoalQuestion({ onNext, onBack }: GoalQuestionProps) {
                 <div className="flex flex-col gap-3 w-full">
                   {goalOptions.map(option => {
                     const isSelected = field.value === option.value;
-                    const label = t(`options.${option.key}` as any);
+                    const label = t(`options.${option.key}`);
 
                     return (
                       <Button

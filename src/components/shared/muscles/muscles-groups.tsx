@@ -1,5 +1,6 @@
 import { MusclesGroupsSkeleton } from "@/components/skeletons/muscles-groups.skeleton";
 import { Button } from "@/components/ui/button";
+import type { MuscleGroup } from "@/lib/types/muscle";
 import { useSearchParams } from "react-router-dom";
 import { useTranslations } from "use-intl";
 
@@ -33,7 +34,7 @@ export default function MusclesGroups({
   if (isPending) return <MusclesGroupsSkeleton length={7} />;
 
   return (
-    <ul className="flex flex-wrap justify-between lg:gap-8 mx-auto w-fit overflow-x-hidden">
+    <ul className="flex flex-wrap justify-between lg:gap-8 mx-auto w-fit">
       <li>
         <Button
           variant={activeMusclesGroupId ? "ghost" : "default"}

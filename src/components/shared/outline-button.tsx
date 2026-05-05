@@ -8,7 +8,7 @@ export default function OutlineButton({ children, className, ...props }: ButtonH
   const locale = useLocale();
 
   return (
-    <div className="relative flex items-center cursor-pointer">
+    <div className="relative inline-flex items-center max-w-full overflow-hidden cursor-pointer">
       <Button variant="default" className={cn("bg-transparent text-primary px-5 py-5 border border-primary rounded-lg hover:bg-white", className)} {...props}>
         {children}
       </Button>

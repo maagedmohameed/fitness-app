@@ -47,7 +47,7 @@ export default function RegisterForm() {
   return (
     <FormProvider {...form}>
       <form
-        className="mx-auto  h-full"
+        className="mx-auto h-full flex flex-col justify-center"
         onSubmit={form.handleSubmit(onSubmit)}
         noValidate
       >

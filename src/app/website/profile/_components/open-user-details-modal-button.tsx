@@ -18,20 +18,15 @@ import {
   ACTIVITY_LEVELS_TRANSLATION_KEYS,
   GOALS_TRANSLATION_KEYS,
 } from "../_constants/profile.constant";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import { Field, FieldGroup, FieldSet, FieldError } from "@/components/ui/field";
 import { Label } from "@/components/ui/label";
 import { changeUserDetailsSchema } from "@/lib/schemas/auth.schema";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Form } from "@/components/ui/form";
+import { Form, FormControl } from "@/components/ui/form";
 import { useEditUserProfile } from "../_hooks/use-edit-user-profile";
 import { toast } from "sonner";
+import { setItem } from "@/lib/utils/cookie";
+import { HorizontalWheelPicker } from "@/components/shared/horizontal-wheel-picker";
 
 export function OpenUserDetailsModalButton({
   detailName,
@@ -115,6 +110,8 @@ export function OpenUserDetailsModalButton({
     editUserProfile(values, {
       onSuccess({ user }) {
         setUser(user);
+
+        setItem("user", user);
 
         toast.success(t("validation.toast.success"));
 
@@ -234,35 +231,20 @@ export function OpenUserDetailsModalButton({
             name="weight"
             control={form.control}
             render={({ field, fieldState }) => (
-              <Field orientation="responsive" data-invalid={fieldState.invalid}>
-                <Select
-                  name={field.name}
-                  value={String(field.value)}
-                  onValueChange={value => {
-                    field.onChange(Number(value));
-                  }}
-                >
-                  <SelectTrigger
-                    id="form-rh-select-user-weight"
-                    aria-invalid={fieldState.invalid}
-                    className="flex justify-center min-w-full"
-                  >
-                    <SelectValue placeholder="Select" />
-                  </SelectTrigger>
-                  <SelectContent position="item-aligned">
-                    {Array.from({ length: 121 }, (_, i) => i + 30).map(
-                      weight => (
-                        <SelectItem key={weight} value={String(weight)}>
-                          {`${weight}  ${t(`weight.symbol`)} `}
-                        </SelectItem>
-                      )
-                    )}
-                  </SelectContent>
-                </Select>
+              <>
+                <FormControl data-invalid={fieldState.invalid}>
+                  <HorizontalWheelPicker
+                    min={30}
+                    max={250}
+                    value={field.value}
+                    onValueChange={val => field.onChange(val)}
+                  />
+                </FormControl>
+
                 {fieldState.invalid && (
                   <FieldError errors={[fieldState.error]} />
                 )}
-              </Field>
+              </>
             )}
           />
         </div>
@@ -335,8 +317,7 @@ export function OpenUserDetailsModalButton({
               <div className="space-y-6 mx-auto w-[70%]">
                 <FieldGroup>{renderCurrentStepContent()}</FieldGroup>
 
-                {/* Footer  */}
-                {/* Forgot password button */}
+                {/* Change Profile Details button */}
                 <Button
                   className="w-full rtl:font-cairo font-extrabold text-base"
                   type="button"

@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Carousel,
   CarouselContent,
@@ -5,26 +7,26 @@ import {
   type CarouselApi,
 } from "@/components/ui/carousel";
 import React, { useCallback, useEffect } from "react";
-import MuscleCard from "@/components/shared/muscle-card";
 import { cn } from "@/lib/utils/tailwind-merge";
 import { Link } from "react-router-dom";
-import { MuscleCardSkeleton } from "@/components/skeletons/muscle-card.skeleton";
-import { useTranslations } from "use-intl";
+import { useLocale, useTranslations } from "use-intl";
 import NoDataFound from "@/components/shared/no-data-found";
-import { useLanguage } from "@/hooks/language.context";
+import type { MealByCategory } from "@/lib/types/meals";
+import MealCard from "@/components/shared/meal-card";
+import { MealCardSkeleton } from "@/components/skeletons/meal-card.skeleton";
 
-type MuscleCardCarouselProps = {
-  muscles?: Muscle[];
+type MealCardCarouselProps = {
+  meals?: MealByCategory[];
   isPending: boolean;
 };
 
-export default function MusclesCarousel({
-  muscles,
+export default function MealCardCarousel({
+  meals,
   isPending,
-}: MuscleCardCarouselProps) {
+}: MealCardCarouselProps) {
   // Translations
   const t = useTranslations("workouts");
-  const { dir } = useLanguage();
+  const locale = useLocale() as "en" | "ar";
 
   // States
   const [api, setApi] = React.useState<CarouselApi>();
@@ -38,6 +40,9 @@ export default function MusclesCarousel({
     if (!api) return;
     setCurrent(api.selectedScrollSnap() + 1);
   }, [api]);
+
+  // Variables
+  const dir = locale === "ar" ? "rtl" : "ltr";
 
   // Effects
   /**
@@ -68,9 +73,7 @@ export default function MusclesCarousel({
         }}
         className="w-full"
       >
-        <CarouselContent
-          className={"md:flex-row flex-col gap-8 md:gap-0 max-h-316"}
-        >
+        <CarouselContent className="flex-row gap-4 md:gap-0 max-h-316">
           {/* Muscle card skeleton */}
           {isPending &&
             Array.from({ length: 3 }).map((_, key) => (
@@ -78,40 +81,38 @@ export default function MusclesCarousel({
                 key={key}
                 className="flex justify-center basis-1/1 md:basis-1/3"
               >
-                <MuscleCardSkeleton key={key} />
+                <MealCardSkeleton key={key} />
               </CarouselItem>
             ))}
 
           {/* Display data  */}
-          {muscles?.map(muscle => (
+          {meals?.map(meal => (
             <CarouselItem
-              key={muscle._id}
-              className="flex justify-center basis-1/1 md:basis-1/3 lg:basis-1/3"
+              key={meal.idMeal}
+              className="flex justify-center basis-1/1 md:basis-1/3"
             >
-              <MuscleCard muscle={muscle} />
+              <MealCard title={meal.strMeal} mealImage={meal.strMealThumb} />
             </CarouselItem>
           ))}
-
           {/* No data to display   */}
-          {!muscles?.length && <NoDataFound />}
+          {!meals?.length && <NoDataFound />}
         </CarouselContent>
       </Carousel>
 
       {/* See more button (MOBILE SCREENS) */}
-      {muscles && muscles.length > 3 && (
+      {meals && meals.length > 3 && (
         <Link
           to={"/classes"}
-          onClick={() => window.scrollTo(0, 0)}
-          className="md:hidden pb-5 font-inter font-semibold text-[#FF4100] text-xs capitalize"
+          className="md:hidden font-inter font-semibold text-[#FF4100] text-xs capitalize"
         >
           {t("see-more-button")}
         </Link>
       )}
 
       {/* Dots navigation */}
-      {muscles && muscles.length > 3 && (
-        <div className="hidden md:block space-x-2">
-          {muscles.slice(0, Math.ceil(muscles.length / 3)).map((_, index) => (
+      {meals && meals.length > 3 && (
+        <div className="flex items-center justify-center gap-2">
+          {meals.slice(0, Math.ceil(meals.length / 3)).map((_, index) => (
             <button
               key={index}
               onClick={() => api?.scrollTo(index)}

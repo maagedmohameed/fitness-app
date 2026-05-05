@@ -9,7 +9,7 @@ export default function HeroSection() {
   const t = useTranslations("hero");
 
   return (
-    <div className="relative flex h-dvh w-full items-end">
+    <div className="relative flex min-h-dvh w-full items-end sm:items-stretch pt-16 sm:pt-20">
       {/* Background Image */}
       <img
         src="/assets/images/fitness-hero-sec.webp"
@@ -27,18 +27,27 @@ export default function HeroSection() {
       />
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto flex flex-wrap h-[80%] min-h-0 w-full flex-row items-stretch">
+      <div className="relative z-10 container mx-auto flex flex-wrap min-h-0 w-full flex-col lg:flex-row items-stretch gap-6 lg:gap-0 px-4 sm:px-6 pb-8 sm:pb-10">
+        {/* Image */}
+        <div className="image order-1 sm:flex mt-6 lg:order-2 lg:mt-0 h-full min-h-0 lg:w-1/2 w-full items-end justify-center">
+          <img
+            src="/assets/images/Theo.png"
+            alt=""
+            className="max-h-[50vh] sm:max-h-[60vh] lg:max-h-full w-full object-contain object-bottom"
+          />
+        </div>
+
         {/* Left Content */}
         <div className="flex h-full min-h-0 lg:w-1/2 w-full flex-col justify-center gap-6 pr-2 sm:pr-4">
           {/* Heading */}
-          <h1 className="text-6xl font-bold uppercase dark:text-[#F3F3F4]">
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold uppercase dark:text-[#F3F3F4] leading-tight">
             {t.rich("title", {
               span: (chunk) => <span className="text-[#FF4100]">{chunk}</span>,
             })}
           </h1>
 
           {/* Description */}
-          <p className="text-lg font-normal text-black dark:text-white border-s-4 border-primary ps-4">
+          <p className="text-sm sm:text-base lg:text-lg font-normal text-black dark:text-white border-s-4 border-primary ps-4">
             {t("description")}
           </p>
 
@@ -48,23 +57,23 @@ export default function HeroSection() {
               <h5 className="text-xl font-bold">
                 {t("counters.members.value")}
               </h5>
-              <p className="text-lg font-normal text-black dark:text-white">
+              <p className="text-sm sm:text-base lg:text-lg font-normal text-black dark:text-white">
                 {t("counters.members.label")}
               </p>
             </div>
             <div className="counter-item flex-col">
-              <h5 className="text-xl font-bold">
+              <h5 className="text-lg sm:text-xl font-bold">
                 {t("counters.trainers.value")}
               </h5>
-              <p className="text-lg font-normal text-black dark:text-white">
+              <p className="text-sm sm:text-base lg:text-lg font-normal text-black dark:text-white">
                 {t("counters.trainers.label")}
               </p>
             </div>
             <div className="counter-item flex-col">
-              <h5 className="text-xl font-bold">
+              <h5 className="text-lg sm:text-xl font-bold">
                 {t("counters.experience.value")}
               </h5>
-              <p className="text-lg font-normal text-black dark:text-white">
+              <p className="text-sm sm:text-base lg:text-lg font-normal text-black dark:text-white">
                 {t("counters.experience.label")}
               </p>
             </div>
@@ -74,19 +83,10 @@ export default function HeroSection() {
             <SolidButton className="px-10">
               <Link to="/auth/register">{t("cta.get-started")}</Link>
             </SolidButton>
-            <OutlineButton className="px-10">
+            <OutlineButton className="px-8 sm:px-10">
               <Link to="/about">{t("cta.explore-more")}</Link>
             </OutlineButton>
           </div>
-        </div>
-
-        {/* Image */}
-        <div className="image flex h-full min-h-0 lg:w-1/2 w-full items-end justify-center">
-          <img
-            src="/assets/images/Theo.png"
-            alt="theo"
-            className="max-h-full w-full object-contain object-bottom"
-          />
         </div>
       </div>
     </div>

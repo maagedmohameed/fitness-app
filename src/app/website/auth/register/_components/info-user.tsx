@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { useFormContext } from "react-hook-form";
+import { Link } from "react-router-dom";
 import { useTranslations } from "use-intl";
 
 export default function InfoUser({ onNext }: { onNext: () => void }) {
@@ -154,12 +155,12 @@ export default function InfoUser({ onNext }: { onNext: () => void }) {
           </div>
 
           {/* Recovery action shortcut. */}
-          <button
-            type="button"
+          <Link
+            to="/auth/forget-password"
             className="block ml-auto text-primary text-base font-semibold hover:underline"
           >
             {t("forget-password")}
-          </button>
+          </Link>
 
           {/* Divider between form and social actions. */}
           <div className="mt-6 flex items-center gap-4 text-white/70">

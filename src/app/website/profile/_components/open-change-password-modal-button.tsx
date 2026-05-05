@@ -18,6 +18,7 @@ import { toast } from "sonner";
 import { Field, FieldError, FieldGroup } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
+import { getItem, setItem, setToken } from "@/lib/utils/cookie";
 
 export function OpenChangePasswordModalButton() {
   // Translation
@@ -54,15 +55,17 @@ export function OpenChangePasswordModalButton() {
   });
 
   //  Functions
-
   const onSubmit: SubmitHandler<ChangeUserPasswordFormFields> = values => {
     changePassword(values, {
       onSuccess: data => {
         toast.success(t("validation.toast.success"));
 
-        localStorage.setItem("user_token", data?.token);
+        setToken(data.token);
+
+        setItem("user", { ...getItem("user"), token: data.token });
 
         form.reset();
+
         setModalState(false);
       },
       onError: () => {

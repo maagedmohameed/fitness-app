@@ -1,13 +1,12 @@
 import { ErrorBoundary } from "react-error-boundary";
 import ErrorBoundaryFallback from "@/components/shared/error-boundary-fallback";
-import Footer from "@/components/layout/footer/footer";
 import MarqueeText from "@/components/layout/marquee/marquee-text";
 import WhyUs from "./_components/why-us-section/why-us";
+import WorkoutsSection from "@/app/website/home/_components/workouts/workouts-section";
 import Meals from "./_components/meals-section/h-meals";
 import Header from "@/components/layout/header/header";
 import HeroSection from "./_components/hero-section";
 import AboutUsSection from "@/components/shared/about-us-section";
-import WorkoutsSection from "./_components/workouts/workouts-section";
 
 export default function HomePage() {
   return (
@@ -34,9 +33,6 @@ export default function HomePage() {
 
       {/* Marquee */}
       <MarqueeText />
-
-      {/* Footer */}
-      <Footer />
     </main>
   );
 }

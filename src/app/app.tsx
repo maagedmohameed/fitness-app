@@ -13,6 +13,8 @@ import AuthenticationLayout from "./website/auth/layout";
 import WebLayout from "./website/layout";
 import AboutPage from "./website/about/page";
 import HealthyPage from "./website/healthy/page";
+import ForgetPasswordPage from "./website/auth/forget-password/page";
+import ProfilePage from "./website/profile/page";
 
 const router = createBrowserRouter([
   {
@@ -39,6 +41,10 @@ const router = createBrowserRouter([
             path: "register",
             element: <Register />,
           },
+          {
+            path: "forget-password",
+            element: <ForgetPasswordPage />,
+          },
         ],
       },
       {
@@ -52,6 +58,10 @@ const router = createBrowserRouter([
       {
         path: "healthy",
         element: <HealthyPage />,
+      },
+      {
+        path: "profile",
+        element: <ProfilePage />,
       },
       {
         path: "*",

@@ -173,12 +173,13 @@
   "h-meal-section": {
     "title": "Healthy",
     "subTitle": "Healthy Nutritions",
-    "desc": " Fuel your fitness journey with customized <span> meal plans</span> for you"
+    "desc": " Fuel your fitness journey with customized <span> meal plans</span> for you",
+    "all-categories": "all categories"
   },
   "meal-card": {
     "button": "Read More",
     "breakfast": "breakfast",
-    "lunch": "launch",
+    "lunch": "lunch",
     "dinner": "dinner"
   },
   "register": {
@@ -282,6 +283,52 @@
       "activityLevelRequired": "Please select activity level",
       "fitnessLevelRequired": "Please select fitness level",
       "ageMin": "Minimum age is 13"
+    }
+  },
+  "forget-password": {
+    "common": {
+      "back": "Back",
+      "no-account": "Don't have an account?",
+      "create-yours": "Create yours"
+    },
+    "email-step": {
+      "title": "Forget Password",
+      "subtitle": "Enter Your Email",
+      "email-placeholder": "user@example.com",
+      "submit": "Send OTP",
+      "errors": {
+        "required": "Please enter your email address",
+        "send-failed": "Failed to send reset code. Please try again."
+      }
+    },
+    "otp-step": {
+      "title": "Verify OTP",
+      "subtitle": "Enter OTP Code",
+      "otp-placeholder": "Enter 6-digit code",
+      "countdown": "You can request another code in {seconds}s",
+      "resend": "Resend",
+      "submit": "Verify Code",
+      "toast": {
+        "sent": "OTP sent successfully",
+        "send-failed": "Failed to send OTP. Please try again."
+      },
+      "errors": {
+        "invalid-length": "Please enter a valid 6-digit code.",
+        "invalid": "Invalid code. Please try again."
+      }
+    },
+    "new-password-step": {
+      "title": "Create New Password",
+      "subtitle": "Enter New Password",
+      "submit": "Reset Password",
+      "toast": {
+        "success": "Password updated successfully"
+      },
+      "errors": {
+        "all-required": "Please fill in all fields",
+        "no-match": "Passwords do not match",
+        "reset-failed": "Failed to reset password. Please try again."
+      }
     }
   },
   "profile": {
