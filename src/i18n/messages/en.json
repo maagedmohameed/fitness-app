@@ -186,6 +186,8 @@
     "title": "Registration",
     "description": "Create your account",
     "info": {
+      "hey-there": "Hey There,",
+      "welcome-back": "WELCOME BACK!",
       "greeting": "Join us today",
       "create-account": "Create Account",
       "register-title": "Registration Info",
@@ -276,6 +278,8 @@
       "emailInvalid": "Please enter a valid email",
       "passwordMin": "Password must be at least 8 characters",
       "passwordPattern": "Password must contain uppercase, lowercase, numbers and symbols",
+      "password-required": "Please enter your password",
+      "strong-password": "Password must be at least 8 characters, one uppercase letter, one lowercase letter and one special character",
       "genderRequired": "Please select your gender",
       "goalRequired": "Please select a goal",
       "heightRequired": "Please select your height",

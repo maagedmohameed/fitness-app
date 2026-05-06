@@ -1,3 +1,4 @@
+import type { T_LoginFormValues } from "@/lib/schemas/login.schema";
 import type { T_RegisterFormValues } from "@/lib/types/auth";
 import type { RegisterResponse } from "@/lib/types/auth";
 import type { LogoutResponse } from "../types/auth";
@@ -57,4 +58,27 @@ export async function logout() {
   }
 
   return payload;
+}
+
+export async function signin(data: T_LoginFormValues) {
+  const response = await fetch(`${API}/auth/signin`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  });
+
+  if (!response.ok) {
+    const error = await response.json();
+    throw new Error(error.error);
+  }
+
+  const result: ApiResponse<RegisterResponse> = await response.json();
+
+  if ("error" in result) {
+    throw new Error(result.error);
+  }
+
+  return result;
 }
