@@ -46,7 +46,7 @@ export default function GoalQuestion({ onNext, onBack }: GoalQuestionProps) {
         </p>
       </div>
 
-      <div className="flex flex-col items-center px-0 py-6 sm:py-8 w-full max-w-77.5">
+      <div className="flex flex-col items-center px-0 py-6 sm:py-8 w-full max-w-[19.375rem]">
         {/* Goal selection list. */}
         <FormField
           control={control}
@@ -68,7 +68,7 @@ export default function GoalQuestion({ onNext, onBack }: GoalQuestionProps) {
                         aria-pressed={isSelected}
                         aria-label={`${t("select")} ${label}`}
                         className={cn(
-                          "relative flex justify-between items-center shadow-none px-4 py-2 border rounded-[1.25rem] w-full h-12 font-bold text-base transition-all",
+                          "relative flex justify-between items-center shadow-none px-4 py-2 border rounded-10xl w-full h-12 font-bold text-base transition-all",
                           isSelected
                             ? "border-primary bg-primary/20 text-white"
                             : "border-white/20 bg-white/5 text-white hover:border-white/40 hover:bg-white/10"

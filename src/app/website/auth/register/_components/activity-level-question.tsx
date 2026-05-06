@@ -37,13 +37,13 @@ export default function ActivityLevelQuestion({
   };
 
   return (
-    <section className="relative flex h-full w-full flex-col items-center justify-center px-4 text-white sm:px-6">
+    <section className="relative flex flex-col justify-center items-center px-4 sm:px-6 w-full h-full text-white">
       <BackButton onClick={onBack} />
 
       <StepProgress current={6} max={7} />
 
-      <div className="px-2 py-4 text-center font-baloothambi2">
-        <h1 className="text-[clamp(2rem,4vw,3rem)] font-black capitalize leading-none">
+      <div className="px-2 py-4 font-baloothambi2 text-center">
+        <h1 className="font-black text-[clamp(2rem,4vw,3rem)] capitalize leading-none">
           {t("title")}
         </h1>
         <p className="mt-2 text-[clamp(1rem,2.8vw,1.25rem)] text-white/90">
@@ -51,17 +51,17 @@ export default function ActivityLevelQuestion({
         </p>
       </div>
 
-      <div className="flex w-full max-w-77.5 flex-col items-center px-0 py-6 sm:py-8">
+      <div className="flex flex-col items-center px-0 py-6 sm:py-8 w-full max-w-77.5">
         {/* Activity level selection list. */}
         <FormField
           control={control}
           name="activityLevel"
           render={({ field, fieldState }) => (
-            <FormItem className="flex w-full flex-col items-center">
+            <FormItem className="flex flex-col items-center w-full">
               <FormLabel className="sr-only">Activity Level</FormLabel>
               <FormControl>
-                <div className="flex w-full flex-col gap-3">
-                  {activityOptions.map((option) => {
+                <div className="flex flex-col gap-3 w-full">
+                  {activityOptions.map(option => {
                     const isSelected = field.value === option.value;
                     const label = t(`options.${option.key}`);
 
@@ -73,24 +73,24 @@ export default function ActivityLevelQuestion({
                         aria-pressed={isSelected}
                         aria-label={`${t("select")} ${label}`}
                         className={cn(
-                          "relative flex h-12 w-full items-center justify-between rounded-[1.25rem] border px-4 py-2 text-base font-bold shadow-none transition-all",
+                          "relative flex justify-between items-center shadow-none px-4 py-2 border rounded-10xl w-full h-12 font-bold text-base transition-all",
                           isSelected
                             ? "border-primary bg-primary/20 text-white"
-                            : "border-white/20 bg-white/5 text-white hover:border-white/40 hover:bg-white/10",
+                            : "border-white/20 bg-white/5 text-white hover:border-white/40 hover:bg-white/10"
                         )}
                         onClick={() => field.onChange(option.value)}
                       >
-                        <span className="truncate pr-2">{label}</span>
+                        <span className="pr-2 truncate">{label}</span>
                         <div
                           className={cn(
-                            "flex size-5 shrink-0 items-center justify-center rounded-full border transition-all",
+                            "flex justify-center items-center border rounded-full size-5 transition-all shrink-0",
                             isSelected
                               ? "border-primary bg-primary shadow-[0_0_10px_rgba(var(--primary),0.5)]"
-                              : "border-white/40",
+                              : "border-white/40"
                           )}
                         >
                           {isSelected && (
-                            <div className="size-2 rounded-full bg-white" />
+                            <div className="bg-white rounded-full size-2" />
                           )}
                         </div>
                       </Button>
@@ -111,7 +111,7 @@ export default function ActivityLevelQuestion({
           type="button"
           variant={selectedLevel ? "default" : "destructive"}
           onClick={goToNextQuestion}
-          className="mt-6 w-full rounded-full text-lg font-bold text-white shadow-lg"
+          className="shadow-lg mt-6 rounded-full w-full font-bold text-white text-lg"
         >
           {t("next")}
         </Button>

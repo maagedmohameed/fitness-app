@@ -1,23 +1,19 @@
-import type {
-  MealByCategoryResponse,
-  MealByIdResponse,
-  MealCategoriesResponse,
-} from "../types/meals";
+import { MEALS_API } from "../constants/global.constant";
+import type { MealByCategory, MealCategory, MealDetail } from "../types/meal";
 
-const BASE_URL = "https://www.themealdb.com/api/json/v1/1";
-
-export async function getMealCategories(locale: string) {
-  const response = await fetch(`${BASE_URL}/categories.php`, {
+export async function getMealsGroups(locale: string) {
+  const response = await fetch(`${MEALS_API}/categories.php?`, {
     headers: {
       "Accept-Language": locale,
     },
   });
 
   if (!response.ok) {
-    throw new Error("Failed to fetch meal categories");
+    throw new Error("Failed to fetch meals groups");
   }
 
-  const payload: ApiResponse<MealCategoriesResponse> = await response.json();
+  const payload: ApiResponse<{ categories: MealCategory[] }> =
+    await response.json();
 
   if ("error" in payload) {
     throw new Error(payload.error as string);
@@ -26,18 +22,20 @@ export async function getMealCategories(locale: string) {
   return payload;
 }
 
-export async function getMealByCategory(category: string, locale: string) {
-  const response = await fetch(`${BASE_URL}/filter.php?c=${category}`, {
+export async function getMealsByCategoryName(name: string, locale: string) {
+  const response = await fetch(`${MEALS_API}/filter.php?c=${name}`, {
     headers: {
       "Accept-Language": locale,
     },
   });
 
   if (!response.ok) {
-    throw new Error("Failed to fetch meal by category");
+    throw new Error(`Failed to fetch meals with category name => ${name}`);
   }
 
-  const payload: ApiResponse<MealByCategoryResponse> = await response.json();
+  const payload: ApiResponse<{
+    meals: MealByCategory[];
+  }> = await response.json();
 
   if ("error" in payload) {
     throw new Error(payload.error as string);
@@ -46,22 +44,26 @@ export async function getMealByCategory(category: string, locale: string) {
   return payload;
 }
 
-export async function getMealById(id: string, locale: string) {
-  const response = await fetch(`${BASE_URL}/lookup.php?i=${id}`, {
+export async function getMealDetailsById(id: string, locale: string) {
+  const response = await fetch(`${MEALS_API}/lookup.php?i=${id}`, {
     headers: {
       "Accept-Language": locale,
     },
   });
 
   if (!response.ok) {
-    throw new Error("Failed to fetch meal");
+    throw new Error(`Failed to fetch meal details with id => ${id}`);
   }
 
-  const payload: ApiResponse<MealByIdResponse> = await response.json();
+  const payload: ApiResponse<{
+    meals: [MealDetail];
+  }> = await response.json();
 
-  if ("error" in payload) {
-    throw new Error(payload.error as string);
+  if ("error" in payload || !payload.meals || !payload.meals.length) {
+    throw new Error("Failed to fetch meal details");
   }
-
+  if (!payload.meals || !payload.meals.length) {
+    throw new Error("Failed to fetch meal details with id => ${id}");
+  }
   return payload;
 }

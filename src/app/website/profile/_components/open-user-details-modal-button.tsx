@@ -152,7 +152,7 @@ export function OpenUserDetailsModalButton({
                     {GOALS_TRANSLATION_KEYS.map(goal => (
                       <Field
                         key={goal}
-                        className="bg-muted/20 px-4 py-2 border has-checked:border border-border-input has-checked:border-primary rounded-[1.25rem] h-12 text-primary-foreground has-checked:text-primary"
+                        className="bg-muted/20 px-4 py-2 border has-checked:border border-border-input has-checked:border-primary rounded-10xl h-12 text-primary-foreground has-checked:text-primary"
                       >
                         <Label
                           htmlFor={goal}
@@ -198,7 +198,7 @@ export function OpenUserDetailsModalButton({
                     {ACTIVITY_LEVELS_TRANSLATION_KEYS.map(level => (
                       <Field
                         key={level}
-                        className="bg-muted/20 px-4 py-2 border has-checked:border border-border-input has-checked:border-primary rounded-[1.25rem] h-12 text-primary-foreground has-checked:text-primary"
+                        className="bg-muted/20 px-4 py-2 border has-checked:border border-border-input has-checked:border-primary rounded-10xl h-12 text-primary-foreground has-checked:text-primary"
                       >
                         <Label
                           htmlFor={level}

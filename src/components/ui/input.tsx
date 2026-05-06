@@ -29,7 +29,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     return (
       <div
         className={cn(
-          "flex items-center gap-3 bg-transparent p-4 border border-input rounded-[1.25rem] w-full text-white",
+          "flex items-center gap-3 bg-transparent p-4 border border-input rounded-10xl w-full text-white",
           className
         )}
       >

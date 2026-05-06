@@ -12,7 +12,7 @@ import Login from "./website/auth/login/page";
 import AuthenticationLayout from "./website/auth/layout";
 import WebLayout from "./website/layout";
 import AboutPage from "./website/about/page";
-import Healthy from "./website/healthy/page";
+import HealthyPage from "./website/healthy/page";
 import ForgetPasswordPage from "./website/auth/forget-password/page";
 import ProfilePage from "./website/profile/page";
 
@@ -57,7 +57,7 @@ const router = createBrowserRouter([
       },
       {
         path: "healthy",
-        element: <Healthy />,
+        element: <HealthyPage />,
       },
       {
         path: "profile",

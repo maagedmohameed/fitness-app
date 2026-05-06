@@ -31,10 +31,10 @@ export default function MusclesGroups({
   // Variables
   const activeMusclesGroupId = searchParams.get("musclesGroupId");
 
-  if (isPending) return <MusclesGroupsSkeleton />;
+  if (isPending) return <MusclesGroupsSkeleton length={7} />;
 
   return (
-    <ul className="flex gap-8 mx-auto w-fit overflow-x-hidden">
+    <ul className="flex flex-wrap justify-between lg:gap-8 mx-auto w-fit">
       <li>
         <Button
           variant={activeMusclesGroupId ? "ghost" : "default"}
