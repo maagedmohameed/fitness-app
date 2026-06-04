@@ -22,14 +22,14 @@ export default function MusclesSection() {
   );
 
   return (
-    <section className="flex flex-col items-center gap-8">
+    <section className="flex flex-col items-center gap-6 sm:gap-8 w-full px-1 sm:px-0">
       {/* SubTitle */}
       <SectionSubTitle className="md:justify-center">
         {t("heading.class")}
       </SectionSubTitle>
 
       {/* Heading  */}
-      <div className="max-w-159.25 font-bold dark:text-[#F3F3F4] text-4xl sm:text-center uppercase">
+      <div className="w-full max-w-159.25 px-2 font-bold dark:text-[#F3F3F4] text-2xl sm:text-3xl lg:text-4xl text-center uppercase leading-tight">
         {t.rich("title", {
           span: chunk => <span className="text-[#FF4100]">{chunk}</span>,
         })}

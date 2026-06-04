@@ -1,4 +1,5 @@
 import { useTranslations } from "use-intl";
+import { Link } from "react-router-dom";
 import { SectionSubTitle, SectionTitle } from "../ui/section-head";
 import SolidButton from "./solid-button";
 
@@ -7,7 +8,7 @@ export default function AboutUsSection() {
   const t = useTranslations("about-us-section");
 
   return (
-    <section className="flex flex-col gap-8 md:flex-row md:gap-10 lg:gap-14 bg-[#F3F3F4] dark:bg-[#232424] px-4 sm:px-6 lg:px-20 py-12 sm:py-36">
+    <section className="flex flex-col gap-8 md:flex-row md:gap-10 lg:gap-14 bg-[#F3F3F4] dark:bg-[#232424] px-4 sm:px-6 lg:px-20 py-16 sm:py-24 lg:py-36">
       {/* Images  */}
       <div className="w-full md:w-1/2">
         <div className="relative mx-auto h-110 sm:h-140 lg:h-176 w-full max-w-132">
@@ -88,7 +89,9 @@ export default function AboutUsSection() {
 
         {/* Section Button */}
         <div className="flex justify-start mt-8">
-          <SolidButton className="px-10">{t("button")}</SolidButton>
+          <SolidButton className="w-full sm:w-auto justify-center px-10">
+            <Link to="/auth/register">{t("button")}</Link>
+          </SolidButton>
         </div>
       </div>
     </section>

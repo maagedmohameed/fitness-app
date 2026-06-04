@@ -6,17 +6,31 @@ import { useLocale } from "use-intl";
 
 export default function OutlineButton({ children, className, ...props }: ButtonHTMLAttributes<HTMLButtonElement>) {
   const locale = useLocale();
+  const isFullWidth = className?.includes("w-full");
 
   return (
-    <div className="relative inline-flex items-center max-w-full overflow-hidden cursor-pointer">
-      <Button variant="default" className={cn("bg-transparent text-primary px-5 py-5 border border-primary rounded-lg hover:bg-white", className)} {...props}>
+    <div
+      className={cn(
+        "relative inline-flex items-center max-w-full cursor-pointer",
+        isFullWidth && "w-full"
+      )}
+    >
+      <Button
+        variant="default"
+        className={cn(
+          "bg-transparent text-primary px-5 py-5 border border-primary rounded-lg hover:bg-white",
+          className,
+          isFullWidth && "w-auto min-w-0 flex-1"
+        )}
+        {...props}
+      >
         {children}
       </Button>
       <img
         src={arrowBtnIcon}
         alt="arrow"
         className={cn(
-          "pointer-events-none h-12 w-12 -ms-4",
+          "pointer-events-none shrink-0 h-12 w-12 -ms-4",
           locale === "ar" && "-rotate-90"
         )}
         aria-hidden

@@ -7,7 +7,7 @@ type MuscleCardProps = {
 };
 
 export default function MuscleCard({
-  muscle: { _id, name, image },
+  muscle: { name, image },
 }: MuscleCardProps) {
   // Translations
   const t = useTranslations("workouts");
@@ -38,7 +38,7 @@ export default function MuscleCard({
 
         {/* Card link  */}
         <Link
-          to={`/classes/${_id}`}
+          to="/about"
           className="flex items-center gap-2 font-medium text-[#FF4100] text-xl capitalize"
         >
           {t("explore-button")}

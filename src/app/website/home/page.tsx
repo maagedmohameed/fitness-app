@@ -4,16 +4,12 @@ import MarqueeText from "@/components/layout/marquee/marquee-text";
 import WhyUs from "./_components/why-us-section/why-us";
 import WorkoutsSection from "@/app/website/home/_components/workouts/workouts-section";
 import Meals from "./_components/meals-section/h-meals";
-import Header from "@/components/layout/header/header";
 import HeroSection from "./_components/hero-section";
 import AboutUsSection from "@/components/shared/about-us-section";
 
 export default function HomePage() {
   return (
-    <main className="bg-background">
-      {/* header */}
-      <Header />
-
+    <main className="bg-background overflow-x-hidden">
       {/* Hero Section */}
       <HeroSection />
 

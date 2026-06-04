@@ -4,12 +4,10 @@ import { Link } from "react-router-dom";
 import { useTranslations } from "use-intl";
 
 export default function HeroSection() {
-
-  // Translations
   const t = useTranslations("hero");
 
   return (
-    <div className="relative flex min-h-dvh w-full items-end sm:items-stretch pt-16 sm:pt-20">
+    <div className="relative box-border flex w-full overflow-hidden pt-16 lg:pt-20 lg:h-dvh lg:max-h-dvh items-end lg:items-stretch">
       {/* Background Image */}
       <img
         src="/assets/images/fitness-hero-sec.webp"
@@ -27,63 +25,60 @@ export default function HeroSection() {
       />
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto flex flex-wrap min-h-0 w-full flex-col lg:flex-row items-stretch gap-6 lg:gap-0 px-4 sm:px-6 pb-8 sm:pb-10">
+      <div className="relative z-10 container mx-auto flex h-full min-h-0 w-full flex-col lg:flex-row items-stretch gap-3 sm:gap-4 lg:gap-0 px-4 sm:px-6 pb-6 lg:pb-8">
         {/* Image */}
-        <div className="image order-1 sm:flex mt-6 lg:order-2 lg:mt-0 h-full min-h-0 lg:w-1/2 w-full items-end justify-center">
+        <div className="image order-2 lg:order-2 flex min-h-0 w-full shrink-0 lg:w-1/2 lg:h-full items-end justify-center">
           <img
             src="/assets/images/Theo.png"
             alt=""
-            className="max-h-[50vh] sm:max-h-[60vh] lg:max-h-full w-full object-contain object-bottom"
+            className="max-h-[28vh] sm:max-h-[34vh] lg:max-h-full lg:h-full w-full max-w-sm lg:max-w-none object-contain object-bottom"
           />
         </div>
 
         {/* Left Content */}
-        <div className="flex h-full min-h-0 lg:w-1/2 w-full flex-col justify-center gap-6 pr-2 sm:pr-4">
-          {/* Heading */}
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold uppercase dark:text-[#F3F3F4] leading-tight">
+        <div className="order-1 lg:order-1 flex min-h-0 w-full lg:w-1/2 lg:h-full flex-col justify-center gap-3 sm:gap-4 lg:gap-5 pr-0 sm:pr-4 overflow-y-auto lg:overflow-visible">
+          <h1 className="text-3xl sm:text-5xl lg:text-5xl xl:text-6xl font-bold uppercase dark:text-[#F3F3F4] leading-tight">
             {t.rich("title", {
               span: (chunk) => <span className="text-[#FF4100]">{chunk}</span>,
             })}
           </h1>
 
-          {/* Description */}
           <p className="text-sm sm:text-base lg:text-lg font-normal text-black dark:text-white border-s-4 border-primary ps-4">
             {t("description")}
           </p>
 
-          {/* Counters */}
-          <div className="counter mt-7 flex justify-between gap-4">
-            <div className="flex-col">
-              <h5 className="text-xl font-bold">
+          <div className="counter grid grid-cols-3 gap-2 sm:gap-4 max-w-md lg:max-w-none">
+            <div className="min-w-0">
+              <h5 className="text-base sm:text-xl font-bold">
                 {t("counters.members.value")}
               </h5>
-              <p className="text-sm sm:text-base lg:text-lg font-normal text-black dark:text-white">
+              <p className="text-xs sm:text-base lg:text-lg font-normal text-black dark:text-white leading-snug">
                 {t("counters.members.label")}
               </p>
             </div>
-            <div className="counter-item flex-col">
-              <h5 className="text-lg sm:text-xl font-bold">
+            <div className="min-w-0">
+              <h5 className="text-base sm:text-xl font-bold">
                 {t("counters.trainers.value")}
               </h5>
-              <p className="text-sm sm:text-base lg:text-lg font-normal text-black dark:text-white">
+              <p className="text-xs sm:text-base lg:text-lg font-normal text-black dark:text-white leading-snug">
                 {t("counters.trainers.label")}
               </p>
             </div>
-            <div className="counter-item flex-col">
-              <h5 className="text-lg sm:text-xl font-bold">
+            <div className="min-w-0">
+              <h5 className="text-base sm:text-xl font-bold">
                 {t("counters.experience.value")}
               </h5>
-              <p className="text-sm sm:text-base lg:text-lg font-normal text-black dark:text-white">
+              <p className="text-xs sm:text-base lg:text-lg font-normal text-black dark:text-white leading-snug">
                 {t("counters.experience.label")}
               </p>
             </div>
           </div>
 
-          <div className="flex items-center gap-8">
-            <SolidButton className="px-10">
+          <div className="grid w-full min-w-0 grid-cols-1 md:grid-cols-2 gap-2 sm:gap-4 md:gap-6 shrink-0">
+            <SolidButton className="w-full justify-center px-6 md:px-10">
               <Link to="/auth/register">{t("cta.get-started")}</Link>
             </SolidButton>
-            <OutlineButton className="px-8 sm:px-10">
+            <OutlineButton className="w-full justify-center px-6 md:px-8 lg:px-10">
               <Link to="/about">{t("cta.explore-more")}</Link>
             </OutlineButton>
           </div>

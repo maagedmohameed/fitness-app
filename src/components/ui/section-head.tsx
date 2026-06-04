@@ -4,7 +4,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { Dumbbell } from "lucide-react";
 
 const headingVariants = cva(
-  "bg-clip-text bg-linear-to-b from-[#242424]/70 dark:from-[#FFFFFF]/20 via-[#242424]/10 dark:via-[#FFFFFF]/10 to-transparent dark:to-transparent -mb-10 w-full font-bold text-transparent text-7xl uppercase leading-none tracking-wide",
+  "bg-clip-text bg-linear-to-b from-[#242424]/70 dark:from-[#FFFFFF]/20 via-[#242424]/10 dark:via-[#FFFFFF]/10 to-transparent dark:to-transparent -mb-6 sm:-mb-10 w-full font-bold text-transparent text-4xl sm:text-5xl lg:text-7xl uppercase leading-none tracking-wide",
   {
     variants: {
       variant: {
@@ -19,7 +19,7 @@ const headingVariants = cva(
 );
 
 const subHeadingVariants = cva(
-  "flex items-center gap-3 w-full font-semibold text-primary dark:text-primary text-lg",
+  "flex items-center gap-2 sm:gap-3 w-full font-semibold text-primary dark:text-primary text-base sm:text-lg",
   {
     variants: {
       variant: {
@@ -62,7 +62,7 @@ const SectionSubTitle = React.forwardRef<
       className={cn(subHeadingVariants({ variant, className }), "")}
       {...props}
     >
-      <Dumbbell className="capitalize rotate-45" size={34} strokeWidth={1} />
+      <Dumbbell className="shrink-0 capitalize rotate-45 size-7 sm:size-[2.125rem]" strokeWidth={1} />
       {children}
     </h3>
   );
