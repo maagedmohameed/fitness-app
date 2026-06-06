@@ -13,10 +13,11 @@ export function ErrorPage({ error, resetErrorBoundary }: FallbackProps) {
       {/* Content wrapper  */}
       <div className="flex flex-col justify-center items-center max-md:px-4 py-20 text-sm">
         {/* Heading error  */}
-        <h1 className="bg-clip-text bg-linear-to-r from-black/50 dark:from-white to-gray-500 font-bold text-transparent text-4xl md:text-5xl">
+        <h1 className="bg-clip-text bg-gradient-to-r from-black/50 dark:from-white to-gray-500 font-bold text-transparent text-4xl md:text-5xl">
+          {" "}
           {t("title")}
         </h1>
-        <div className="bg-linear-to-r from-gray-400 to-gray-800 my-5 md:my-7 rounded w-80 h-px"></div>
+        <div className="bg-gradient-to-r from-gray-400 to-gray-800 my-5 md:my-7 rounded w-80 h-px"></div>
 
         {/* Error message  */}
         <p className="max-w-lg text-gray-400 md:text-xl text-center">
