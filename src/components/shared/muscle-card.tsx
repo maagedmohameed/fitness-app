@@ -1,3 +1,4 @@
+import type { Muscle } from "@/lib/types/muscle";
 import { MoveUpLeft, MoveUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useLocale, useTranslations } from "use-intl";

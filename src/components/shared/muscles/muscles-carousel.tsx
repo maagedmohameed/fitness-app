@@ -12,6 +12,7 @@ import { MuscleCardSkeleton } from "@/components/skeletons/muscle-card.skeleton"
 import { useTranslations } from "use-intl";
 import NoDataFound from "@/components/shared/no-data-found";
 import { useLanguage } from "@/hooks/language.context";
+import type { Muscle } from "@/lib/types/muscle";
 
 type MuscleCardCarouselProps = {
   muscles?: Muscle[];
@@ -120,7 +121,7 @@ export default function MusclesCarousel({
                 {
                   "bg-[#FF4100] dark:bg-[#FF4100] w-7 rounded-lg":
                     current === index + 1,
-                }
+                },
               )}
             />
           ))}

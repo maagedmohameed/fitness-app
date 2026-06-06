@@ -1,4 +1,5 @@
 import { API } from "../constants/global.constant";
+import type { Muscle, MuscleGroup } from "../types/muscle";
 
 export async function getMusclesGroups(locale: string) {
   const response = await fetch(`${API}/muscles`, {

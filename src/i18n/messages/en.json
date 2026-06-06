@@ -77,9 +77,10 @@
     "back": "Back to Home"
   },
   "errorPage": {
-    "title": "Something went wrong",
+    "title": "Oops, something went wrong!",
     "retry": "Try Again",
-    "message": "An unexpected error occurred"
+    "message": "Something unexpected happened, please refresh the page or try again shortly.",
+    "back": "back to home"
   },
   "hero": {
     "title": "Your body can<span> stand almost </span>anything",

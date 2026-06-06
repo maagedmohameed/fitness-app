@@ -10,6 +10,7 @@ import { cn } from "@/lib/utils/tailwind-merge";
 import { MuscleCardSkeleton } from "@/components/skeletons/muscle-card.skeleton";
 import { useLocale } from "use-intl";
 import NoDataFound from "@/components/shared/no-data-found";
+import type { Muscle } from "@/lib/types/muscle";
 
 type MuscleCardCarouselProps = {
   muscles?: Muscle[];
@@ -126,7 +127,7 @@ export default function ClassesCarousel({
                 {
                   "bg-[#FF4100] dark:bg-[#FF4100] w-7 rounded-lg":
                     current === index + 1,
-                }
+                },
               )}
             />
           ))}
