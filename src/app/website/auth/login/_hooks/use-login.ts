@@ -8,7 +8,7 @@ export function useLogin() {
 
   return useMutation({
     mutationFn: signin,
-    onSuccess: (data) => {
+    onSuccess: data => {
       // Assuming the token is in data.token (from RegisterResponse)
 
       setToken(data.token);

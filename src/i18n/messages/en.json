@@ -136,10 +136,13 @@
       "title": "Contact Us"
     },
     "time": {
-      "title": "Our Gym Timing"
+      "title": "Our Gym Timing",
+      "mon-fri": "Mon - Fri: 08:00 AM - 10:00 PM",
+      "sat-sun": "Sat - Sun: 08:00 AM - 09:00 PM"
     },
     "location": {
-      "title": "Our Location"
+      "title": "Our Location",
+      "address": "8 El-Lebini Axis, Nazlet El-Batran, Al Haram, Giza, Egypt"
     }
   },
   "header": {
@@ -151,7 +154,11 @@
     },
     "buttons": {
       "login": "LOGIN",
-      "signup": "SIGN UP"
+      "signup": "SIGN UP",
+      "language": {
+        "en": "العربية",
+        "ar": "English"
+      }
     }
   },
   "why-us-section": {

@@ -17,11 +17,11 @@ export default function HealthySection() {
   const { isPending: isMealsByCategoryPending, data: mealsByCategory } =
     useMealsByCategory(
       searchParams.get("mealsCategory") || DEFAULT_MEALS_CATEGORY,
-      locale
+      locale,
     );
   const { isPending: isMealDetailsPending, data: mealDetails } = useMealDetails(
     searchParams.get("mealId") || (mealsByCategory?.meals[0].idMeal as string),
-    locale
+    locale,
   );
 
   return (

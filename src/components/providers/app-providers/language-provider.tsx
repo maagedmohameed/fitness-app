@@ -9,7 +9,7 @@ export default function LanguageContextProvider({
   children: ReactNode;
 }) {
   const [locale, setLocale] = useState<TLocale>(
-    (Cookies.get("locale") as TLocale) || "en"
+    (Cookies.get("locale") as TLocale) || "en",
   );
   // Variables
   const dir = locale === "ar" ? "rtl" : "ltr";

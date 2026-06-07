@@ -22,6 +22,12 @@
   font-weight: 400 600 700 800 900;
   font-style: normal;
 }
+@font-face {
+  font-family: "rubik";
+  src: url("/assets/fonts/rubik.ttf") format("truetype");
+  font-weight: 400 600 700 800 900;
+  font-style: normal;
+}
 
 @custom-variant dark (&:is(.dark *));
 
@@ -75,6 +81,7 @@
   --font-baloothambi2: "BalooThambi2", sans-serif;
   --font-inter: "inter", sans-serif;
   --font-cairo: "cairo", sans-serif;
+  --font-rubik: "rubik", sans-serif;
   --color-ring: var(--ring);
   --color-input: var(--input);
   --color-border: var(--border);
