@@ -6,7 +6,7 @@ export default function Footer() {
   const t = useTranslations("footer");
 
   return (
-    <footer className="gap-12 sm:gap-20 grid lg:grid-cols-4 bg-accent dark:bg-background mx-auto md:p-20 px-4 sm:px-6 py-10 md:pt-10 w-full text-foreground text-lg">
+    <footer className="gap-12 sm:gap-20 grid lg:grid-cols-4 bg-accent mx-auto md:p-20 px-4 sm:px-6 py-10 md:pt-10 w-full text-foreground text-lg">
       {/* Brand / Tagline */}
       <div className="space-y-2">
         <img src="/assets/images/fit 1.svg" alt="logo" className="w-24 h-14" />

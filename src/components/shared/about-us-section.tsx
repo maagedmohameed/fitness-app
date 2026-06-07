@@ -35,17 +35,15 @@ export default function AboutUsSection() {
         {/* Section Head */}
         <SectionTitle>{t("title")}</SectionTitle>
         <SectionSubTitle>{t("subtitle")}</SectionSubTitle>
-
         {/* Section Description */}
         <h2 className="mt-6 w-full max-w-146 font-bold lg:text-[2.5rem] text-2xl sm:text-3xl uppercase leading-9 sm:leading-11 lg:leading-12">
           {t.rich("heading", {
-            span: chunck => <span className="text-[#FF4100]">{chunck}</span>,
+            span: chunk => <span className="text-[#FF4100]">{chunk}</span>,
           })}
         </h2>
         <p className="mt-6 mb-10 sm:mb-16 w-full max-w-146 font-rubik font-normal text-foreground text-base text-lg sm:text-lg">
           {t("desc")}
-        </p>
-
+        </p>{" "}
         {/* Section List */}
         <ul className="flex sm:flex-row flex-col justify-between gap-4 sm:gap-0 pb-8 border-[#24242424] border-b w-full">
           <li className="flex flex-col gap-4 p-2 w-full sm:w-1/2">
@@ -67,7 +65,6 @@ export default function AboutUsSection() {
             </div>
           </li>
         </ul>
-
         <ul className="flex sm:flex-row flex-col justify-between gap-4 sm:gap-0 pt-8 w-full">
           <li className="flex flex-col gap-4 p-2 w-full sm:w-1/2">
             <div className="flex items-center gap-2">
@@ -88,7 +85,6 @@ export default function AboutUsSection() {
             </div>
           </li>
         </ul>
-
         {/* Section Button */}
         <div className="flex justify-start mt-8">
           <Link to="/auth/register">

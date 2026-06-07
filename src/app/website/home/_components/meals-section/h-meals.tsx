@@ -40,9 +40,10 @@ export default function Meals() {
               <MealCardSkeleton key={idx} />
             ))}
           {/* Fullfiled state */}
-          {!mealsCategories?.categories.length || error ? (
+          {!isPending && (!mealsCategories?.categories.length || error) ? (
             <ErrorPage error={error} resetErrorBoundary={() => refetch()} />
           ) : (
+            !isPending &&
             mealsCategories?.categories
               .filter(apiGroup =>
                 DEFAULT_MEALS_GROUPS?.some(
